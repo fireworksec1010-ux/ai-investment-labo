@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>お金の教養｜貯金と投資のちがい・インフレとお金の価値・リスクとリターン｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="貯金と投資のちがい、インフレでお金の価値がどう変わるか、100万円の将来価値、リスクとリターンの関係を、公的データと計算ツールで中学生にもわかるように解説します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ お金の教養</div>
+    <span class="pill">Money Education</span>
+    <h1>お金の教養</h1>
+    <p class="lead">お金は「ためる」だけでなく、物価が上がると価値が変わります。貯金と投資のちがい、インフレとお金の価値、リスクとリターンの関係を知って、自分に合ったお金の使い方を考えてみましょう。</p>
+    <div class="toc"><a href="#save">貯金と投資のちがい</a><a href="#inflation">インフレとお金の価値</a><a href="#future">100万円の将来価値</a><a href="#risk">リスクとリターン</a><a href="#self">投資は自己責任</a></div>
+  </div>
+
+  <!-- 貯金と投資 -->
+  <section id="save">
+    <div class="sec-h"><h2>貯金と投資のちがい</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th></th><th>貯金（銀行の預金）</th><th>投資（株・投資信託など）</th></tr>
+        <tr><th>最初のお金（元本）</th><td>減らない（銀行が破たんしても、1つの銀行で1人1,000万円とその利息までは守られる）</td><td>減ることがある</td></tr>
+        <tr><th>増え方</th><td>利息で少しずつ増える</td><td>値上がりや配当で大きく増えることも、減ることもある</td></tr>
+        <tr><th>使いたいとき</th><td>いつでも同じ金額を引き出せる</td><td>売るときの値段しだいで、受け取る金額が変わる</td></tr>
+        <tr><th>向いているお金</th><td>近いうちに使うお金、急な出費にそなえるお金</td><td>何年も使う予定のないお金</td></tr>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">預金の保護のしくみ：<a href="https://www.dic.go.jp/" target="_blank" rel="noopener">預金保険機構</a>。対象外の預金（外貨預金など）もあります。</p>
+    <div class="quick" style="margin-top:12px;">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>どちらが正しい、ではない</h3>
+      <p style="margin:0;">貯金は「安心」、投資は「増える可能性」と引きかえに「減る可能性」を受け入れるもの。多くの人は、生活に必要なお金は貯金に置き、何年も使わないお金の一部で投資を考えます。どのくらいの割合にするかは、年齢・収入・使う予定によって人それぞれです。</p>
+    </div>
+  </section>
+
+  <!-- インフレ -->
+  <section id="inflation">
+    <div class="sec-h"><h2>インフレとお金の価値</h2></div>
+    <div class="quick" style="margin-bottom:12px;">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>物の値段が上がると、お金の価値は下がる</h3>
+      <p style="margin:0;">去年100円で買えたパンが今年110円になったら、同じ100円ではパンが買えません。金額は同じでも、お金で買えるものが減る＝<b>お金の価値が下がった</b>ということです。これがインフレ（インフレーション）です。</p>
+    </div>
+    <div class="card">
+      <b>昔の100万円は、今のいくら分？</b>
+      <div class="calc">
+        <label>年をえらぶ<select id="i-year"></select></label>
+      </div>
+      <p style="font-size:15px;margin:0;" id="i-result"></p>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">計算方法：日本の消費者物価指数（世界銀行のデータ、2010年＝100）を使い、「100万円 × 最新年の指数 ÷ えらんだ年の指数」で計算。物価全体の平均なので、品目によって上がり方はちがいます。食品の値段は<a href="https://fireworksec1010-ux.github.io/ai-taste-labo/food_prices.html" target="_blank" rel="noopener">食卓の物価</a>で見られます。</p>
+    </div>
+    <div class="card chart-card" id="cpi-chart" style="margin-top:12px;"></div>
+  </section>
+
+  <!-- 将来価値 -->
+  <section id="future">
+    <div class="sec-h"><h2>100万円の将来価値</h2></div>
+    <p style="font-size:14.5px;">今の100万円を、①使わずにそのまま持っていた場合と、②毎年一定の割合で増えた場合で、物価の上昇を考えると将来どのくらいの「買う力」になるかを計算します。</p>
+    <div class="card chart-card">
+      <b>将来価値シミュレーター</b> <span class="example">仮定の計算です</span>
+      <div class="calc">
+        <label>今のお金（万円）<input type="number" id="f-p" value="100" min="0"></label>
+        <label>物価上昇率（年％）<input type="number" id="f-i" value="2" step="0.1"></label>
+        <label>増える割合（年％）<input type="number" id="f-r" value="4" step="0.1"></label>
+        <label>年数<input type="number" id="f-y" value="20" min="1" max="60"></label>
+      </div>
+      <div class="result">
+        <div><span>①そのまま持っていた場合の「買う力」</span><b id="f-cash"></b></div>
+        <div><span>②増えた場合の金額</span><b id="f-nom"></b></div>
+        <div><span>②の「買う力」（今の物価で）</span><b id="f-real"></b></div>
+      </div>
+      <div id="f-chart"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">計算方法：「買う力」＝ 将来の金額 ÷（1＋物価上昇率）<sup>年数</sup>。毎年同じ割合で増える・物価が上がると仮定した計算で、税金・手数料は入れていません。実際の物価や投資の成績は毎年変わり、元本を下回ることもあります。日本銀行は物価上昇率「年2％」を目標にしています。</p>
+    </div>
+  </section>
+
+  <!-- リスク -->
+  <section id="risk">
+    <div class="sec-h"><h2>リスクとリターン</h2></div>
+    <div class="quick" style="margin-bottom:12px;">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>投資の「リスク」は、危険ではなく「ぶれ幅」</h3>
+      <p style="margin:0;">投資でいう<b>リスク</b>は「結果がどれくらいぶれるか」のことです。<b>リターン</b>は投資で得られる成果（増えた分・減った分）です。一般に、大きく増える可能性があるものほど、大きく減る可能性もあります。「リスクが低くてリターンが高い」都合のよいものは、ふつうはありません。</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>種類</th><th>ぶれ幅（リスク）</th><th>期待できる成果（リターン）</th><th>ひとこと</th></tr>
+        <tr><td>預金</td><td>とても小さい</td><td>小さい</td><td>元本は守られるが、インフレには負けることがある</td></tr>
+        <tr><td>国債・債券</td><td>小さい〜中くらい</td><td>小さい〜中くらい</td><td>決まった利息を受け取れるが、途中で売ると値段が変わる</td></tr>
+        <tr><td>株式・株式の投資信託</td><td>大きい</td><td>大きい可能性</td><td>1年で数十％下がることもある</td></tr>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">表は一般的な傾向を説明するためのもので、個別の商品の成績を示すものではありません。</p>
+    <div class="grid g3" style="margin-top:12px;">
+      <div class="card"><b>分ける（分散）</b><p style="font-size:14px;margin:6px 0 0;">1つの会社や国だけに投資せず、いろいろな会社・国に分けると、1つが下がったときの影響を小さくできます。</p></div>
+      <div class="card"><b>長く持つ（長期）</b><p style="font-size:14px;margin:6px 0 0;">短い期間では大きく上下しても、長い期間で見ると、ぶれがならされやすくなるといわれます。ただし必ず増えるわけではありません。</p></div>
+      <div class="card"><b>少しずつ買う（積立）</b><p style="font-size:14px;margin:6px 0 0;">毎月同じ金額で買うと、高いときは少なく、安いときは多く買うことになり、買う時期のかたよりを減らせます。</p></div>
+    </div>
+  </section>
+
+  <!-- 自己責任 -->
+  <section id="self">
+    <div class="quick">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>「投資は自己責任」ってどういうこと？</h3>
+      <p>投資をすると、お金が増えることもあれば、減ることもあります。どれを、いつ、どれだけ買うかを決めるのは自分自身で、その結果も自分が受け止める、という意味です。</p>
+      <p style="margin:0;">だからこそ、だれかの「おすすめ」だけで決めずに、公的な情報や公式の資料を自分で確かめることが大切です。金融庁の<a href="https://www.fsa.go.jp/policy/nisa2/" target="_blank" rel="noopener">NISA特設ウェブサイト</a>や、<a href="https://www.j-flec.go.jp/" target="_blank" rel="noopener">金融経済教育推進機構（J-FLEC）</a>でも、お金の基本を学べます。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>出典・データについて</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var cpi = DATA.world.jp_cpi, lastC = cpi[cpi.length-1], C = SITE.comma, sel = document.getElementById("i-year");
+  cpi.slice(0, -1).reverse().forEach(function(p){ var o = document.createElement("option"); o.value = p.year; o.textContent = p.year+"年"; sel.appendChild(o); });
+  sel.value = String(lastC.year-30 >= cpi[0].year ? lastC.year-30 : cpi[0].year);
+  function infl(){
+    var y = +sel.value, p = cpi.filter(function(c){ return c.year===y; })[0];
+    var now = 100*lastC.value/p.value, back = 100*p.value/lastC.value;
+    document.getElementById("i-result").innerHTML = y+"年の<b>100万円</b>は、"+lastC.year+"年の物価でいうと約<b>"+C(now,0)+"万円</b>分です。<br>反対に、"+lastC.year+"年の100万円で買えるものは、"+y+"年なら約"+C(back,0)+"万円で買えました。";
+  }
+  sel.addEventListener("change", infl); infl();
+  SITE.plot(document.getElementById("cpi-chart"), { title:"日本の消費者物価指数（2010年＝100）", labels:cpi.map(function(c){ return String(c.year); }),
+    tipLabels:cpi.map(function(c){ return c.year+"年"; }), series:[{name:"消費者物価指数", values:cpi.map(function(c){ return c.value; })}],
+    fmt:function(v){ return v.toFixed(1); }, axisFmt:function(v){ return v; }, tickEvery:function(i,l){ return +l%5===0 ? l+"年" : null; },
+    foot:"出典：世界銀行「World Development Indicators」Consumer price index (2010 = 100)（FP.CPI.TOTL）。もとのデータは総務省統計局の消費者物価指数" });
+
+  function v(id){ return parseFloat(document.getElementById(id).value)||0; }
+  function man(x){ return x>=10000 ? C(x/10000,2)+"億円" : C(x,1)+"万円"; }
+  function fut(){
+    var P = Math.max(0,v("f-p")), i = v("f-i")/100, r = v("f-r")/100, Y = Math.min(60, Math.max(1, Math.round(v("f-y")||1)));
+    var labels = [], cash = [], real = [];
+    for(var y=0;y<=Y;y++){ labels.push(y+"年"); cash.push(P/Math.pow(1+i,y)); real.push(P*Math.pow(1+r,y)/Math.pow(1+i,y)); }
+    document.getElementById("f-cash").textContent = man(cash[Y]);
+    document.getElementById("f-nom").textContent = man(P*Math.pow(1+r,Y));
+    document.getElementById("f-real").textContent = man(real[Y]);
+    SITE.plot(document.getElementById("f-chart"), { title:"今の物価で見た「買う力」の変化", labels:labels, zero:true,
+      series:[{name:"②年"+v("f-r")+"％で増えた場合", short:"②増えた場合", values:real},{name:"①そのまま持っていた場合", short:"①そのまま", values:cash}],
+      fmt:man, axisFmt:function(x){ return x>=10000 ? (x/10000)+"億" : x+"万"; },
+      tickEvery:function(i,l,len){ var st = len>40?10:(len>20?5:(len>10?2:1)); return i%st===0 ? l : null; } });
+  }
+  ["f-p","f-i","f-r","f-y"].forEach(function(id){ document.getElementById(id).addEventListener("input", fut); }); fut();
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("wb", "日本の消費者物価指数（FP.CPI.TOTL、"+cpi[0].year+"〜"+lastC.year+"年）。取得日："+SITE.fmtDate(DATA.world.retrieved));
+});
+</script>
+</body>
+</html>

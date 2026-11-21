@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>世界経済｜GDPランキング・世界のインフレ率・金利と為替・日米比較｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="世界のGDPランキング、主要国のインフレ率、金利と為替の関係、日本とアメリカの経済比較を、世界銀行・日本銀行などの公的データでやさしく解説します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ 世界経済</div>
+    <span class="pill">Global Economy</span>
+    <h1>世界経済</h1>
+    <p class="lead">どの国の経済が大きいのか。物価はどの国でどれくらい上がっているのか。金利と為替はどうつながっているのか。日本とアメリカは何がちがうのか。世界の「今」を数字で見てみましょう。</p>
+    <div class="toc"><a href="#gdp">GDPランキング</a><a href="#inflation">世界のインフレ率</a><a href="#ratefx">金利と為替</a><a href="#compare">日本とアメリカの比較</a></div>
+  </div>
+
+  <!-- GDP -->
+  <section id="gdp">
+    <div class="sec-h"><h2>GDPランキング</h2><span class="sub" id="gdp-year"></span></div>
+    <div class="quick" style="margin-bottom:12px;">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>GDP（国内総生産）ってなに？</h3>
+      <p style="margin:0;">1年間に、その国の中で新しく生み出された「もの」や「サービス」の価値を合計したものです。国の経済の大きさをくらべるときに使います。国どうしでくらべるため、ここではすべて<b>アメリカドル</b>に直した金額で見ています。そのため、円安になると日本のGDPはドルで見て小さくなります。</p>
+    </div>
+    <div class="card" id="gdp-bars"></div>
+    <p style="font-size:14px;margin-top:12px;" id="gdp-note"></p>
+  </section>
+
+  <!-- インフレ -->
+  <section id="inflation">
+    <div class="sec-h"><h2>世界のインフレ率</h2><span class="sub">消費者物価の前年比</span></div>
+    <div class="quick" style="margin-bottom:12px;">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>インフレ率は「物の値段が1年で何％上がったか」</h3>
+      <p style="margin:0;">インフレ率が2％なら、去年100円だったものが平均して102円になったという意味です。多くの中央銀行は「年2％くらい」を目安にしています。高すぎると生活が苦しくなり、マイナス（物価が下がり続けるデフレ）だと会社のもうけや給料が増えにくくなります。</p>
+    </div>
+    <div class="card" id="inf-bars"></div>
+    <div class="card chart-card" id="inf-chart" style="margin-top:12px;"></div>
+  </section>
+
+  <!-- 金利と為替 -->
+  <section id="ratefx">
+    <div class="sec-h"><h2>金利と為替</h2><span class="sub">毎月の月末値</span></div>
+    <div class="grid g3" id="ratefx-tiles"></div>
+    <div class="quick" style="margin-top:12px;">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>金利の差が、為替を動かす</h3>
+      <p id="gap-text"></p>
+      <p style="margin:0;">金利が高い国のお金は、預けておくと多くの利息がつくので人気が集まりやすくなります。日米の金利差が大きいと、円を売ってドルを買う動きが起きやすく、円安になりやすいといわれます。ただし為替は景気・貿易・ニュースなど多くの理由で動くので、いつもこの通りになるわけではありません。</p>
+    </div>
+    <div class="grid g2" style="margin-top:12px;">
+      <a class="card tile" href="fx.html"><div class="cat">くわしく</div><div class="nm">為替（ドル円・ユーロ円）の推移</div><div class="more">見る</div></a>
+      <a class="card tile" href="rates.html"><div class="cat">くわしく</div><div class="nm">金利（政策金利・10年国債）の日米比較</div><div class="more">見る</div></a>
+    </div>
+  </section>
+
+  <!-- 日米比較 -->
+  <section id="compare">
+    <div class="sec-h"><h2>日本とアメリカの経済比較</h2></div>
+    <div class="tbl-wrap"><table id="cmp"></table></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">それぞれ世界銀行が公表している最新の年の値です（国や項目によって年がちがうことがあります）。金利はこのサイトの月末データ（日本銀行・FRB・財務省・米国財務省）です。</p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>出典・データについて</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var W = DATA.world, C = SITE.comma;
+  document.getElementById("gdp-year").textContent = W.gdp_year+"年・名目・アメリカドル換算";
+  SITE.bars(document.getElementById("gdp-bars"), { title:"GDPの大きい国・地域 トップ15（"+W.gdp_year+"年）", rank:true,
+    rows:W.gdp_rank.map(function(r){ return {label:r.name, value:r.value, text:C(r.value,2)+"兆ドル", hl:r.code==="JPN"||r.code==="USA"}; }),
+    foot:"出典：世界銀行「World Development Indicators」GDP (current US$)（NY.GDP.MKTP.CD）" });
+  var jp = W.gdp_rank.filter(function(r){ return r.code==="JPN"; })[0], us = W.gdp_rank[0];
+  if(jp) document.getElementById("gdp-note").innerHTML = "日本は<b>"+(W.gdp_rank.indexOf(jp)+1)+"位</b>（"+C(jp.value,2)+"兆ドル）。1位の"+us.name+"（"+C(us.value,2)+"兆ドル）は日本のおよそ<b>"+(us.value/jp.value).toFixed(1)+"倍</b>です。";
+
+  SITE.bars(document.getElementById("inf-bars"), { title:"主要国のインフレ率（最新年）",
+    rows:W.inflation_latest.map(function(r){ return {label:r.name, sub:r.year+"年", value:r.value, text:C(r.value,1)+"%", hl:r.code==="JPN"||r.code==="USA"}; }),
+    foot:"出典：世界銀行「World Development Indicators」Inflation, consumer prices (annual %)（FP.CPI.TOTL.ZG）" });
+  var hj = W.inflation_hist.JPN, hu = W.inflation_hist.USA, yrs = [], mj = {}, mu = {};
+  hj.forEach(function(p){ mj[p.year] = p.value; }); hu.forEach(function(p){ mu[p.year] = p.value; });
+  for(var y = Math.min(hj[0].year, hu[0].year); y <= Math.max(hj[hj.length-1].year, hu[hu.length-1].year); y++) yrs.push(y);
+  SITE.plot(document.getElementById("inf-chart"), { title:"日本とアメリカのインフレ率の推移", labels:yrs.map(String), tipLabels:yrs.map(function(y){ return y+"年"; }),
+    series:[{name:"日本", short:"日本", values:yrs.map(function(y){ return mj[y]==null?null:mj[y]; })},{name:"アメリカ", short:"アメリカ", values:yrs.map(function(y){ return mu[y]==null?null:mu[y]; })}],
+    fmt:function(v){ return v.toFixed(1)+"%"; }, axisFmt:function(v){ return v+"%"; }, tickEvery:function(i,l){ return +l%5===0 ? l+"年" : null; },
+    foot:"出典：世界銀行（FP.CPI.TOTL.ZG）。年平均の前年比" });
+
+  document.getElementById("ratefx-tiles").innerHTML = [
+    SITE.tile("usdjpy",{cat:"為替", href:"fx.html"}),
+    SITE.tile("jp_policy",{cat:"政策金利", name:"日本の政策金利", href:"rates.html"}),
+    SITE.tile("us_policy",{cat:"政策金利", name:"アメリカの政策金利", href:"rates.html"})
+  ].join("");
+  var L = SITE.last, gap = L("us10y").value - L("jp10y").value, gap1 = L("us10y",12).value - L("jp10y",12).value;
+  document.getElementById("gap-text").innerHTML = SITE.ymLabel(L("us10y").ym)+"末の10年国債の利回りは、アメリカ "+L("us10y").value.toFixed(2)+"%、日本 "+L("jp10y").value.toFixed(2)+"%で、差は<b>"+gap.toFixed(2)+"ポイント</b>（1年前は"+gap1.toFixed(2)+"ポイント）です。";
+
+  var rows = W.compare.map(function(r){
+    var d = r.unit==="兆ドル" ? 2 : (r.unit==="ドル" ? 0 : (r.unit==="億人" ? 2 : 1));
+    return '<tr><th>'+r.label+'</th><td>'+C(r.JPN.value,d)+' '+r.unit+'<small style="color:var(--muted)">（'+r.JPN.year+'年）</small></td><td>'+C(r.USA.value,d)+' '+r.unit+'<small style="color:var(--muted)">（'+r.USA.year+'年）</small></td></tr>';
+  });
+  rows.push('<tr><th>政策金利</th><td>'+L("jp_policy").value.toFixed(2)+' %<small style="color:var(--muted)">（'+SITE.ymLabel(L("jp_policy").ym)+'末）</small></td><td>'+L("us_policy").value.toFixed(2)+' %<small style="color:var(--muted)">（'+SITE.ymLabel(L("us_policy").ym)+'末）</small></td></tr>');
+  rows.push('<tr><th>10年国債の利回り</th><td>'+L("jp10y").value.toFixed(2)+' %</td><td>'+L("us10y").value.toFixed(2)+' %</td></tr>');
+  document.getElementById("cmp").innerHTML = '<tr><th></th><th>日本</th><th>アメリカ</th></tr>'+rows.join("");
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("wb", "GDP・インフレ率・1人あたりGDP・経済成長率・失業率・人口。取得日："+SITE.fmtDate(W.retrieved)+"。世界銀行のデータはCC BY 4.0ライセンスで公開されています。")+
+    SITE.sourceLine("boj","ドル円・日本の政策金利")+SITE.sourceLine("frb","アメリカの政策金利")+SITE.sourceLine("mof","日本の10年国債")+SITE.sourceLine("ust","アメリカの10年国債");
+});
+</script>
+</body>
+</html>

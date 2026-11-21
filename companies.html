@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>企業分析｜世界企業の売上・AppleとMicrosoftの比較・日本企業の実力｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="世界の大企業の売上高、AppleとMicrosoftの比較、トヨタ・ホンダ・ソニーの実力を、米国証券取引委員会（SEC）に提出された決算データでくらべます。売上・利益・時価総額のちがいもやさしく解説。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ 企業分析</div>
+    <span class="pill">Company Analysis</span>
+    <h1>企業分析</h1>
+    <p class="lead">世界の大企業は、どれくらい売り上げて、どれくらいもうけているのでしょうか。会社が国に提出した決算の数字で、くらべてみましょう。</p>
+    <div class="toc"><a href="#terms">売上・利益・時価総額のちがい</a><a href="#ranking">世界企業の売上ランキング</a><a href="#am">AppleとMicrosoftの比較</a><a href="#japan">日本企業の実力</a></div>
+    <div class="disclaimer" style="margin-top:16px;">このページは、会社の決算の数字を学ぶためのものです。特定の会社の株の売買をすすめるものではありません。</div>
+  </div>
+
+  <!-- 用語 -->
+  <section id="terms">
+    <div class="sec-h"><h2>売上・利益・時価総額のちがい</h2></div>
+    <div class="quick" style="margin-bottom:12px;">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>ラーメン屋さんで考えてみよう</h3>
+      <p style="margin:0;">1杯1,000円のラーメンが1年で1万杯売れたら、<b>売上</b>は1,000万円です。そこから材料費・家賃・給料などを引いて残ったのが<b>営業利益</b>。さらに税金などを引いて最後に残ったのが<b>純利益</b>です。そして、このお店を「まるごと買うならいくら？」と市場がつけた値段が<b>時価総額</b>です。</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th style="width:8em;">ことば</th><th>意味</th><th>どこで見る？</th></tr>
+        <tr><td>売上（売上高）</td><td>商品やサービスを売って入ってきたお金の合計。会社の「規模」がわかる。</td><td>決算書</td></tr>
+        <tr><td>営業利益</td><td>売上から、材料費・人件費・広告費など本業にかかった費用を引いた残り。本業の「かせぐ力」がわかる。</td><td>決算書</td></tr>
+        <tr><td>純利益</td><td>営業利益から、利息・税金などをすべて引いた最終的なもうけ。配当のもとになる。</td><td>決算書</td></tr>
+        <tr><td>時価総額</td><td>株価 × 発行している株の数。市場が考える「会社全体の値段」で、将来への期待が入る。毎日変わる。</td><td>株価から計算</td></tr>
+      </table>
+    </div>
+    <p style="font-size:14px;margin-top:12px;">売上が大きい会社が、利益や時価総額も大きいとは限りません。たとえばスーパーは売上が大きくても、1つの商品で得られる利益は小さめです。ソフトウェアの会社は、売上にくらべて利益が大きくなりやすい傾向があります。</p>
+    <p style="font-size:12.5px;color:var(--muted);margin:0;">時価総額は株価をもとにした値で、毎日変わります。このサイトでは株価データを扱っていないため、時価総額は各社のIRページや証券取引所の情報で確認してください。</p>
+  </section>
+
+  <!-- ランキング -->
+  <section id="ranking">
+    <div class="sec-h"><h2>世界企業の売上ランキング</h2><span class="sub">各社の最新の年度</span></div>
+    <div class="card" id="rank-bars"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">対象：アメリカの証券取引委員会（SEC）に年次報告書を出している主な企業<span id="n-co"></span>社。世界のすべての企業のランキングではありません（たとえば中国やサウジアラビアの国営企業などは入っていません）。日本企業の金額は、その会計年度の12か月の平均ドル円レート（日本銀行・月中平均）でドルに直しています。決算月は会社ごとにちがいます。</p>
+    <div class="quick" style="margin-top:12px;">
+      <span class="tag">ここに注目</span>
+      <p style="margin:0;" id="rank-insight"></p>
+    </div>
+  </section>
+
+  <!-- Apple vs Microsoft -->
+  <section id="am">
+    <div class="sec-h"><h2>AppleとMicrosoftの比較</h2></div>
+    <div class="grid g2" style="margin-bottom:12px;">
+      <div class="card"><b>アップル（Apple）</b><p style="font-size:14px;margin:6px 0 0;">iPhone・Mac・iPadなどの機械と、App Store・音楽・クラウド保存などのサービスを売る会社。売上の多くを、自社で設計した製品の販売が占めます。</p></div>
+      <div class="card"><b>マイクロソフト（Microsoft）</b><p style="font-size:14px;margin:6px 0 0;">Windows・Officeなどのソフトと、企業向けのクラウドサービス（Azure）などを売る会社。会社や役所向けのサービスが大きな柱です。</p></div>
+    </div>
+    <div class="tbl-wrap"><table id="am-table"></table></div>
+    <div class="grid g2" style="margin-top:12px;">
+      <div class="card chart-card" id="am-rev"></div>
+      <div class="card chart-card" id="am-ni"></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">決算月がちがう（アップルは9月、マイクロソフトは6月）ため、同じ「年度」でも対象の期間が少しずれています。</p>
+  </section>
+
+  <!-- 日本企業 -->
+  <section id="japan">
+    <div class="sec-h"><h2>日本企業の実力</h2></div>
+    <p style="font-size:14.5px;">アメリカの証券取引委員会（SEC）にも年次報告書を出している日本の大企業3社です。円での金額と、ドルに直した金額をのせています。</p>
+    <div class="tbl-wrap"><table id="jp-table"></table></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;" id="jp-note"></p>
+    <div class="quick" style="margin-top:12px;">
+      <span class="tag">ここに注目</span>
+      <p style="margin:0;" id="jp-insight"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>出典・データについて</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">数値は各社がSECに提出した年次報告書（アメリカの会社は10-K、日本の会社は20-F）のXBRLデータ（機械で読める決算データ）から取っています。売上はRevenues等、営業利益はOperatingIncomeLoss等、純利益は親会社の株主に帰属する純利益です。会計基準（アメリカ基準・国際会計基準）が会社によってちがうため、くらべるときは目安としてください。最新の決算は各社のIRページで確認できます。</p>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var CO = DATA.companies.list, C = SITE.comma;
+  function fy(e){ var a = e.split("-"); return a[0]+"年"+(+a[1])+"月期"; }
+  function lastY(c){ return c.years[c.years.length-1]; }
+  function toUsd(y, v){ return v==null ? null : (y.currency==="JPY" ? (y.usdjpy_avg ? v/y.usdjpy_avg : null) : v); }
+  function oku(v){ return v==null ? "—" : C(v/1e8,0)+"億ドル"; }
+  function cho(v){ return v==null ? "—" : C(v/1e12,2)+"兆円"; }
+  function pct(a,b){ return (a==null||!b) ? "—" : (a/b*100).toFixed(1)+"%"; }
+  function find(n){ return CO.filter(function(c){ return c.name.indexOf(n)===0; })[0]; }
+
+  /* ランキング */
+  var ranked = CO.map(function(c){ var y = lastY(c); return {c:c, y:y, usd:toUsd(y, y.revenue)}; }).filter(function(r){ return r.usd; })
+    .sort(function(a,b){ return b.usd-a.usd; });
+  document.getElementById("n-co").textContent = ranked.length;
+  SITE.bars(document.getElementById("rank-bars"), { title:"売上高（ドル換算）", rank:true,
+    rows:ranked.map(function(r){ return {label:r.c.name, after:fy(r.y.end), value:r.usd, text:oku(r.usd), hl:r.c.country==="JP"}; }),
+    foot:"出典：米国証券取引委員会（SEC）EDGAR。日本企業は日本銀行のドル円（月中平均）でドル換算" });
+  var top = ranked[0], best = ranked.slice().sort(function(a,b){ return (b.y.net_income/b.y.revenue)-(a.y.net_income/a.y.revenue); })[0];
+  document.getElementById("rank-insight").innerHTML = "売上が一番大きいのは<b>"+top.c.name+"</b>（"+oku(top.usd)+"）。一方、売上に対する純利益の割合（純利益率）が一番高いのは<b>"+best.c.name+"</b>で、"+pct(best.y.net_income, best.y.revenue)+"です。売上の大きさと、もうける力は別のものだとわかります。";
+
+  /* Apple vs Microsoft */
+  var ap = find("アップル"), ms = find("マイクロソフト"), ya = lastY(ap), ym = lastY(ms);
+  function row(label, fa, fm){ return '<tr><th>'+label+'</th><td>'+fa+'</td><td>'+fm+'</td></tr>'; }
+  document.getElementById("am-table").innerHTML = '<tr><th></th><th>アップル（'+fy(ya.end)+'）</th><th>マイクロソフト（'+fy(ym.end)+'）</th></tr>'+
+    row("売上高", oku(ya.revenue), oku(ym.revenue))+row("営業利益", oku(ya.op_income), oku(ym.op_income))+row("純利益", oku(ya.net_income), oku(ym.net_income))+
+    row("営業利益率<br><small>（売上のうち本業の利益の割合）</small>", pct(ya.op_income, ya.revenue), pct(ym.op_income, ym.revenue))+
+    row("純利益率", pct(ya.net_income, ya.revenue), pct(ym.net_income, ym.revenue));
+  function series(key){
+    var n = Math.min(ap.years.length, ms.years.length), A = ap.years.slice(-n), M = ms.years.slice(-n);
+    return { labels:A.map(function(y,i){ return (i===0||i===n-1) ? "" : ""; }), A:A, M:M, n:n,
+      va:A.map(function(y){ return y[key]==null?null:Math.round(y[key]/1e8); }), vm:M.map(function(y){ return y[key]==null?null:Math.round(y[key]/1e8); }) };
+  }
+  [["revenue","am-rev","売上高の推移"],["net_income","am-ni","純利益の推移"]].forEach(function(k){
+    var s = series(k[0]);
+    SITE.plot(document.getElementById(k[1]), { title:k[2]+"（億ドル）", zero:true,
+      labels:s.A.map(function(y,i){ return "直近"+(s.n-i)+"年"; }), tipLabels:s.A.map(function(y,i){ return "アップル "+fy(y.end)+"／マイクロソフト "+fy(s.M[i].end); }),
+      series:[{name:"アップル", short:"アップル", values:s.va},{name:"マイクロソフト", short:"マイクロソフト", values:s.vm}],
+      fmt:function(v){ return C(v,0)+"億ドル"; }, axisFmt:function(v){ return C(v,0); },
+      tickEvery:function(i,l,len){ return i===len-1 ? "最新年度" : (i===0 ? (len-1)+"年前" : null); },
+      foot:"出典：SEC EDGAR（10-K）" });
+  });
+
+  /* 日本企業 */
+  var jps = CO.filter(function(c){ return c.country==="JP"; });
+  document.getElementById("jp-table").innerHTML = '<tr><th></th>'+jps.map(function(c){ return '<th>'+c.name+'<br><small>'+fy(lastY(c).end)+'</small></th>'; }).join("")+'</tr>'+
+    [["売上高", function(y){ return cho(y.revenue)+'<br><small style="color:var(--muted)">約'+oku(toUsd(y,y.revenue))+'</small>'; }],
+     ["営業利益", function(y){ return cho(y.op_income); }], ["純利益", function(y){ return cho(y.net_income); }],
+     ["営業利益率", function(y){ return pct(y.op_income, y.revenue); }],
+     ["換算レート", function(y){ return y.usdjpy_avg ? "1ドル＝"+y.usdjpy_avg.toFixed(2)+"円" : "—"; }],
+     ["上のランキングでの順位", function(y, c){ return (ranked.map(function(r){ return r.c; }).indexOf(c)+1)+"位／"+ranked.length+"社"; }]
+    ].map(function(r){ return '<tr><th>'+r[0]+'</th>'+jps.map(function(c){ return '<td>'+r[1](lastY(c), c)+'</td>'; }).join("")+'</tr>'; }).join("");
+  document.getElementById("jp-note").textContent = "SECのデータで取れる最新の年度は"+fy(lastY(jps[0]).end)+"です。それより新しい決算は、各社のIRページで確認できます。";
+  var ty = find("トヨタ"), tyy = lastY(ty);
+  document.getElementById("jp-insight").innerHTML = "トヨタ自動車の売上は約<b>"+cho(tyy.revenue)+"</b>、営業利益は約<b>"+cho(tyy.op_income)+"</b>です。ドルに直すと売上は約"+oku(toUsd(tyy,tyy.revenue))+"で、上のランキングでは"+(ranked.map(function(r){ return r.c; }).indexOf(ty)+1)+"位に入ります。";
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("sec", "取得日："+SITE.fmtDate(DATA.companies.retrieved))+
+    CO.map(function(c){ return '<div>'+c.name+'（'+c.entity+'）：<a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK='+c.cik+'&type='+(c.country==="JP"?"20-F":"10-K")+'" target="_blank" rel="noopener">SECの提出書類</a></div>'; }).join("")+
+    SITE.sourceLine("boj","日本企業のドル換算に使ったドル円（東京市場 17時時点／月中平均、系列コード FXERM07）");
+});
+</script>
+</body>
+</html>

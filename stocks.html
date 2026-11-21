@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>株価指数のしくみ｜オルカン・S&amp;P500・日経平均・TOPIX｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="オルカン（MSCI ACWI）・S&amp;P500・日経平均株価・TOPIXが何を表しているのかを、中学生にもわかる言葉で解説。数値は各指数の公式サイトへのリンクで確認できます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ <a href="basics.html">投資の基礎</a> ＞ 株価指数</div>
+    <h1>株価指数ってなに？</h1>
+    <p class="lead">株価指数は、たくさんの会社の株価をまとめて1つの数字にしたものです。クラス全員のテストの点から出す「平均点」のようなもので、1社ずつ見なくても、市場全体が元気かどうかがわかります。</p>
+  </div>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>なぜ「指数」を見るの？</h3>
+      <p>1つの会社の株価は、その会社だけの事情で大きく動きます。たくさんの会社をまとめた指数を見ると、「日本の会社全体」「アメリカの会社全体」「世界の会社全体」の調子がわかります。投資信託の多くは、この指数と同じ動きをめざして作られています。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>主な株価指数</h2><span class="sub">数値・グラフは公式サイトで確認できます</span></div>
+    <div class="grid g2">
+      <div class="card idx" id="acwi">
+        <h3>オルカン（MSCI ACWI）</h3>
+        <div class="what">世界中の会社をまとめた「全部入りセット」</div>
+        <p style="font-size:14px;">「オルカン」は、世界の株にまとめて投資する投資信託「eMAXIS Slim 全世界株式（オール・カントリー）」の愛称です。このファンドは「MSCI ACWI（エム・エス・シー・アイ　エークウィ）」という指数と同じ動きをめざしています。</p>
+        <dl>
+          <dt>対象</dt><dd>先進国と新興国の大きな会社・中くらいの会社（2,000社以上）</dd>
+          <dt>計算している会社</dt><dd>MSCI（アメリカの指数会社）</dd>
+          <dt>ファンドの運用会社</dt><dd>三菱UFJアセットマネジメント</dd>
+        </dl>
+        <a class="btn" href="https://www.msci.com/indexes/index/892400" target="_blank" rel="noopener">MSCI ACWI 公式</a>
+        <a class="btn ghost" href="https://emaxis.am.mufg.jp/fund/253425.html" target="_blank" rel="noopener">オルカンの基準価額（運用会社）</a>
+      </div>
+      <div class="card idx" id="sp500">
+        <h3>S&amp;P500</h3>
+        <div class="what">アメリカの大きな会社およそ500社の成績</div>
+        <p style="font-size:14px;">アメリカの株式市場に上場している大きな会社から、およそ500社を選んで計算する指数です。会社の規模（時価総額）が大きいほど、指数に強く影響します。</p>
+        <dl>
+          <dt>対象</dt><dd>アメリカの大型株（およそ500社）</dd>
+          <dt>計算している会社</dt><dd>S&amp;P ダウ・ジョーンズ・インデックス</dd>
+          <dt>単位</dt><dd>ポイント（ドルで計算）</dd>
+        </dl>
+        <a class="btn" href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/" target="_blank" rel="noopener">S&amp;P500 公式</a>
+      </div>
+      <div class="card idx" id="nikkei">
+        <h3>日経平均株価</h3>
+        <div class="what">日本を代表する225社の株価から計算</div>
+        <p style="font-size:14px;">東京証券取引所のプライム市場に上場している会社から225社を選んで計算します。株価そのもの（1株の値段）が高い会社ほど影響が大きいのが特徴です。ニュースで「日経平均が○円」と円で伝えられます。</p>
+        <dl>
+          <dt>対象</dt><dd>東証プライム市場の225社</dd>
+          <dt>計算している会社</dt><dd>日本経済新聞社</dd>
+          <dt>単位</dt><dd>円</dd>
+        </dl>
+        <a class="btn" href="https://indexes.nikkei.co.jp/nkave" target="_blank" rel="noopener">日経平均 公式</a>
+      </div>
+      <div class="card idx" id="topix">
+        <h3>TOPIX（東証株価指数）</h3>
+        <div class="what">東証の幅広い会社の成績</div>
+        <p style="font-size:14px;">東京証券取引所に上場している幅広い会社をまとめた指数です。S&amp;P500と同じく、会社の規模（時価総額）が大きいほど影響が大きくなります。日経平均より多くの会社が入っているので、日本の市場全体の姿に近いといわれます。</p>
+        <dl>
+          <dt>対象</dt><dd>東証に上場する幅広い会社（主にプライム市場）</dd>
+          <dt>計算している会社</dt><dd>JPX総研（日本取引所グループ）</dd>
+          <dt>単位</dt><dd>ポイント</dd>
+        </dl>
+        <a class="btn" href="https://www.jpx.co.jp/markets/indices/topix/" target="_blank" rel="noopener">TOPIX 公式</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="diff">
+    <div class="sec-h"><h2>オルカンとS&amp;P500は何がちがう？</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th></th><th>オルカン（MSCI ACWI）</th><th>S&amp;P500</th></tr>
+        <tr><th>入っている国</th><td>世界の先進国と新興国</td><td>アメリカだけ</td></tr>
+        <tr><th>会社の数</th><td>2,000社以上</td><td>およそ500社</td></tr>
+        <tr><th>アメリカの会社の割合</th><td>大きい（およそ6割前後）</td><td>すべて</td></tr>
+        <tr><th>たとえると</th><td>世界中の料理が入った「全部入り弁当」</td><td>アメリカ料理の「人気メニュー500品」</td></tr>
+      </table>
+    </div>
+    <p style="font-size:14px;margin-top:12px;">オルカンの中にもアメリカの会社がたくさん入っているため、2つの動きは似ることがあります。ちがいは「アメリカ以外の国にも分けて投資するかどうか」です。どちらが良いかは、人それぞれの考え方で変わります。国別の割合は変わるので、最新の内容は公式サイトで確認してください。</p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>数字を見るときの3つの注意</h2></div>
+    <div class="grid g3">
+      <div class="card"><b>① 配当込みか、配当なしか</b><p style="font-size:14px;margin:6px 0 0;">会社が株主に払う「配当」を入れて計算した指数と、入れない指数があります。配当込みのほうが数字は大きくなります。</p></div>
+      <div class="card"><b>② ドルで見るか、円で見るか</b><p style="font-size:14px;margin:6px 0 0;">S&amp;P500はドルで計算されます。日本から投資すると<a href="fx.html">為替</a>の影響も受けるので、ドルでは上がっていても円では下がることがあります。</p></div>
+      <div class="card"><b>③ 指数と投資信託は別もの</b><p style="font-size:14px;margin:6px 0 0;">投資信託は指数と同じ動きをめざしますが、手数料（信託報酬）などがあるので、ぴったり同じにはなりません。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="disclaimer">株価指数の数値は、それぞれの指数を計算している会社の著作物です。このサイトでは数値を転載せず、しくみの説明と公式サイトへのリンクだけをのせています。特定の金融商品をすすめるものではありません。</div>
+  </section>
+</main>
+</body>
+</html>

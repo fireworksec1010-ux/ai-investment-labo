@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>投資の基礎｜株式・PER・PBR・配当金・複利をやさしく｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="株式とは何か、PER・PBRの意味、配当金のしくみ、複利の効果を、中学生にもわかる言葉と計算ツールで解説します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ 投資の基礎</div>
+    <span class="pill">Investment Basics</span>
+    <h1>投資の基礎</h1>
+    <p class="lead">株を買うと何が手に入るのか。株価が「高い」「安い」はどう見るのか。配当金や複利とは何か。投資を考える前に知っておきたい基本を、例を使って説明します。</p>
+    <div class="toc"><a href="#stock">株式とは？</a><a href="#per">PER・PBRとは？</a><a href="#dividend">配当金とは？</a><a href="#compound">複利のしくみ</a><a href="stocks.html">株価指数</a><a href="#words">用語集</a></div>
+  </div>
+
+  <!-- 株式 -->
+  <section id="stock">
+    <div class="sec-h"><h2>株式（かぶしき）とは？</h2></div>
+    <div class="quick">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>株は「会社の持ち主の権利」を小さく分けたもの</h3>
+      <p>会社が大きなお店や工場を作るには、たくさんのお金が必要です。そこで会社は「株」を発行して、多くの人からお金を集めます。株を買った人は<b>株主（かぶぬし）</b>になり、その会社の持ち主の一人になります。</p>
+      <p style="margin:0;">たとえば、1万株を発行している会社の株を100株持っていれば、その会社の1％の持ち主です。</p>
+    </div>
+    <div class="grid g3" style="margin-top:12px;">
+      <div class="card"><b>株主が受け取れるもの①</b><p style="font-size:14px;margin:6px 0 0;"><b>値上がり益</b>：買ったときより株価が上がってから売ると、その差が利益になります（下がると損になります）。</p></div>
+      <div class="card"><b>株主が受け取れるもの②</b><p style="font-size:14px;margin:6px 0 0;"><b>配当金</b>：会社がもうけの一部を株主に配るお金です。<a href="#dividend">くわしく</a></p></div>
+      <div class="card"><b>株主ができること</b><p style="font-size:14px;margin:6px 0 0;"><b>株主総会での投票</b>：会社の大事なことを決める会議で、持っている株の数に応じて投票できます。</p></div>
+    </div>
+    <div class="card" style="margin-top:12px;">
+      <b>株価はなぜ動くの？</b>
+      <p style="font-size:14px;margin:6px 0 0;">株価は「買いたい人」と「売りたい人」のバランスで決まります。会社の利益が増えそうだと考える人が多いと買いたい人が増え、株価は上がりやすくなります。ただし、良いニュースがすでに予想されていた場合は、業績が良くても株価が下がることもあります。</p>
+    </div>
+  </section>
+
+  <!-- PER / PBR -->
+  <section id="per">
+    <div class="sec-h"><h2>PER・PBRとは？</h2><span class="sub">株価が「利益」や「財産」の何倍かを見る物差し</span></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="font-size:18px;">PER（ピー・イー・アール）＝株価収益率</h3>
+        <p style="font-size:14px;margin-top:8px;"><b>株価 ÷ 1株あたりの利益</b><br>株価が、会社の1年分の利益の「何年分」かを表します。</p>
+        <p style="font-size:14px;margin:0;"><span class="example">例</span> 株価2,000円、1株あたりの利益が100円なら、PERは<b>20倍</b>。今の利益が続くと、20年分の利益で株価と同じ金額になる、という意味です。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:18px;">PBR（ピー・ビー・アール）＝株価純資産倍率</h3>
+        <p style="font-size:14px;margin-top:8px;"><b>株価 ÷ 1株あたりの純資産</b><br>純資産は、会社の財産から借金を引いた「正味の財産」です。株価がその何倍かを表します。</p>
+        <p style="font-size:14px;margin:0;"><span class="example">例</span> 株価2,000円、1株あたりの純資産が1,600円なら、PBRは<b>1.25倍</b>。1倍より低いと、株価が会社の正味の財産より安く評価されている状態です。</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:12px;">
+      <b>自分で計算してみよう</b> <span class="example">数字は自由に変えられます</span>
+      <div class="calc">
+        <label>株価（円）<input type="number" id="p-price" value="2000" min="1"></label>
+        <label>1株あたりの利益（円）<input type="number" id="p-eps" value="100"></label>
+        <label>1株あたりの純資産（円）<input type="number" id="p-bps" value="1600"></label>
+      </div>
+      <div class="result"><div><span>PER</span><b id="p-per"></b></div><div><span>PBR</span><b id="p-pbr"></b></div></div>
+      <p style="font-size:13px;color:var(--text2);margin:0;">1株あたりの利益・純資産は、会社の決算資料（決算短信や有価証券報告書）にのっています。</p>
+    </div>
+    <div class="quick" style="margin-top:12px;">
+      <span class="tag">ここに注意</span>
+      <p style="margin:0;">PERやPBRが低い＝「お得」とは限りません。これから利益が減ると予想されているから低い、ということもあります。業種によってもふつうの水準がちがうので、同じ業種の会社どうしや、その会社の過去とくらべて使います。</p>
+    </div>
+  </section>
+
+  <!-- 配当 -->
+  <section id="dividend">
+    <div class="sec-h"><h2>配当金（はいとうきん）とは？</h2></div>
+    <div class="card">
+      <p style="font-size:14.5px;">配当金は、会社がもうけの一部を株主に分けるお金です。年に1〜2回（会社によっては4回）支払われることが多く、持っている株の数に応じて受け取れます。</p>
+      <p style="font-size:14.5px;"><b>配当利回り ＝ 1株あたりの年間配当金 ÷ 株価</b></p>
+      <p style="font-size:14.5px;margin:0;"><span class="example">例</span> 株価2,000円で、1年間の配当が1株60円なら、配当利回りは<b>3％</b>。100株（20万円分）持っていれば、1年に6,000円（税金を引く前）を受け取れます。</p>
+    </div>
+    <div class="grid g3" style="margin-top:12px;">
+      <div class="card"><b>必ずもらえるわけではない</b><p style="font-size:14px;margin:6px 0 0;">業績が悪くなると、配当が減ったり（減配）、なくなったり（無配）することがあります。</p></div>
+      <div class="card"><b>もらうには期限がある</b><p style="font-size:14px;margin:6px 0 0;">会社が決めた「権利確定日」に株主として名前がのっている必要があります。</p></div>
+      <div class="card"><b>税金がかかる</b><p style="font-size:14px;margin:6px 0 0;">日本では通常、配当に約20％の税金がかかります。NISA口座なら非課税になります（<a href="https://www.fsa.go.jp/policy/nisa2/" target="_blank" rel="noopener">金融庁 NISA特設サイト</a>）。</p></div>
+    </div>
+  </section>
+
+  <!-- 複利 -->
+  <section id="compound">
+    <div class="sec-h"><h2>複利（ふくり）のしくみ</h2></div>
+    <div class="quick">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>利息にも利息がつく ＝ 複利</h3>
+      <p>100万円を年5％で預けると、1年後の利息は5万円です。<b>単利</b>は、毎年「最初の100万円」にだけ利息がつくので、毎年5万円ずつ増えます。<b>複利</b>は、増えた分も元本に入れて次の利息を計算するので、2年目は105万円の5％＝5万2,500円、と少しずつ大きくなります。</p>
+      <p style="margin:0;">はじめは小さな差ですが、年数が長くなるほど、雪だるまのように差が広がります。</p>
+    </div>
+    <div class="card chart-card" style="margin-top:12px;">
+      <b>複利シミュレーター</b> <span class="example">仮定の計算です</span>
+      <div class="calc">
+        <label>はじめのお金（万円）<input type="number" id="c-p" value="100" min="0"></label>
+        <label>毎月つみたてる額（万円）<input type="number" id="c-m" value="0" min="0" step="0.1"></label>
+        <label>年利（％）<input type="number" id="c-r" value="5" step="0.1"></label>
+        <label>年数<input type="number" id="c-y" value="30" min="1" max="60"></label>
+      </div>
+      <div class="result">
+        <div><span>出したお金の合計</span><b id="c-in"></b></div>
+        <div><span>単利の場合</span><b id="c-s"></b></div>
+        <div><span>複利の場合</span><b id="c-c"></b></div>
+      </div>
+      <div id="c-chart"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">計算方法：複利は毎月、年利の12分の1ずつ増えるとして計算（毎月のつみたては月末に入れる）。単利ははじめのお金とつみたてた額にだけ利息がつくとして計算。税金・手数料は入れていません。実際の投資では毎年の増え方は一定ではなく、元本を下回ることもあります。</p>
+    </div>
+    <div class="card" style="margin-top:12px;">
+      <b>72の法則</b>
+      <p style="font-size:14px;margin:6px 0 0;">「72 ÷ 年利（％）」で、お金が<b>2倍になるまでのおよその年数</b>がわかります。年利6％なら72÷6＝約12年、年利3％なら約24年です。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid g2">
+      <a class="card tile" href="stocks.html"><div class="cat">関連ページ</div><div class="nm">株価指数ってなに？（オルカン・S&amp;P500・日経平均・TOPIX）</div><div class="more">読む</div></a>
+      <a class="card tile" href="money.html#risk"><div class="cat">関連ページ</div><div class="nm">リスクとリターンの関係</div><div class="more">読む</div></a>
+    </div>
+  </section>
+
+  <section id="words">
+    <div class="sec-h"><h2>用語集</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th style="width:9em;">ことば</th><th>意味</th></tr>
+        <tr><td>株主（かぶぬし）</td><td>株を持っている人。会社の持ち主の一人。</td></tr>
+        <tr><td>純資産（じゅんしさん）</td><td>会社の財産から借金などを引いた、正味の財産。</td></tr>
+        <tr><td>時価総額（じかそうがく）</td><td>株価 × 発行している株の数。市場が考える会社全体の値段。<a href="companies.html#terms">くわしく</a></td></tr>
+        <tr><td>決算（けっさん）</td><td>1年間（または3か月間）の売上や利益をまとめて発表すること。</td></tr>
+        <tr><td>元本（がんぽん）</td><td>最初に出したお金。</td></tr>
+        <tr><td>投資信託（とうししんたく）</td><td>集めたお金を専門家がまとめて運用する商品。値段を「基準価額」という。</td></tr>
+        <tr><td>NISA（ニーサ）</td><td>投資で得た利益に税金がかからない国の制度。</td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  function v(id){ return parseFloat(document.getElementById(id).value); }
+  function perpbr(){
+    var p = v("p-price"), e = v("p-eps"), b = v("p-bps");
+    document.getElementById("p-per").textContent = e>0 ? (p/e).toFixed(1)+"倍" : "計算できません（赤字）";
+    document.getElementById("p-pbr").textContent = b>0 ? (p/b).toFixed(2)+"倍" : "計算できません";
+  }
+  function man(x){ return x>=10000 ? SITE.comma(x/10000,2)+"億円" : SITE.comma(x,0)+"万円"; }
+  function comp(){
+    var P = Math.max(0,v("c-p")||0), M = Math.max(0,v("c-m")||0), r = (v("c-r")||0)/100, Y = Math.min(60, Math.max(1, Math.round(v("c-y")||1)));
+    var labels = [], s = [], c = [], inv = [], bal = P;
+    for(var y=0; y<=Y; y++){
+      if(y>0) for(var k=0;k<12;k++){ bal = bal*(1+r/12) + M; }
+      var paid = P + M*12*y;
+      var simple = P*(1+r*y) + M*12*y + M*r*(12*y*(12*y-1)/2)/12; // 各月のつみたてに、その後の月数分の単利
+      labels.push(y+"年"); c.push(Math.round(bal*10)/10); s.push(Math.round(simple*10)/10); inv.push(paid);
+    }
+    document.getElementById("c-in").textContent = man(inv[Y]);
+    document.getElementById("c-s").textContent = man(s[Y]);
+    document.getElementById("c-c").textContent = man(c[Y]);
+    SITE.plot(document.getElementById("c-chart"), { title:"お金の増え方（単利と複利）", labels:labels, zero:true,
+      series:[{name:"複利", short:"複利", values:c},{name:"単利", short:"単利", values:s}],
+      fmt:man, axisFmt:function(x){ return x>=10000 ? (x/10000)+"億" : x+"万"; },
+      tickEvery:function(i,l,len){ var st = len>40?10:(len>20?5:(len>10?2:1)); return i%st===0 ? l : null; } });
+  }
+  ["p-price","p-eps","p-bps"].forEach(function(id){ document.getElementById(id).addEventListener("input", perpbr); });
+  ["c-p","c-m","c-r","c-y"].forEach(function(id){ document.getElementById(id).addEventListener("input", comp); });
+  perpbr(); comp();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>数字で学ぶ、経済と投資｜投資の基礎・世界経済・企業分析・お金の教養</title>
+<meta name="description" content="投資の基礎、世界経済、企業分析、お金の教養を、日本銀行・世界銀行・米国証券取引委員会などの公的データをもとに中学生にもわかる言葉で解説。特定の銘柄はすすめず、自分で判断するための情報をまとめています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="hero">
+    <span class="pill">公的な統計・公式情報をもとに作っています</span>
+    <h1>数字で学ぶ、経済と投資。</h1>
+    <p class="lead">株価・為替・金利・企業の決算など、ニュースでよく聞く「お金と経済の数字」を、日本銀行・世界銀行・アメリカの証券取引委員会などが公表しているデータでまとめました。数字の意味と、私たちの生活とのつながりを、やさしい言葉で説明します。</p>
+  </div>
+
+  <section>
+    <div class="grid g2">
+      <a class="card tile theme-card" href="basics.html"><div class="en">Investment Basics</div><h3>投資の基礎</h3>
+        <ul><li>株式とは何か？</li><li>PER・PBRとは？</li><li>配当金とは？</li><li>複利のしくみ（計算ツールつき）</li></ul><div class="more">読む</div></a>
+      <a class="card tile theme-card" href="world.html" style="border-top-color:var(--s2);"><div class="en">Global Economy</div><h3>世界経済</h3>
+        <ul><li>GDPランキング</li><li>世界のインフレ率</li><li>金利と為替</li><li>日本とアメリカの経済比較</li></ul><div class="more">読む</div></a>
+      <a class="card tile theme-card" href="companies.html" style="border-top-color:#1baf7a;"><div class="en">Company Analysis</div><h3>企業分析</h3>
+        <ul><li>世界企業の売上ランキング</li><li>AppleとMicrosoftの比較</li><li>日本企業の実力</li><li>売上・利益・時価総額のちがい</li></ul><div class="more">読む</div></a>
+      <a class="card tile theme-card" href="money.html" style="border-top-color:#8a5a00;"><div class="en">Money Education</div><h3>お金の教養</h3>
+        <ul><li>貯金と投資のちがい</li><li>インフレとお金の価値</li><li>100万円の将来価値（計算ツールつき）</li><li>リスクとリターン</li></ul><div class="more">読む</div></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>数字で見る、いまの世界</h2></div>
+    <div class="grid g3" id="highlights"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>いまの為替と金利</h2><span class="sub" id="asof"></span></div>
+    <div class="grid g3" id="tiles"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>今月のテーマ：円安になると、生活はどう変わる？</h2></div>
+    <div class="card">
+      <p id="theme-num"></p>
+      <ul class="points">
+        <li><b>海外旅行</b>：同じ1ドル分の買い物でも、払う円が多くなります。</li>
+        <li><b>輸入品</b>：小麦・エネルギーなど海外から買うものが値上がりしやすくなります。</li>
+        <li><b>海外の株や投資信託</b>：ドルで見た値段が同じでも、円に直すと金額が大きくなります（円高のときは反対）。</li>
+      </ul>
+      <p style="margin:10px 0 0;"><a href="fx.html">為替のページで詳しく見る →</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card chart-card" id="chart-usd"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒でわかる経済</span>
+      <h3>そもそも、なぜ株価は上がったり下がったりするの？</h3>
+      <p>株価は「この会社の株がほしい人」と「売りたい人」のバランスで決まります。会社の商品がよく売れて、これから利益が増えそうだと考える人が多くなると、買いたい人が増えて株価は上がりやすくなります。</p>
+      <p style="margin:0;">ただし、業績が良くても株価が下がることもあります。「良くなること」をみんながすでに予想して、その分が株価に入っていることがあるからです。<a href="basics.html#stock">株式とは？</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>株価指数</h2><span class="sub">数値は公式サイトで確認できます</span></div>
+    <div class="grid g2">
+      <a class="card tile link-only" href="stocks.html#acwi"><div class="cat">世界の株</div><div class="nm">オルカン（全世界株式）</div><div class="val">世界中の会社をまとめた「全部入りセット」</div><div class="more">しくみと公式サイト</div></a>
+      <a class="card tile link-only" href="stocks.html#sp500"><div class="cat">アメリカの株</div><div class="nm">S&amp;P500</div><div class="val">アメリカの大きな会社およそ500社の成績</div><div class="more">しくみと公式サイト</div></a>
+      <a class="card tile link-only" href="stocks.html#nikkei"><div class="cat">日本の株</div><div class="nm">日経平均株価</div><div class="val">日本を代表する225社の株価から計算</div><div class="more">しくみと公式サイト</div></a>
+      <a class="card tile link-only" href="stocks.html#topix"><div class="cat">日本の株</div><div class="nm">TOPIX（東証株価指数）</div><div class="val">東京証券取引所の幅広い会社の成績</div><div class="more">しくみと公式サイト</div></a>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:10px;">株価指数の数値には、計算している会社の著作権があります。このサイトでは数値を転載せず、しくみの説明と公式サイトへのリンクをのせています。</p>
+  </section>
+
+  <section>
+    <div class="disclaimer">このサイトは情報提供を目的としており、特定の銘柄や金融商品の売買をすすめるものではありません。数字は公的機関などが公表した値をそのまま使っています。投資の判断はご自身の責任で行ってください。<a href="about.html">出典・データのルール・免責事項</a></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var T = SITE.tile, L = SITE.last, C = SITE.comma, W = DATA.world, CO = DATA.companies.list;
+  /* ハイライト */
+  var jpRank = W.gdp_rank.map(function(r){ return r.code; }).indexOf("JPN")+1, jp = W.gdp_rank[jpRank-1];
+  var cpi = W.jp_cpi, c30 = cpi.filter(function(c){ return c.year===cpi[cpi.length-1].year-30; })[0], cl = cpi[cpi.length-1];
+  var ranked = CO.map(function(c){ var y = c.years[c.years.length-1]; return {c:c, usd: y.currency==="JPY" ? y.revenue/(y.usdjpy_avg||1e9) : y.revenue}; }).sort(function(a,b){ return b.usd-a.usd; });
+  function hi(cat, big, txt, href){ return '<a class="card tile" href="'+href+'"><div class="cat">'+cat+'</div><div class="val" style="font-size:24px;">'+big+'</div><div class="chg">'+txt+'</div><div class="more">くわしく →</div></a>'; }
+  document.getElementById("highlights").innerHTML = [
+    hi("世界経済・GDP（"+W.gdp_year+"年）", "日本は"+jpRank+"位", "1位は"+W.gdp_rank[0].name+"（"+C(W.gdp_rank[0].value,1)+"兆ドル）、日本は"+C(jp.value,2)+"兆ドル", "world.html#gdp"),
+    hi("企業分析・売上高", ranked[0].c.name, "SECに決算を出している主な"+ranked.length+"社の中で売上1位（約"+C(ranked[0].usd/1e8,0)+"億ドル）", "companies.html#ranking"),
+    hi("お金の教養・インフレ", c30 ? c30.year+"年の100万円 ≒ "+C(100*cl.value/c30.value,0)+"万円" : "", cl.year+"年の物価で考えた価値（日本の消費者物価指数より）", "money.html#inflation")
+  ].join("");
+  /* 為替・金利 */
+  document.getElementById("asof").textContent = SITE.ymLabel(L("usdjpy").ym)+"末の値（月1回更新）";
+  document.getElementById("tiles").innerHTML = [
+    T("usdjpy",{cat:"為替", href:"fx.html", more:"円安・円高を知る"}),
+    T("eurjpy",{cat:"為替", href:"fx.html#eur", more:"ユーロ円を見る"}),
+    T("jp10y",{cat:"金利", href:"rates.html#bond", more:"国債の利回りを知る"}),
+    T("us10y",{cat:"金利", href:"rates.html#bond", more:"日米をくらべる"}),
+    T("jp_policy",{cat:"金利", name:"日本の政策金利", href:"rates.html", more:"政策金利を知る"}),
+    T("us_policy",{cat:"金利", name:"アメリカの政策金利", href:"rates.html", more:"日米をくらべる"})
+  ].join("");
+  var a = L("usdjpy"), b = L("usdjpy",12), d = a.value-b.value;
+  document.getElementById("theme-num").innerHTML = SITE.ymLabel(a.ym)+"末のドル円は <b>1ドル＝"+a.value.toFixed(2)+"円</b>。1年前（"+SITE.ymLabel(b.ym)+"末）は "+b.value.toFixed(2)+"円だったので、"+
+    (d>0 ? "1年で<b>"+d.toFixed(2)+"円の円安</b>になりました。" : (d<0 ? "1年で<b>"+(-d).toFixed(2)+"円の円高</b>になりました。" : "1年前と同じ水準です。"));
+  SITE.lineChart(document.getElementById("chart-usd"), ["usdjpy"], {title:"ドル円の動き（1ドル＝何円か・月末）", foot:"出典：日本銀行「時系列統計データ」東京市場 ドル・円 17時時点／月末"});
+});
+</script>
+</body>
+</html>

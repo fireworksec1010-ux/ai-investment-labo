@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>出典・データのルール・免責事項｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="このサイトで使っているデータの出典、掲載のルール、免責事項をまとめています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ 出典・免責</div>
+    <h1>出典・データのルール・免責事項</h1>
+    <p class="lead">このサイトは「投資をすすめるサイト」ではなく、「投資を自分で判断できるようになるためのサイト」です。そのために、データの出どころをすべて公開しています。</p>
+  </div>
+
+  <section>
+    <div class="sec-h"><h2>使っているデータ</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:13px;margin-top:10px;"><a href="data.json">すべての数値をJSON形式でダウンロード</a></p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>情報源の選び方</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>優先度</th><th>情報源</th><th>例</th></tr>
+        <tr><td>① 最優先</td><td>公的機関・国際機関</td><td>日本銀行、財務省、米国財務省、FRB、欧州中央銀行、世界銀行、米国証券取引委員会（SEC）</td></tr>
+        <tr><td>② 優先</td><td>指数を計算している公式機関</td><td>MSCI、S&amp;P ダウ・ジョーンズ・インデックス、日本経済新聞社、JPX総研（リンクのみ）</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>掲載のルール</h2></div>
+    <ul class="points">
+      <li>元データの出典を必ず書きます。</li>
+      <li>データを取った日と、対象の期間を書きます。</li>
+      <li>月末の値を、毎月はじめに1回更新します。</li>
+      <li>日々の値から月末の値を選ぶなど、手を加えたときはその方法を書きます。</li>
+      <li>公表されていない値を推測してうめることはしません。</li>
+      <li>株価指数の数値は、計算している会社に著作権があるため転載せず、公式サイトへのリンクをのせます。</li>
+      <li>公表元が過去の値を直したときは、更新のときに反映します。</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>免責事項</h2></div>
+    <div class="disclaimer">
+      <p>このサイトは、経済と投資について学ぶための情報提供を目的としています。特定の銘柄・金融商品の売買をすすめたり、将来の値動きを予想したりするものではありません。</p>
+      <p>掲載している数値は公表元のデータをもとにしていますが、正確さや最新であることを保証するものではありません。最新の正確な値は、必ず公表元の公式サイトで確認してください。</p>
+      <p style="margin:0;">このサイトの情報を利用して生じた損害について、運営者は責任を負いません。投資の判断はご自身の責任で行ってください。</p>
+    </div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  SITE.sourceList(document.getElementById("sources"), ["usdjpy","eurjpy","jp_policy","us_policy","jp10y","us10y"]);
+  var box = document.getElementById("sources");
+  box.innerHTML += SITE.sourceLine("wb", "GDP・インフレ率・1人あたりGDP・経済成長率・失業率・人口・日本の消費者物価指数（年次）。取得日："+SITE.fmtDate(DATA.world.retrieved)+"。CC BY 4.0")+
+    SITE.sourceLine("sec", "企業の売上高・営業利益・純利益（年次報告書 10-K／20-F）。取得日："+SITE.fmtDate(DATA.companies.retrieved));
+});
+</script>
+</body>
+</html>
