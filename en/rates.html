@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interest rates: policy rates and 10-year bond yields, Japan vs. U.S. | Learn Economy with Numbers</title>
+<meta name="description" content="Japan and U.S. policy rates and 10-year bond yields from Bank of Japan, Ministry of Finance, U.S. Treasury and FRB data — plus what happens when rates go up, explained simply.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/rates.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/rates.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">Home</a> › <a href="world.html">Global Economy</a> › Interest rates</div>
+    <h1>Interest rates</h1>
+    <p class="lead">An interest rate is the "rental fee" for money. People who borrow money pay back extra based on the rate. You earn interest on bank deposits because you are, in effect, lending money to the bank.</p>
+  </div>
+
+  <section>
+    <div class="grid g2" id="tiles"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Policy rates</h2></div>
+    <div class="card" style="margin-bottom:16px;">
+      <b>1. What does this number mean?</b>
+      <p style="font-size:14.5px;margin:6px 0 0;">It is the rate a country's central bank (the <b>Bank of Japan</b> in Japan, the <b>Federal Reserve</b> in the U.S.) targets to manage the economy and prices. It is the rate banks pay when they lend to each other for just one day, and it spreads to mortgage and deposit rates.</p>
+    </div>
+    <div class="card chart-card" id="chart-policy"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Why do central banks raise and lower rates?</h3>
+      <p>When prices rise too fast, they <b>raise</b> rates so borrowing is harder and spending slows down a little. When the economy is weak, they <b>lower</b> rates so borrowing is easier and money keeps moving. It works like a car's brake and gas pedal.</p>
+    </div>
+  </section>
+
+  <section id="bond">
+    <div class="sec-h"><h2>10-year bond yields (long-term rates)</h2></div>
+    <div class="card" style="margin-bottom:16px;">
+      <b>1. What does this number mean?</b>
+      <p style="font-size:14.5px;margin:6px 0 0;">A government bond is an IOU a country issues when it borrows money. The 10-year bond yield shows how much interest per year you get if you buy a bond that is repaid in 10 years. It is also called the "long-term interest rate" and changes every day with buying and selling in the market.</p>
+    </div>
+    <div class="card chart-card" id="chart-bond"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>2. What happens when rates go up?</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>When rates go up</th><th>When rates go down</th></tr>
+        <tr><td>Deposits tend to earn more interest</td><td>Deposits tend to earn less interest</td></tr>
+        <tr><td>Mortgage and loan payments tend to rise</td><td>Mortgage and loan payments tend to fall</td></tr>
+        <tr><td>Borrowing gets harder for companies — often a headwind for stock prices</td><td>Borrowing gets easier for companies — often a tailwind for stock prices</td></tr>
+        <tr><td>That country's currency tends to become popular (U.S. rates up → stronger dollar, weaker yen)</td><td>That country's currency tends to become less popular</td></tr>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px;">In reality many factors, like the economy and company results, overlap, so it does not always work this way.</p>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Why is the "Japan–U.S. rate gap" always in the news?</h3>
+      <p>Say a deposit earns 1% in Japan and 4% in the U.S. Many people would rather keep money in the U.S. To do that they must change yen into dollars, so dollars get bought and the <a href="fx.html">yen tends to weaken</a>. Compare how the gap in these charts widens and narrows with how USD/JPY moves.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>3. Related numbers</h2></div>
+    <ul class="points">
+      <li><a href="fx.html">USD/JPY and EUR/JPY</a></li>
+      <li><a href="stocks.html">Stock indexes</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>4. Sources and data</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">Unit: % per year. Values from the last business day of each month, not daily values. Japan's policy rate is the actual uncollateralized overnight call rate that the Bank of Japan targets. The U.S. policy rate is the actual (effective) federal funds rate, for which the Fed sets a target range.</p>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("tiles").innerHTML = [
+    SITE.tile("jp_policy",{cat:"Policy rate", name:"Japan's policy rate", href:"#chart-policy"}),
+    SITE.tile("us_policy",{cat:"Policy rate", name:"U.S. policy rate", href:"#chart-policy"}),
+    SITE.tile("jp10y",{cat:"Long-term rate", href:"#bond"}),
+    SITE.tile("us10y",{cat:"Long-term rate", href:"#bond"})
+  ].join("");
+  SITE.lineChart(document.getElementById("chart-policy"), ["jp_policy","us_policy"], {title:"Policy rates in Japan and the U.S. (end of month)", short:["Japan","U.S."], names:["Japan (overnight call rate)","U.S. (effective fed funds rate)"], foot:"Sources: Bank of Japan, Time-Series Data; Federal Reserve Board (FRB) H.15"});
+  SITE.lineChart(document.getElementById("chart-bond"), ["jp10y","us10y"], {title:"10-year bond yields in Japan and the U.S. (end of month)", short:["Japan","U.S."], names:["Japan 10-year bond","U.S. 10-year Treasury"], foot:"Sources: Ministry of Finance, Japan (JGB yields); U.S. Department of the Treasury (Daily Treasury Par Yield Curve Rates)"});
+  SITE.sourceList(document.getElementById("sources"), ["jp_policy","us_policy","jp10y","us10y"]);
+});
+</script>
+</body>
+</html>

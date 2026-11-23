@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Investment Basics: stocks, P/E, P/B, dividends and compound interest | Learn Economy with Numbers</title>
+<meta name="description" content="What is a stock? What do P/E and P/B ratios mean? How do dividends and compound interest work? Simple explanations with examples and calculators.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/basics.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/basics.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">Home</a> › Investment Basics</div>
+    <span class="pill">Investment Basics</span>
+    <h1>Investment Basics</h1>
+    <p class="lead">What do you get when you buy a stock? How can you tell if a price is "high" or "low"? What are dividends and compound interest? Here are the basics to know before you think about investing — with simple examples.</p>
+    <div class="toc"><a href="#stock">What is a stock?</a><a href="#per">P/E and P/B</a><a href="#dividend">Dividends</a><a href="#compound">Compound interest</a><a href="stocks.html">Stock indexes</a><a href="#words">Glossary</a></div>
+  </div>
+
+  <section id="stock">
+    <div class="sec-h"><h2>What is a stock?</h2></div>
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>A stock is a small piece of a company</h3>
+      <p>Companies need a lot of money to build stores and factories. So they issue "shares" and collect money from many people. If you buy shares, you become a <b>shareholder</b> — one of the company's owners.</p>
+      <p style="margin:0;">For example, if a company has 10,000 shares and you own 100, you own 1% of the company.</p>
+    </div>
+    <div class="grid g3" style="margin-top:16px;">
+      <div class="card"><b>What shareholders can get ①</b><p style="font-size:14px;margin:6px 0 0;"><b>Capital gains</b>: if you sell after the price goes up, the difference is your profit. (If it goes down, you lose money.)</p></div>
+      <div class="card"><b>What shareholders can get ②</b><p style="font-size:14px;margin:6px 0 0;"><b>Dividends</b>: part of the company's profit paid out to shareholders. <a href="#dividend">More</a></p></div>
+      <div class="card"><b>What shareholders can do</b><p style="font-size:14px;margin:6px 0 0;"><b>Vote</b> at the shareholders' meeting, where important company decisions are made. More shares means more votes.</p></div>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <b>Why do stock prices move?</b>
+      <p style="font-size:14px;margin:6px 0 0;">Prices are set by the balance between buyers and sellers. When many people expect a company's profit to grow, more people want to buy and the price tends to rise. But if good news was already expected, the price can fall even after strong results.</p>
+    </div>
+  </section>
+
+  <section id="per">
+    <div class="sec-h"><h2>What are P/E and P/B ratios?</h2><span class="sub">Rulers that compare the price with profit or assets</span></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="font-size:19px;">P/E ratio = price-to-earnings</h3>
+        <p style="font-size:14px;margin-top:8px;"><b>Share price ÷ profit per share</b><br>It shows how many years of today's profit the price equals.</p>
+        <p style="font-size:14px;margin:0;"><span class="example">Example</span> Price ¥2,000, profit per share ¥100 → P/E is <b>20×</b>. If profit stays the same, it takes 20 years of profit to equal the share price.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:19px;">P/B ratio = price-to-book</h3>
+        <p style="font-size:14px;margin-top:8px;"><b>Share price ÷ net assets per share</b><br>Net assets are what the company owns minus what it owes. P/B shows how many times that the price is.</p>
+        <p style="font-size:14px;margin:0;"><span class="example">Example</span> Price ¥2,000, net assets per share ¥1,600 → P/B is <b>1.25×</b>. Below 1× means the market values the company at less than its net assets.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <b>Try it yourself</b> <span class="example">Change any number</span>
+      <div class="calc">
+        <label>Share price (¥)<input type="number" id="p-price" value="2000" min="1"></label>
+        <label>Profit per share (¥)<input type="number" id="p-eps" value="100"></label>
+        <label>Net assets per share (¥)<input type="number" id="p-bps" value="1600"></label>
+      </div>
+      <div class="result"><div><span>P/E ratio</span><b id="p-per"></b></div><div><span>P/B ratio</span><b id="p-pbr"></b></div></div>
+      <p style="font-size:13px;color:var(--ink2);margin:0;">You can find profit and net assets per share in a company's financial reports.</p>
+    </div>
+    <div class="quick" style="margin-top:16px;">
+      <span class="tag">Watch out</span>
+      <p style="margin:0;">A low P/E or P/B does not always mean "cheap." It may be low because people expect profit to fall. Normal levels also differ by industry, so compare companies in the same industry, or a company with its own past.</p>
+    </div>
+  </section>
+
+  <section id="dividend">
+    <div class="sec-h"><h2>What are dividends?</h2></div>
+    <div class="card">
+      <p style="font-size:14.5px;">A dividend is part of a company's profit shared with its shareholders. Many companies pay once or twice a year (some pay four times). You receive an amount based on how many shares you own.</p>
+      <p style="font-size:14.5px;"><b>Dividend yield = yearly dividend per share ÷ share price</b></p>
+      <p style="font-size:14.5px;margin:0;"><span class="example">Example</span> Price ¥2,000 and a yearly dividend of ¥60 per share → the dividend yield is <b>3%</b>. With 100 shares (¥200,000), you receive ¥6,000 a year (before tax).</p>
+    </div>
+    <div class="grid g3" style="margin-top:16px;">
+      <div class="card"><b>Not guaranteed</b><p style="font-size:14px;margin:6px 0 0;">If business gets worse, dividends can be cut or stopped.</p></div>
+      <div class="card"><b>There is a deadline</b><p style="font-size:14px;margin:6px 0 0;">You must be listed as a shareholder on the company's "record date."</p></div>
+      <div class="card"><b>Taxes apply</b><p style="font-size:14px;margin:6px 0 0;">In Japan, dividends are usually taxed at about 20%. In a NISA account they are tax-free (<a href="https://www.fsa.go.jp/policy/nisa2/" target="_blank" rel="noopener">FSA NISA site, Japanese</a>).</p></div>
+    </div>
+  </section>
+
+  <section id="compound">
+    <div class="sec-h"><h2>How compound interest works</h2></div>
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Interest that earns interest = compound interest</h3>
+      <p>Put ¥1,000,000 in at 5% a year and you earn ¥50,000 in the first year. With <b>simple interest</b>, you only earn interest on the first ¥1,000,000, so it grows by ¥50,000 every year. With <b>compound interest</b>, the interest is added to your money, so in year 2 you earn 5% of ¥1,050,000 = ¥52,500, and so on.</p>
+      <p style="margin:0;">The difference is small at first, but it grows like a snowball over many years.</p>
+    </div>
+    <div class="card chart-card" style="margin-top:16px;">
+      <b>Compound interest simulator</b> <span class="example">Assumptions only</span>
+      <div class="calc">
+        <label>Starting money (¥)<input type="number" id="c-p" value="1000000" min="0" step="10000"></label>
+        <label>Monthly saving (¥)<input type="number" id="c-m" value="0" min="0" step="1000"></label>
+        <label>Yearly rate (%)<input type="number" id="c-r" value="5" step="0.1"></label>
+        <label>Years<input type="number" id="c-y" value="30" min="1" max="60"></label>
+      </div>
+      <div class="result">
+        <div><span>Total money put in</span><b id="c-in"></b></div>
+        <div><span>With simple interest</span><b id="c-s"></b></div>
+        <div><span>With compound interest</span><b id="c-c"></b></div>
+      </div>
+      <div id="c-chart"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">Method: compound interest grows by 1/12 of the yearly rate each month (monthly savings added at month end). Simple interest is only paid on the starting money and the amounts saved. Taxes and fees are not included. Real investments do not grow at a steady rate and can fall below what you put in.</p>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <b>The rule of 72</b>
+      <p style="font-size:14px;margin:6px 0 0;">"72 ÷ yearly rate (%)" gives the <b>rough number of years for money to double</b>. At 6% a year, 72 ÷ 6 = about 12 years. At 3%, about 24 years.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid g2">
+      <a class="card tile" href="stocks.html"><div class="cat">Related</div><div class="nm">What is a stock index? (All-Country, S&amp;P 500, Nikkei 225, TOPIX)</div><div class="more">Read →</div></a>
+      <a class="card tile" href="money.html#risk"><div class="cat">Related</div><div class="nm">Risk and return</div><div class="more">Read →</div></a>
+    </div>
+  </section>
+
+  <section id="words">
+    <div class="sec-h"><h2>Glossary</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th style="width:10em;">Word</th><th>Meaning</th></tr>
+        <tr><td>Shareholder</td><td>A person who owns shares. One of the company's owners.</td></tr>
+        <tr><td>Net assets</td><td>What a company owns minus its debts and other obligations.</td></tr>
+        <tr><td>Market value (market cap)</td><td>Share price × number of shares. What the market thinks the whole company is worth. <a href="companies.html#terms">More</a></td></tr>
+        <tr><td>Financial results</td><td>A company's report of its sales and profit for a year (or three months).</td></tr>
+        <tr><td>Principal</td><td>The money you put in at the start.</td></tr>
+        <tr><td>Investment trust (mutual fund)</td><td>A product where experts invest money pooled from many people. Its price is called the net asset value (NAV).</td></tr>
+        <tr><td>NISA</td><td>A Japanese government program where investment profits are tax-free.</td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  function v(id){ return parseFloat(document.getElementById(id).value); }
+  function perpbr(){
+    var p = v("p-price"), e = v("p-eps"), b = v("p-bps");
+    document.getElementById("p-per").textContent = e>0 ? (p/e).toFixed(1)+"×" : "n/a (loss)";
+    document.getElementById("p-pbr").textContent = b>0 ? (p/b).toFixed(2)+"×" : "n/a";
+  }
+  function man(x){ return x>=1e6 ? "¥"+SITE.comma(x/1e6,2)+"M" : "¥"+SITE.comma(x,0); }
+  function comp(){
+    var P = Math.max(0,v("c-p")||0), M = Math.max(0,v("c-m")||0), r = (v("c-r")||0)/100, Y = Math.min(60, Math.max(1, Math.round(v("c-y")||1)));
+    var labels = [], s = [], c = [], inv = [], bal = P;
+    for(var y=0; y<=Y; y++){
+      if(y>0) for(var k=0;k<12;k++){ bal = bal*(1+r/12) + M; }
+      var paid = P + M*12*y;
+      var simple = P*(1+r*y) + M*12*y + M*r*(12*y*(12*y-1)/2)/12;
+      labels.push("Year "+y); c.push(Math.round(bal)); s.push(Math.round(simple)); inv.push(paid);
+    }
+    document.getElementById("c-in").textContent = man(inv[Y]);
+    document.getElementById("c-s").textContent = man(s[Y]);
+    document.getElementById("c-c").textContent = man(c[Y]);
+    SITE.plot(document.getElementById("c-chart"), { title:"How money grows (simple vs. compound)", labels:labels, zero:true,
+      series:[{name:"Compound", short:"Compound", values:c},{name:"Simple", short:"Simple", values:s}],
+      fmt:man, axisFmt:function(x){ return "¥"+(x/1e6)+"M"; },
+      tickEvery:function(i,l,len){ var st = len>40?10:(len>20?5:(len>10?2:1)); return i%st===0 ? "Yr "+i : null; } });
+  }
+  ["p-price","p-eps","p-bps"].forEach(function(id){ document.getElementById(id).addEventListener("input", perpbr); });
+  ["c-p","c-m","c-r","c-y"].forEach(function(id){ document.getElementById(id).addEventListener("input", comp); });
+  perpbr(); comp();
+});
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated_at": "2026-11-22",
+  "generated_at": "2026-11-23",
   "start": "2016-01",
   "last_month": "2026-10",
   "sources": [
@@ -9,53 +9,69 @@
     "org": "日本銀行",
     "name": "時系列統計データ検索サイト（外国為替市況・コールレート）",
     "url": "https://www.stat-search.boj.or.jp/",
-    "terms": "https://www.boj.or.jp/about/copyright.htm"
+    "terms": "https://www.boj.or.jp/about/copyright.htm",
+    "org_en": "Bank of Japan",
+    "name_en": "Time-Series Data Search (foreign exchange, call rates)"
    },
    {
     "id": "ecb",
     "org": "欧州中央銀行（ECB）",
     "name": "ユーロ参照レート（円）",
-    "url": "https://data.ecb.europa.eu/data/datasets/EXR/EXR.M.JPY.EUR.SP00.E"
+    "url": "https://data.ecb.europa.eu/data/datasets/EXR/EXR.M.JPY.EUR.SP00.E",
+    "org_en": "European Central Bank (ECB)",
+    "name_en": "Euro foreign exchange reference rate (JPY)"
    },
    {
     "id": "mof",
     "org": "財務省",
     "name": "国債金利情報",
-    "url": "https://www.mof.go.jp/jgbs/reference/interest_rate/index.htm"
+    "url": "https://www.mof.go.jp/jgbs/reference/interest_rate/index.htm",
+    "org_en": "Ministry of Finance, Japan",
+    "name_en": "Interest Rate (JGB yields)"
    },
    {
     "id": "ust",
     "org": "米国財務省",
     "name": "Daily Treasury Par Yield Curve Rates",
-    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+    "org_en": "U.S. Department of the Treasury",
+    "name_en": "Daily Treasury Par Yield Curve Rates"
    },
    {
     "id": "frb",
     "org": "米連邦準備制度理事会（FRB）",
     "name": "H.15 Selected Interest Rates（FF実効金利）",
-    "url": "https://www.federalreserve.gov/releases/h15/"
+    "url": "https://www.federalreserve.gov/releases/h15/",
+    "org_en": "Federal Reserve Board (FRB)",
+    "name_en": "H.15 Selected Interest Rates (effective federal funds rate)"
    },
    {
     "id": "wb",
     "org": "世界銀行（World Bank）",
     "name": "World Development Indicators（CC BY 4.0）",
-    "url": "https://databank.worldbank.org/source/world-development-indicators"
+    "url": "https://databank.worldbank.org/source/world-development-indicators",
+    "org_en": "World Bank",
+    "name_en": "World Development Indicators (CC BY 4.0)"
    },
    {
     "id": "sec",
     "org": "米国証券取引委員会（SEC）",
     "name": "EDGAR 各社の年次報告書（10-K／20-F）のXBRLデータ",
-    "url": "https://www.sec.gov/search-filings"
+    "url": "https://www.sec.gov/search-filings",
+    "org_en": "U.S. Securities and Exchange Commission (SEC)",
+    "name_en": "EDGAR XBRL data from annual reports (10-K / 20-F)"
    }
   ]
  },
  "series": {
   "usdjpy": {
    "name": "ドル円",
+   "name_en": "USD/JPY",
+   "note_en": "Tokyo market, USD/JPY spot at 17:00, end of month (series FXERM06)",
    "unit": "円",
    "source": "boj",
    "note": "東京市場 ドル・円 スポット 17時時点／月末（系列コード FXERM06）",
-   "retrieved": "2026-11-22",
+   "retrieved": "2026-11-23",
    "points": [
     {
      "ym": "2016-01",
@@ -581,10 +597,12 @@
   },
   "eurjpy": {
    "name": "ユーロ円",
+   "name_en": "EUR/JPY",
+   "note_en": "ECB euro reference rate in yen, end of month",
    "unit": "円",
    "source": "ecb",
    "note": "ECBのユーロ参照レート（円）／月末",
-   "retrieved": "2026-11-22",
+   "retrieved": "2026-11-23",
    "points": [
     {
      "ym": "2016-01",
@@ -1110,10 +1128,12 @@
   },
   "jp_policy": {
    "name": "日本の政策金利（無担保コール翌日物）",
+   "name_en": "Japan policy rate (uncollateralized overnight call rate)",
+   "note_en": "Uncollateralized overnight call rate, end of month (series STRECLUCON). The rate the Bank of Japan targets",
    "unit": "%",
    "source": "boj",
    "note": "無担保コールレート・オーバーナイト物／月末（系列コード STRECLUCON）。日銀が誘導目標にしている金利",
-   "retrieved": "2026-11-22",
+   "retrieved": "2026-11-23",
    "points": [
     {
      "ym": "2016-01",
@@ -1639,10 +1659,12 @@
   },
   "us_policy": {
    "name": "アメリカの政策金利（FF実効金利）",
+   "name_en": "U.S. policy rate (effective federal funds rate)",
+   "note_en": "Daily effective federal funds rate, value on the last business day of each month",
    "unit": "%",
    "source": "frb",
    "note": "フェデラル・ファンド実効金利（日次）の各月最終営業日の値",
-   "retrieved": "2026-11-22",
+   "retrieved": "2026-11-23",
    "points": [
     {
      "ym": "2016-01",
@@ -2168,10 +2190,12 @@
   },
   "jp10y": {
    "name": "日本の10年国債利回り",
+   "name_en": "Japan 10-year government bond yield",
+   "note_en": "Newly issued 10-year JGB yield (daily), value on the last business day of each month",
    "unit": "%",
    "source": "mof",
    "note": "新発10年国債の利回り（日次）の各月最終営業日の値",
-   "retrieved": "2026-11-22",
+   "retrieved": "2026-11-23",
    "points": [
     {
      "ym": "2016-01",
@@ -2697,10 +2721,12 @@
   },
   "us10y": {
    "name": "アメリカの10年国債利回り",
+   "name_en": "U.S. 10-year Treasury yield",
+   "note_en": "10-year Treasury yield (daily), value on the last business day of each month",
    "unit": "%",
    "source": "ust",
    "note": "10年物国債利回り（日次）の各月最終営業日の値",
-   "retrieved": "2026-11-22",
+   "retrieved": "2026-11-23",
    "points": [
     {
      "ym": "2016-01",
@@ -3226,82 +3252,97 @@
   }
  },
  "world": {
-  "retrieved": "2026-11-22",
+  "retrieved": "2026-11-23",
   "gdp_year": 2025,
   "gdp_rank": [
    {
     "code": "USA",
     "name": "アメリカ",
+    "name_en": "United States",
     "value": 30.77
    },
    {
     "code": "CHN",
     "name": "中国",
+    "name_en": "China",
     "value": 19.498
    },
    {
     "code": "DEU",
     "name": "ドイツ",
+    "name_en": "Germany",
     "value": 5.051
    },
    {
     "code": "JPN",
     "name": "日本",
+    "name_en": "Japan",
     "value": 4.435
    },
    {
     "code": "GBR",
     "name": "イギリス",
+    "name_en": "United Kingdom",
     "value": 4.003
    },
    {
     "code": "IND",
     "name": "インド",
+    "name_en": "India",
     "value": 3.956
    },
    {
     "code": "FRA",
     "name": "フランス",
+    "name_en": "France",
     "value": 3.366
    },
    {
     "code": "RUS",
     "name": "ロシア",
+    "name_en": "Russian Federation",
     "value": 2.561
    },
    {
     "code": "ITA",
     "name": "イタリア",
+    "name_en": "Italy",
     "value": 2.552
    },
    {
     "code": "CAN",
     "name": "カナダ",
+    "name_en": "Canada",
     "value": 2.32
    },
    {
     "code": "BRA",
     "name": "ブラジル",
+    "name_en": "Brazil",
     "value": 2.28
    },
    {
     "code": "ESP",
     "name": "スペイン",
+    "name_en": "Spain",
     "value": 1.906
    },
    {
     "code": "KOR",
     "name": "韓国",
+    "name_en": "Korea, Rep.",
     "value": 1.872
    },
    {
     "code": "MEX",
     "name": "メキシコ",
+    "name_en": "Mexico",
     "value": 1.833
    },
    {
     "code": "AUS",
     "name": "オーストラリア",
+    "name_en": "Australia",
     "value": 1.799
    }
   ],
@@ -3309,84 +3350,98 @@
    {
     "code": "BRA",
     "name": "ブラジル",
+    "name_en": "Brazil",
     "year": 2025,
     "value": 5.02
    },
    {
     "code": "GBR",
     "name": "イギリス",
+    "name_en": "United Kingdom",
     "year": 2025,
     "value": 3.88
    },
    {
     "code": "MEX",
     "name": "メキシコ",
+    "name_en": "Mexico",
     "year": 2025,
     "value": 3.81
    },
    {
     "code": "JPN",
     "name": "日本",
+    "name_en": "Japan",
     "year": 2025,
     "value": 3.17
    },
    {
     "code": "USA",
     "name": "アメリカ",
+    "name_en": "United States",
     "year": 2024,
     "value": 2.95
    },
    {
     "code": "AUS",
     "name": "オーストラリア",
+    "name_en": "Australia",
     "year": 2025,
     "value": 2.87
    },
    {
     "code": "IND",
     "name": "インド",
+    "name_en": "India",
     "year": 2025,
     "value": 2.4
    },
    {
     "code": "DEU",
     "name": "ドイツ",
+    "name_en": "Germany",
     "year": 2025,
     "value": 2.17
    },
    {
     "code": "KOR",
     "name": "韓国",
+    "name_en": "Korea, Rep.",
     "year": 2025,
     "value": 2.12
    },
    {
     "code": "CAN",
     "name": "カナダ",
+    "name_en": "Canada",
     "year": 2025,
     "value": 2.07
    },
    {
     "code": "IDN",
     "name": "インドネシア",
+    "name_en": "Indonesia",
     "year": 2025,
     "value": 1.91
    },
    {
     "code": "ITA",
     "name": "イタリア",
+    "name_en": "Italy",
     "year": 2025,
     "value": 1.53
    },
    {
     "code": "FRA",
     "name": "フランス",
+    "name_en": "France",
     "year": 2025,
     "value": 0.94
    },
    {
     "code": "CHN",
     "name": "中国",
+    "name_en": "China",
     "year": 2025,
     "value": 0.06
    }
@@ -3606,6 +3661,7 @@
     "label": "GDP（国内総生産）",
     "unit": "兆ドル",
     "ind": "NY.GDP.MKTP.CD",
+    "label_en": "GDP (gross domestic product)",
     "JPN": {
      "year": 2025,
      "value": 4.435
@@ -3619,6 +3675,7 @@
     "label": "1人あたりGDP",
     "unit": "ドル",
     "ind": "NY.GDP.PCAP.CD",
+    "label_en": "GDP per person",
     "JPN": {
      "year": 2025,
      "value": 35951.045
@@ -3632,6 +3689,7 @@
     "label": "経済成長率（実質）",
     "unit": "%",
     "ind": "NY.GDP.MKTP.KD.ZG",
+    "label_en": "Real economic growth",
     "JPN": {
      "year": 2025,
      "value": 1.193
@@ -3645,6 +3703,7 @@
     "label": "インフレ率（消費者物価）",
     "unit": "%",
     "ind": "FP.CPI.TOTL.ZG",
+    "label_en": "Inflation (consumer prices)",
     "JPN": {
      "year": 2025,
      "value": 3.173
@@ -3658,6 +3717,7 @@
     "label": "失業率（ILO推計）",
     "unit": "%",
     "ind": "SL.UEM.TOTL.ZS",
+    "label_en": "Unemployment rate (ILO estimate)",
     "JPN": {
      "year": 2025,
      "value": 2.451
@@ -3671,6 +3731,7 @@
     "label": "人口",
     "unit": "億人",
     "ind": "SP.POP.TOTL",
+    "label_en": "Population",
     "JPN": {
      "year": 2025,
      "value": 1.234
@@ -3869,11 +3930,12 @@
   ]
  },
  "companies": {
-  "retrieved": "2026-11-22",
+  "retrieved": "2026-11-23",
   "list": [
    {
     "cik": 104169,
     "name": "ウォルマート",
+    "name_en": "Walmart",
     "entity": "Walmart Inc.",
     "country": "US",
     "fy_end_month": "1月",
@@ -3925,6 +3987,7 @@
    {
     "cik": 1018724,
     "name": "アマゾン",
+    "name_en": "Amazon",
     "entity": "AMAZON.COM, INC.",
     "country": "US",
     "fy_end_month": "12月",
@@ -3976,6 +4039,7 @@
    {
     "cik": 731766,
     "name": "ユナイテッドヘルス",
+    "name_en": "UnitedHealth",
     "entity": "UnitedHealth Group Incorporated",
     "country": "US",
     "fy_end_month": "12月",
@@ -4027,6 +4091,7 @@
    {
     "cik": 320193,
     "name": "アップル",
+    "name_en": "Apple",
     "entity": "Apple Inc.",
     "country": "US",
     "fy_end_month": "9月",
@@ -4078,6 +4143,7 @@
    {
     "cik": 64803,
     "name": "CVSヘルス",
+    "name_en": "CVS Health",
     "entity": "CVS HEALTH Corp",
     "country": "US",
     "fy_end_month": "12月",
@@ -4129,6 +4195,7 @@
    {
     "cik": 1067983,
     "name": "バークシャー・ハサウェイ",
+    "name_en": "Berkshire Hathaway",
     "entity": "BERKSHIRE HATHAWAY INC",
     "country": "US",
     "fy_end_month": "12月",
@@ -4180,6 +4247,7 @@
    {
     "cik": 1652044,
     "name": "アルファベット（Google）",
+    "name_en": "Alphabet (Google)",
     "entity": "Alphabet Inc.",
     "country": "US",
     "fy_end_month": "12月",
@@ -4231,6 +4299,7 @@
    {
     "cik": 34088,
     "name": "エクソンモービル",
+    "name_en": "ExxonMobil",
     "entity": "Exxon Mobil Corporation",
     "country": "US",
     "fy_end_month": "12月",
@@ -4282,6 +4351,7 @@
    {
     "cik": 789019,
     "name": "マイクロソフト",
+    "name_en": "Microsoft",
     "entity": "MICROSOFT CORP",
     "country": "US",
     "fy_end_month": "6月",
@@ -4333,6 +4403,7 @@
    {
     "cik": 1045810,
     "name": "エヌビディア",
+    "name_en": "NVIDIA",
     "entity": "NVIDIA CORP",
     "country": "US",
     "fy_end_month": "1月",
@@ -4384,6 +4455,7 @@
    {
     "cik": 1094517,
     "name": "トヨタ自動車",
+    "name_en": "Toyota Motor",
     "entity": "TOYOTA MOTOR CORP/",
     "country": "JP",
     "fy_end_month": "3月",
@@ -4441,6 +4513,7 @@
    {
     "cik": 715153,
     "name": "本田技研工業（ホンダ）",
+    "name_en": "Honda Motor",
     "entity": "HONDA MOTOR CO., LTD.",
     "country": "JP",
     "fy_end_month": "3月",
@@ -4498,6 +4571,7 @@
    {
     "cik": 313838,
     "name": "ソニーグループ",
+    "name_en": "Sony Group",
     "entity": "Sony Group Corporation",
     "country": "JP",
     "fy_end_month": "3月",

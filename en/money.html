@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Money Education: saving vs. investing, inflation, future value, risk and return | Learn Economy with Numbers</title>
+<meta name="description" content="Saving vs. investing, how inflation changes the value of money, the future value of ¥1 million, and risk and return — explained simply with official data and calculators.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/money.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/money.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">Home</a> › Money Education</div>
+    <span class="pill">Money Education</span>
+    <h1>Money Education</h1>
+    <p class="lead">Money is not just something to save — its value changes when prices rise. Learn the difference between saving and investing, how inflation affects your money, and how risk and return work, so you can think about what fits you.</p>
+    <div class="toc"><a href="#save">Saving vs. investing</a><a href="#inflation">Inflation and money</a><a href="#future">Future value of ¥1M</a><a href="#risk">Risk and return</a><a href="#self">Your own decision</a></div>
+  </div>
+
+  <section id="save">
+    <div class="sec-h"><h2>Saving vs. investing</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th></th><th>Saving (bank deposits)</th><th>Investing (stocks, funds, etc.)</th></tr>
+        <tr><th>Starting money (principal)</th><td>Does not go down (in Japan, up to ¥10 million plus interest per person per bank is protected even if the bank fails)</td><td>Can go down</td></tr>
+        <tr><th>How it grows</th><td>Slowly, through interest</td><td>Can grow a lot through price rises and dividends — or shrink</td></tr>
+        <tr><th>When you need it</th><td>You can take out the same amount any time</td><td>What you get depends on the price when you sell</td></tr>
+        <tr><th>Good for</th><td>Money you will use soon, emergency money</td><td>Money you won't need for many years</td></tr>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">How deposits are protected: <a href="https://www.dic.go.jp/english/" target="_blank" rel="noopener">Deposit Insurance Corporation of Japan</a>. Some deposits (such as foreign-currency deposits) are not covered.</p>
+    <div class="quick" style="margin-top:16px;">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Neither one is "right"</h3>
+      <p style="margin:0;">Saving gives you safety. Investing gives you a chance to grow — in exchange for accepting that it can also shrink. Many people keep living money in savings and invest part of the money they won't need for years. The right balance depends on your age, income and plans.</p>
+    </div>
+  </section>
+
+  <section id="inflation">
+    <div class="sec-h"><h2>Inflation and the value of money</h2></div>
+    <div class="quick" style="margin-bottom:16px;">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>When prices go up, money is worth less</h3>
+      <p style="margin:0;">If bread cost ¥100 last year and ¥110 this year, your ¥100 can no longer buy it. The amount is the same, but it buys less — so <b>the value of money went down</b>. That is inflation.</p>
+    </div>
+    <div class="card">
+      <b>What is ¥1 million from the past worth today?</b>
+      <div class="calc">
+        <label>Choose a year<select id="i-year"></select></label>
+      </div>
+      <p style="font-size:15px;margin:0;" id="i-result"></p>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">Method: uses Japan's consumer price index (World Bank data, 2010 = 100): ¥1,000,000 × latest index ÷ index of the chosen year. This is an average of all prices, so individual items rose by different amounts. Food price trends: <a href="https://fireworksec1010-ux.github.io/ai-taste-labo/en/food_prices.html" target="_blank" rel="noopener">AI Taste Labo</a>.</p>
+    </div>
+    <div class="card chart-card" id="cpi-chart" style="margin-top:16px;"></div>
+  </section>
+
+  <section id="future">
+    <div class="sec-h"><h2>The future value of ¥1 million</h2></div>
+    <p style="font-size:14.5px;">Take ¥1 million today. What will it be able to buy in the future if ① you just keep it as cash, or ② it grows by the same rate every year — once rising prices are taken into account?</p>
+    <div class="card chart-card">
+      <b>Future value simulator</b> <span class="example">Assumptions only</span>
+      <div class="calc">
+        <label>Money today (¥)<input type="number" id="f-p" value="1000000" min="0" step="10000"></label>
+        <label>Price rise (% per year)<input type="number" id="f-i" value="2" step="0.1"></label>
+        <label>Growth rate (% per year)<input type="number" id="f-r" value="4" step="0.1"></label>
+        <label>Years<input type="number" id="f-y" value="20" min="1" max="60"></label>
+      </div>
+      <div class="result">
+        <div><span>① Kept as cash: buying power</span><b id="f-cash"></b></div>
+        <div><span>② Amount after growing</span><b id="f-nom"></b></div>
+        <div><span>② Buying power (at today's prices)</span><b id="f-real"></b></div>
+      </div>
+      <div id="f-chart"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">Method: buying power = future amount ÷ (1 + price rise)<sup>years</sup>. Assumes the same growth and price rise every year. Taxes and fees are not included. Real prices and investment results change every year and can fall below what you put in. The Bank of Japan aims for prices to rise about 2% a year.</p>
+    </div>
+  </section>
+
+  <section id="risk">
+    <div class="sec-h"><h2>Risk and return</h2></div>
+    <div class="quick" style="margin-bottom:16px;">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>In investing, "risk" means how much results swing</h3>
+      <p style="margin:0;"><b>Risk</b> in investing is not "danger" — it is how widely the results can swing. <b>Return</b> is what you gain (or lose). In general, things that can grow a lot can also fall a lot. Something with "low risk and high return" usually does not exist.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Type</th><th>Swing (risk)</th><th>Expected result (return)</th><th>In short</th></tr>
+        <tr><td>Bank deposit</td><td>Very small</td><td>Small</td><td>Principal is protected, but it can lose to inflation</td></tr>
+        <tr><td>Government and other bonds</td><td>Small to medium</td><td>Small to medium</td><td>Pays set interest, but the price changes if you sell early</td></tr>
+        <tr><td>Stocks and stock funds</td><td>Large</td><td>Possibly large</td><td>Can fall tens of percent in a year</td></tr>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">This table shows general tendencies only and does not describe the results of any specific product.</p>
+    <div class="grid g3" style="margin-top:16px;">
+      <div class="card"><b>Spread it out (diversify)</b><p style="font-size:14px;margin:6px 0 0;">Investing in many companies and countries, not just one, makes the hit smaller when one of them falls.</p></div>
+      <div class="card"><b>Hold for long (long term)</b><p style="font-size:14px;margin:6px 0 0;">Prices swing a lot in the short run, but over long periods the swings tend to even out. Still, growth is never guaranteed.</p></div>
+      <div class="card"><b>Buy a little at a time</b><p style="font-size:14px;margin:6px 0 0;">Investing the same amount every month buys less when prices are high and more when they are low, which reduces the effect of timing.</p></div>
+    </div>
+  </section>
+
+  <section id="self">
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>What does "investing is your own responsibility" mean?</h3>
+      <p>When you invest, your money can grow or shrink. You decide what to buy, when, and how much — and you live with the result.</p>
+      <p style="margin:0;">That is why it matters not to decide only on someone's "recommendation," but to check official information yourself. Japan's <a href="https://www.fsa.go.jp/en/" target="_blank" rel="noopener">Financial Services Agency</a> and <a href="https://www.j-flec.go.jp/" target="_blank" rel="noopener">J-FLEC (Japan Financial Literacy and Education Corporation)</a> also offer basic money education.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Sources and data</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var cpi = DATA.world.jp_cpi, lastC = cpi[cpi.length-1], C = SITE.comma, sel = document.getElementById("i-year");
+  cpi.slice(0, -1).reverse().forEach(function(p){ var o = document.createElement("option"); o.value = p.year; o.textContent = p.year; sel.appendChild(o); });
+  sel.value = String(lastC.year-30 >= cpi[0].year ? lastC.year-30 : cpi[0].year);
+  function infl(){
+    var y = +sel.value, p = cpi.filter(function(c){ return c.year===y; })[0];
+    var now = 1e6*lastC.value/p.value, back = 1e6*p.value/lastC.value;
+    document.getElementById("i-result").innerHTML = "<b>¥1,000,000</b> in "+y+" is worth about <b>¥"+C(now,0)+"</b> at "+lastC.year+" prices.<br>Put the other way, what ¥1,000,000 buys in "+lastC.year+" would have cost about ¥"+C(back,0)+" in "+y+".";
+  }
+  sel.addEventListener("change", infl); infl();
+  SITE.plot(document.getElementById("cpi-chart"), { title:"Japan's consumer price index (2010 = 100)", labels:cpi.map(function(c){ return String(c.year); }),
+    tipLabels:cpi.map(function(c){ return String(c.year); }), series:[{name:"Consumer price index", values:cpi.map(function(c){ return c.value; })}],
+    fmt:function(v){ return v.toFixed(1); }, axisFmt:function(v){ return v; }, tickEvery:function(i,l){ return +l%5===0 ? l : null; },
+    foot:"Source: World Bank, World Development Indicators, Consumer price index (2010 = 100) (FP.CPI.TOTL), based on Statistics Bureau of Japan data" });
+
+  function v(id){ return parseFloat(document.getElementById(id).value)||0; }
+  function yen(x){ return x>=1e6 ? "¥"+C(x/1e6,2)+"M" : "¥"+C(x,0); }
+  function fut(){
+    var P = Math.max(0,v("f-p")), i = v("f-i")/100, r = v("f-r")/100, Y = Math.min(60, Math.max(1, Math.round(v("f-y")||1)));
+    var labels = [], cash = [], real = [];
+    for(var y=0;y<=Y;y++){ labels.push("Year "+y); cash.push(P/Math.pow(1+i,y)); real.push(P*Math.pow(1+r,y)/Math.pow(1+i,y)); }
+    document.getElementById("f-cash").textContent = yen(cash[Y]);
+    document.getElementById("f-nom").textContent = yen(P*Math.pow(1+r,Y));
+    document.getElementById("f-real").textContent = yen(real[Y]);
+    SITE.plot(document.getElementById("f-chart"), { title:"Buying power at today's prices", labels:labels, zero:true,
+      series:[{name:"② Growing "+v("f-r")+"% a year", short:"② Growing", values:real},{name:"① Kept as cash", short:"① Cash", values:cash}],
+      fmt:yen, axisFmt:function(x){ return "¥"+(x/1e6)+"M"; },
+      tickEvery:function(i,l,len){ var st = len>40?10:(len>20?5:(len>10?2:1)); return i%st===0 ? "Yr "+i : null; } });
+  }
+  ["f-p","f-i","f-r","f-y"].forEach(function(id){ document.getElementById(id).addEventListener("input", fut); }); fut();
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("wb", "Japan's consumer price index (FP.CPI.TOTL, "+cpi[0].year+"–"+lastC.year+"). Retrieved "+SITE.fmtDate(DATA.world.retrieved));
+});
+</script>
+</body>
+</html>

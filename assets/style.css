@@ -274,3 +274,9 @@ footer .fname{ font-family:var(--head); font-weight:900; font-size:18px; color:#
   .reveal{ opacity:1; transform:none; }
   .ticker .track{ animation:none; }
 }
+
+/* language switch */
+.nav a.lang{ margin-left:auto; background:var(--ink); color:#fff; border-color:var(--ink); font-family:var(--num); letter-spacing:.04em; }
+.nav a.lang:hover{ background:var(--t-deep); }
+html[lang="en"] body{ line-height:1.7; }
+html[lang="en"] .hero h1{ letter-spacing:-.01em; }

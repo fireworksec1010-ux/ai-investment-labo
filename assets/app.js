@@ -1,9 +1,16 @@
 /* 共通：ヘッダー・フッター・データ・グラフ */
 (function(){
-  var NAV = [
+  var EN = document.documentElement.lang === "en";
+  function T(ja, en){ return EN ? en : ja; }
+  var NAV = EN ? [
+    ["index.html","Home"],["basics.html","Basics"],["world.html","Economy"],["companies.html","Companies"],
+    ["money.html","Money"],["about.html","Sources"]
+  ] : [
     ["index.html","トップ"],["basics.html","投資の基礎"],["world.html","世界経済"],["companies.html","企業分析"],
     ["money.html","お金の教養"],["about.html","出典・免責"]
   ];
+  var SUBNAV = EN ? [["stocks.html","Stock indexes"],["fx.html","Exchange rates"],["rates.html","Interest rates"]] : [["stocks.html","株価指数"],["fx.html","為替"],["rates.html","金利"]];
+  var CTRY_EN = { KOR:"South Korea", RUS:"Russia", TUR:"Turkey", IRN:"Iran", EGY:"Egypt", VNM:"Vietnam" };
   var PARENT = { "stocks.html":"basics.html", "fx.html":"world.html", "rates.html":"world.html" };
   var here = location.pathname.split("/").pop() || "index.html";
   var active = PARENT[here] || here;
@@ -15,32 +22,36 @@
   var LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="21" r="16" fill="#ffc53d" stroke="#1b1f3b" stroke-width="2.5"/><circle cx="20" cy="21" r="11" fill="none" stroke="#e39b00" stroke-width="2"/>'+
     '<path d="M13 26 L18 20 L22 23 L28 15" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 14.5 L28.5 14.5 L28.5 19" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
+  var other = EN ? "../"+(here==="index.html"?"":here) : "en/"+(here==="index.html"?"":here);
   function head(){
     document.body.dataset.theme = THEME[here] || "home";
     var h = document.createElement("header"); h.className = "site-head";
-    h.innerHTML = '<div class="wrap"><a class="logo" href="index.html">'+LOGO+'<span class="lt">数字で学ぶ<i>、</i>経済と投資</span></a><nav class="nav">'+
-      NAV.map(function(n){ return '<a href="'+n[0]+'"'+(n[0]===active?' class="active"':'')+'>'+n[1]+'</a>'; }).join("")+'</nav></div>';
+    h.innerHTML = '<div class="wrap"><a class="logo" href="index.html">'+LOGO+'<span class="lt">'+T('数字で学ぶ<i>、</i>経済と投資','Learn <i>Economy</i> with Numbers')+'</span></a><nav class="nav">'+
+      NAV.map(function(n){ return '<a href="'+n[0]+'"'+(n[0]===active?' class="active"':'')+'>'+n[1]+'</a>'; }).join("")+
+      '<a class="lang" href="'+other+'" hreflang="'+T("en","ja")+'" lang="'+T("en","ja")+'">'+T("EN","日本語")+'</a></nav></div>';
     document.body.insertBefore(h, document.body.firstChild);
     if(window.DATA) h.insertAdjacentElement("afterend", ticker());
     var M = window.ILLUST ? ILLUST.mascot() : "";
     var f = document.createElement("footer");
-    f.innerHTML = '<div class="wrap">'+M+'<div><div class="fname">数字で学ぶ、経済と投資</div><div class="links">'+NAV.map(function(n){ return '<a href="'+n[0]+'">'+n[1]+'</a>'; }).join("")+
-      '<a href="stocks.html">株価指数</a><a href="fx.html">為替</a><a href="rates.html">金利</a></div>'+
-      '<div>このサイトは経済と投資について学ぶための情報提供を目的としており、特定の銘柄や金融商品の売買をすすめるものではありません。投資の判断はご自身の責任で行ってください。</div>'+
-      '<div style="margin-top:6px;">データ更新：'+(window.DATA ? fmtDate(DATA.meta.generated_at) : "")+'（毎月はじめに更新）・キャラクター「コイン先生」はこのサイトのオリジナルです</div></div></div>';
+    f.innerHTML = '<div class="wrap">'+M+'<div><div class="fname">'+T("数字で学ぶ、経済と投資","Learn Economy with Numbers")+'</div><div class="links">'+NAV.concat(SUBNAV).map(function(n){ return '<a href="'+n[0]+'">'+n[1]+'</a>'; }).join("")+
+      '<a href="'+other+'">'+T("English","日本語")+'</a></div>'+
+      '<div>'+T('このサイトは経済と投資について学ぶための情報提供を目的としており、特定の銘柄や金融商品の売買をすすめるものではありません。投資の判断はご自身の責任で行ってください。',
+        'This site is for learning about the economy and investing. It does not recommend buying or selling any specific stock or financial product. Please make your own investment decisions.')+'</div>'+
+      '<div style="margin-top:6px;">'+T('データ更新：','Data updated: ')+(window.DATA ? fmtDate(DATA.meta.generated_at) : "")+T('（毎月はじめに更新）・キャラクター「コイン先生」はこのサイトのオリジナルです',' (updated at the start of each month) · "Coin Sensei" is an original character of this site')+'</div></div></div>';
     document.body.appendChild(f);
     decorate();
   }
 
   /* ニュースのような数字のテロップ */
   function ticker(){
-    var items = [["usdjpy","ドル円"],["eurjpy","ユーロ円"],["jp_policy","日本の政策金利"],["us_policy","アメリカの政策金利"],["jp10y","日本10年国債"],["us10y","アメリカ10年国債"]];
-    var one = '<span class="it"><span class="lbl">'+ymLabel(last("usdjpy").ym)+'末</span></span>'+items.map(function(k){
+    var items = EN ? [["usdjpy","USD/JPY"],["eurjpy","EUR/JPY"],["jp_policy","Japan policy rate"],["us_policy","U.S. policy rate"],["jp10y","Japan 10Y bond"],["us10y","U.S. 10Y Treasury"]]
+      : [["usdjpy","ドル円"],["eurjpy","ユーロ円"],["jp_policy","日本の政策金利"],["us_policy","アメリカの政策金利"],["jp10y","日本10年国債"],["us10y","アメリカ10年国債"]];
+    var one = '<span class="it"><span class="lbl">'+endOf(last("usdjpy").ym)+'</span></span>'+items.map(function(k){
       var s = S(k[0]), a = last(k[0]), b = last(k[0],1), d = a.value-b.value;
       var cls = d>0.0005 ? "u" : (d<-0.0005 ? "d" : "f"), mark = d>0.0005 ? "▲" : (d<-0.0005 ? "▼" : "−");
-      return '<span class="it">'+k[1]+' <b>'+num(a.value, s.unit)+(s.unit==="%"?"%":"円")+'</b><span class="'+cls+'">'+mark+Math.abs(d).toFixed(2)+'</span></span>';
+      return '<span class="it">'+k[1]+' <b>'+num(a.value, s.unit)+unitTxt(s.unit)+'</b><span class="'+cls+'">'+mark+Math.abs(d).toFixed(2)+'</span></span>';
     }).join("");
-    var t = document.createElement("div"); t.className = "ticker"; t.setAttribute("aria-label","最新の為替と金利");
+    var t = document.createElement("div"); t.className = "ticker"; t.setAttribute("aria-label",T("最新の為替と金利","Latest exchange and interest rates"));
     t.innerHTML = '<div class="track">'+one+one+one+one+'</div>';
     return t;
   }
@@ -57,7 +68,7 @@
     }
     if(window.ILLUST) document.querySelectorAll(".quick").forEach(function(q){
       if(q.classList.contains("has-mascot")) return;
-      var tag = q.querySelector(".tag"), wow = tag && /注意|注目/.test(tag.textContent);
+      var tag = q.querySelector(".tag"), wow = tag && /注意|注目|Watch|Note|Look/.test(tag.textContent);
       var b = document.createElement("div"); b.className = "bubble";
       while(q.firstChild) b.appendChild(q.firstChild);
       q.innerHTML = ILLUST.mascot(wow ? "wow" : ""); q.appendChild(b); q.classList.add("has-mascot");
@@ -81,13 +92,18 @@
     });
   }
 
-  function fmtDate(s){ var a = s.split("-"); return a[0]+"年"+(+a[1])+"月"+(+a[2])+"日"; }
-  function ymLabel(ym){ var a = ym.split("-"); return a[0]+"年"+(+a[1])+"月"; }
+  var MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function fmtDate(s){ var a = s.split("-"); return EN ? MON[+a[1]-1]+" "+(+a[2])+", "+a[0] : a[0]+"年"+(+a[1])+"月"+(+a[2])+"日"; }
+  function ymLabel(ym){ var a = ym.split("-"); return EN ? MON[+a[1]-1]+" "+a[0] : a[0]+"年"+(+a[1])+"月"; }
+  function endOf(ym){ return EN ? "End of "+ymLabel(ym) : ymLabel(ym)+"末"; }
+  function unitTxt(u){ return u==="%" ? "%" : (EN ? " yen" : "円"); }
+  function nm(o){ return o ? (EN ? (o.name_en||o.name) : o.name) : ""; }
+  function cname(r){ return EN ? (CTRY_EN[r.code] || r.name_en || r.name) : r.name; }
   function S(key){ return DATA.series[key]; }
   function last(key, back){ var p = S(key).points; return p[p.length-1-(back||0)]; }
   function num(v, unit){ return unit==="%" ? v.toFixed(2) : v.toFixed(2); }
   function src(id){ return DATA.meta.sources.filter(function(s){ return s.id===id; })[0]; }
-  function comma(v, d){ return v.toLocaleString("ja-JP", {minimumFractionDigits:d||0, maximumFractionDigits:d||0}); }
+  function comma(v, d){ return v.toLocaleString(EN ? "en-US" : "ja-JP", {minimumFractionDigits:d||0, maximumFractionDigits:d||0}); }
   /* 大きな金額を「兆・億」で */
   function yen(v){ // v: 円
     var a = Math.abs(v);
@@ -103,7 +119,7 @@
     var a = last(key), b = last(key, back), s = S(key), d = a.value - b.value;
     var cls = d>0.0005 ? "up" : (d<-0.0005 ? "down" : "");
     var sign = d>0 ? "+" : (d<0 ? "−" : "±");
-    var txt = s.unit==="%" ? sign+Math.abs(d).toFixed(2)+"ポイント" : sign+Math.abs(d).toFixed(2)+"円";
+    var txt = s.unit==="%" ? sign+Math.abs(d).toFixed(2)+T("ポイント"," pt") : sign+Math.abs(d).toFixed(2)+T("円"," yen");
     return '<span class="'+cls+'">'+txt+'</span>';
   }
 
@@ -117,11 +133,11 @@
 
   function tile(key, o){
     var s = S(key), p = last(key);
-    return '<a class="card tile" href="'+o.href+'"><div class="cat">'+o.cat+'</div><div class="nm">'+(o.name||s.name)+'</div>'+
+    return '<a class="card tile" href="'+o.href+'"><div class="cat">'+o.cat+'</div><div class="nm">'+(o.name||nm(s))+'</div>'+
       spark(key)+
-      '<div class="val"><span data-count="'+p.value+'" data-dec="2">'+num(p.value, s.unit)+'</span><small>'+s.unit+'</small></div>'+
-      '<div class="chg">前の月から '+change(key,1)+'　1年前から '+change(key,12)+'</div>'+
-      '<div class="when">'+ymLabel(p.ym)+'末時点・出典：'+src(s.source).org+'</div>'+
+      '<div class="val"><span data-count="'+p.value+'" data-dec="2">'+num(p.value, s.unit)+'</span><small>'+(s.unit==="%"?"%":T("円","yen"))+'</small></div>'+
+      '<div class="chg">'+T('前の月から ','vs last month ')+change(key,1)+T('　1年前から ','　vs 1 year ago ')+change(key,12)+'</div>'+
+      '<div class="when">'+T(ymLabel(p.ym)+'末時点・出典：'+src(s.source).org, endOf(p.ym)+' · Source: '+src(s.source).org_en)+'</div>'+
       (o.more ? '<div class="more">'+o.more+' →</div>' : '')+'</a>';
   }
 
@@ -130,14 +146,15 @@
              fmt:function(v), axisFmt:function(v), tickEvery:function(i,label)->文字|null, foot, ranges:[[n,"1年"],...], zero:bool } */
   var COLORS = ["var(--s1)","var(--s2)"];
   function plot(box, cfg){
-    var NS = "http://www.w3.org/2000/svg", W = 720, H = 300, m = {t:16, r:96, b:30, l:52};
+    var narrow = box.clientWidth && box.clientWidth < 560;
+    var NS = "http://www.w3.org/2000/svg", W = 720, H = 300, m = {t:16, r:narrow?150:96, b:30, l:narrow?70:52};
     var ranges = cfg.ranges, rn = ranges ? ranges[ranges.length-1][0] : null, multi = cfg.series.length>1;
     box.innerHTML = '<div class="chart-top"><div class="ttl">'+cfg.title+'</div>'+(ranges ? '<div class="seg">'+
       ranges.map(function(r){ return '<button data-r="'+r[0]+'"'+(r[0]===rn?' class="on"':'')+'>'+r[1]+'</button>'; }).join("")+'</div>' : '')+'</div>'+
       (multi ? '<div class="legend">'+cfg.series.map(function(s,i){ return '<span><i style="background:'+COLORS[i]+'"></i>'+s.name+'</span>'; }).join("")+'</div>' : '')+
       '<div class="chart-wrap"><svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+cfg.title+'"></svg><div class="tip"></div></div>'+
       '<div class="chart-foot">'+(cfg.foot||"")+'</div>'+
-      '<details class="table-view"><summary>数値を表で見る</summary><div class="tbl-wrap"></div></details>';
+      '<details class="table-view"><summary>'+T("数値を表で見る","Show as a table")+'</summary><div class="tbl-wrap"></div></details>';
     var svg = box.querySelector("svg"), tip = box.querySelector(".tip");
     box.querySelectorAll(".seg button").forEach(function(b){
       b.addEventListener("click", function(){
@@ -226,15 +243,15 @@
     o = o || {};
     var base = S(keys[0]).points, unit = S(keys[0]).unit;
     plot(box, {
-      title:o.title, foot:o.foot, ranges:[[13,"1年"],[61,"5年"],[121,"10年"]],
-      labels:base.map(function(p){ return p.ym; }), tipLabels:base.map(function(p){ return ymLabel(p.ym)+"末"; }),
+      title:o.title, foot:o.foot, ranges:EN ? [[13,"1Y"],[61,"5Y"],[121,"10Y"]] : [[13,"1年"],[61,"5年"],[121,"10年"]],
+      labels:base.map(function(p){ return p.ym; }), tipLabels:base.map(function(p){ return endOf(p.ym); }),
       series:keys.map(function(k,i){ var mp = {}; S(k).points.forEach(function(p){ mp[p.ym] = p.value; });
-        return {name:o.names?o.names[i]:S(k).name, short:o.short?o.short[i]:"", values:base.map(function(p){ return mp[p.ym]==null?null:mp[p.ym]; })}; }),
-      fmt:function(v){ return num(v,unit)+(unit==="%"?"%":"円"); },
+        return {name:o.names?o.names[i]:nm(S(k)), short:o.short?o.short[i]:"", values:base.map(function(p){ return mp[p.ym]==null?null:mp[p.ym]; })}; }),
+      fmt:function(v){ return num(v,unit)+unitTxt(unit); },
       axisFmt:function(v,st){ return (st<1 ? v.toFixed(st<0.1?2:1) : v)+(unit==="%"?"%":""); },
       tickEvery:function(i, ym, len){ var mo = +ym.slice(5), yr = ym.slice(0,4);
-        if(len<=13) return i%2===0 ? (mo===1||i===0 ? yr.slice(2)+"年"+mo+"月" : mo+"月") : null;
-        if(mo!==1) return null; return (len<=61 || +yr%2===0) ? yr+"年" : null; }
+        if(len<=13) return i%2===0 ? (EN ? (mo===1||i===0 ? MON[mo-1]+" '"+yr.slice(2) : MON[mo-1]) : (mo===1||i===0 ? yr.slice(2)+"年"+mo+"月" : mo+"月")) : null;
+        if(mo!==1) return null; return (len<=61 || +yr%2===0) ? yr+T("年","") : null; }
     });
   }
 
@@ -254,16 +271,19 @@
   function sourceList(box, keys){
     box.innerHTML = keys.map(function(k){
       var s = S(k), o = src(s.source);
+      if(EN) return '<div><b>'+s.name_en+'</b>: '+o.org_en+', "'+o.name_en+'"　<a href="'+o.url+'" target="_blank" rel="noopener">View source</a><br>'+
+        '<span style="color:var(--muted)">What: '+s.note_en+' / Period: '+ymLabel(s.points[0].ym)+' – '+ymLabel(s.points[s.points.length-1].ym)+' (month-end values, updated monthly) / Retrieved: '+fmtDate(s.retrieved)+'</span></div>';
       return '<div><b>'+s.name+'</b>：'+o.org+'「'+o.name+'」　<a href="'+o.url+'" target="_blank" rel="noopener">出典を見る</a><br>'+
         '<span style="color:var(--muted)">内容：'+s.note+'／期間：'+ymLabel(s.points[0].ym)+'〜'+ymLabel(s.points[s.points.length-1].ym)+'（月末値・月1回更新）／取得日：'+fmtDate(s.retrieved)+'</span></div>';
     }).join("");
   }
   function sourceLine(id, extra){
     var o = src(id);
+    if(EN) return '<div><b>'+o.org_en+'</b>, "'+o.name_en+'"　<a href="'+o.url+'" target="_blank" rel="noopener">View source</a>'+(extra?'<br><span style="color:var(--muted)">'+extra+'</span>':'')+'</div>';
     return '<div><b>'+o.org+'</b>「'+o.name+'」　<a href="'+o.url+'" target="_blank" rel="noopener">出典を見る</a>'+(extra?'<br><span style="color:var(--muted)">'+extra+'</span>':'')+'</div>';
   }
 
   window.SITE = { tile:tile, plot:plot, lineChart:lineChart, bars:bars, sourceList:sourceList, sourceLine:sourceLine,
-    last:last, ymLabel:ymLabel, fmtDate:fmtDate, num:num, S:S, comma:comma, yen:yen, oku:oku };
+    last:last, ymLabel:ymLabel, endOf:endOf, fmtDate:fmtDate, num:num, S:S, comma:comma, yen:yen, oku:oku, nm:nm, cname:cname, EN:EN, T:T };
   document.addEventListener("DOMContentLoaded", head);
 })();

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn Economy with Numbers | Investment Basics, Global Economy, Companies, Money</title>
+<meta name="description" content="Learn investing basics, the global economy, company analysis and money skills with official data from the Bank of Japan, the World Bank and the U.S. SEC — explained in plain English. No stock picks, just the facts you need to decide for yourself.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="hero home-hero">
+    <span class="pill">Learn economy with numbers</span>
+    <h1>Learn the economy<br><span class="mk">with numbers.</span></h1>
+    <p class="lead">Stock indexes, exchange rates, interest rates, company results — the money numbers you hear in the news. We explain them in plain English with Coin Sensei, using official data from the Bank of Japan, the World Bank, the U.S. Securities and Exchange Commission and more.</p>
+    <div class="stat-row" id="hero-stats"></div>
+  </div>
+
+  <section>
+    <div class="sec-h"><h2>Four themes to explore</h2><span class="sub">Start anywhere you like</span></div>
+    <div class="grid g2">
+      <a class="card tile theme-card tc-basics" href="basics.html"><div class="art" data-illust="basics"></div><div class="body"><div class="en">Investment Basics</div><h3>Investment Basics</h3>
+        <ul><li>What is a stock?</li><li>What are P/E and P/B ratios?</li><li>What are dividends?</li><li>How compound interest works (calculator)</li></ul><div class="more">Read →</div></div></a>
+      <a class="card tile theme-card tc-world" href="world.html"><div class="art" data-illust="world"></div><div class="body"><div class="en">Global Economy</div><h3>Global Economy</h3>
+        <ul><li>GDP ranking</li><li>Inflation around the world</li><li>Interest rates and exchange rates</li><li>Japan vs. the U.S.</li></ul><div class="more">Read →</div></div></a>
+      <a class="card tile theme-card tc-companies" href="companies.html"><div class="art" data-illust="companies"></div><div class="body"><div class="en">Company Analysis</div><h3>Company Analysis</h3>
+        <ul><li>Biggest companies by sales</li><li>Apple vs. Microsoft</li><li>How strong are Japanese companies?</li><li>Sales, profit and market value — what's the difference?</li></ul><div class="more">Read →</div></div></a>
+      <a class="card tile theme-card tc-money" href="money.html"><div class="art" data-illust="money"></div><div class="body"><div class="en">Money Education</div><h3>Money Education</h3>
+        <ul><li>Saving vs. investing</li><li>Inflation and the value of money</li><li>The future value of ¥1 million (calculator)</li><li>Risk and return</li></ul><div class="more">Read →</div></div></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>The world in numbers</h2></div>
+    <div class="grid g3" id="highlights"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Exchange rates and interest rates now</h2><span class="sub" id="asof"></span></div>
+    <div class="grid g3" id="tiles"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>This month: what happens when the yen gets weaker?</h2></div>
+    <div class="card">
+      <p id="theme-num"></p>
+      <ul class="points">
+        <li><b>Travel abroad</b>: buying the same $1 item costs more yen.</li>
+        <li><b>Imported goods</b>: things Japan buys from overseas, like wheat and energy, tend to get more expensive.</li>
+        <li><b>Foreign stocks and funds</b>: even if the dollar price stays the same, the value in yen gets bigger (the opposite happens when the yen gets stronger).</li>
+      </ul>
+      <p style="margin:10px 0 0;"><a href="fx.html">Learn more about exchange rates →</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card chart-card" id="chart-usd"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Why do stock prices go up and down?</h3>
+      <p>A stock price is set by the balance between people who want to buy and people who want to sell. When more people think a company will make more money in the future, more people want to buy, and the price tends to rise.</p>
+      <p style="margin:0;">But a price can fall even when a company does well. If everyone already expected the good news, it may already be "priced in." <a href="basics.html#stock">What is a stock?</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Stock indexes</h2><span class="sub">Check the numbers on the official sites</span></div>
+    <div class="grid g2">
+      <a class="card tile link-only" href="stocks.html#acwi"><div class="cat">World stocks</div><div class="nm">"All-Country" (MSCI ACWI)</div><div class="val">A "whole-world set" of companies</div><div class="more">How it works + official site</div></a>
+      <a class="card tile link-only" href="stocks.html#sp500"><div class="cat">U.S. stocks</div><div class="nm">S&amp;P 500</div><div class="val">About 500 large U.S. companies</div><div class="more">How it works + official site</div></a>
+      <a class="card tile link-only" href="stocks.html#nikkei"><div class="cat">Japanese stocks</div><div class="nm">Nikkei 225</div><div class="val">Calculated from 225 leading Japanese companies</div><div class="more">How it works + official site</div></a>
+      <a class="card tile link-only" href="stocks.html#topix"><div class="cat">Japanese stocks</div><div class="nm">TOPIX</div><div class="val">A wide range of companies on the Tokyo Stock Exchange</div><div class="more">How it works + official site</div></a>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:10px;">Stock index values are copyrighted by the companies that calculate them. This site does not copy the values; it explains how each index works and links to the official sites.</p>
+  </section>
+
+  <section>
+    <div class="disclaimer">This site is for information only and does not recommend buying or selling any specific stock or financial product. The numbers come straight from official sources. Please make your own investment decisions. <a href="about.html">Sources, data rules and disclaimer</a></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var T = SITE.tile, L = SITE.last, C = SITE.comma, W = DATA.world, CO = DATA.companies.list;
+  var jpRank = W.gdp_rank.map(function(r){ return r.code; }).indexOf("JPN")+1, jp = W.gdp_rank[jpRank-1];
+  var cpi = W.jp_cpi, c30 = cpi.filter(function(c){ return c.year===cpi[cpi.length-1].year-30; })[0], cl = cpi[cpi.length-1];
+  var ranked = CO.map(function(c){ var y = c.years[c.years.length-1]; return {c:c, usd: y.currency==="JPY" ? y.revenue/(y.usdjpy_avg||1e9) : y.revenue}; }).sort(function(a,b){ return b.usd-a.usd; });
+  function ord(n){ return n+(["th","st","nd","rd"][(n%100-20)%10]||["th","st","nd","rd"][n%100]||"th"); }
+  function hi(cat, big, txt, href){ return '<a class="card tile" href="'+href+'"><div class="cat">'+cat+'</div><div class="val" style="font-size:24px;">'+big+'</div><div class="chg">'+txt+'</div><div class="more">Learn more →</div></a>'; }
+  document.getElementById("highlights").innerHTML = [
+    hi("Global economy · GDP ("+W.gdp_year+")", "Japan is "+ord(jpRank), "No. 1 is "+SITE.cname(W.gdp_rank[0])+" ($"+C(W.gdp_rank[0].value,1)+" trillion). Japan: $"+C(jp.value,2)+" trillion", "world.html#gdp"),
+    hi("Company analysis · sales", ranked[0].c.name_en, "No. 1 in sales among "+ranked.length+" major companies that file with the SEC (about $"+C(ranked[0].usd/1e9,1)+" billion)", "companies.html#ranking"),
+    hi("Money education · inflation", c30 ? "¥1M in "+c30.year+" ≈ ¥"+C(100*cl.value/c30.value/100,2)+"M" : "", "Its value at "+cl.year+" prices (Japan's consumer price index)", "money.html#inflation")
+  ].join("");
+  document.getElementById("hero-stats").innerHTML =
+    '<div>USD/JPY ('+SITE.endOf(L("usdjpy").ym)+')<b>¥'+L("usdjpy").value.toFixed(2)+'</b></div>'+
+    '<div>Japan\'s GDP ('+W.gdp_year+')<b>'+ord(jpRank)+' in the world</b></div>'+
+    '<div>Data comes from<b>'+DATA.meta.sources.length+' official bodies</b></div>';
+  document.getElementById("asof").textContent = SITE.endOf(L("usdjpy").ym)+" (updated monthly)";
+  document.getElementById("tiles").innerHTML = [
+    T("usdjpy",{cat:"Exchange rate", href:"fx.html", more:"Weak yen vs. strong yen"}),
+    T("eurjpy",{cat:"Exchange rate", href:"fx.html#eur", more:"See EUR/JPY"}),
+    T("jp10y",{cat:"Interest rate", href:"rates.html#bond", more:"What is a bond yield?"}),
+    T("us10y",{cat:"Interest rate", href:"rates.html#bond", more:"Compare Japan and the U.S."}),
+    T("jp_policy",{cat:"Interest rate", name:"Japan's policy rate", href:"rates.html", more:"What is a policy rate?"}),
+    T("us_policy",{cat:"Interest rate", name:"U.S. policy rate", href:"rates.html", more:"Compare Japan and the U.S."})
+  ].join("");
+  var a = L("usdjpy"), b = L("usdjpy",12), d = a.value-b.value;
+  document.getElementById("theme-num").innerHTML = "At the "+SITE.endOf(a.ym).replace("End","end")+", <b>$1 = ¥"+a.value.toFixed(2)+"</b>. A year earlier ("+SITE.endOf(b.ym).replace("End","end")+") it was ¥"+b.value.toFixed(2)+", so "+
+    (d>0 ? "the yen got <b>weaker by ¥"+d.toFixed(2)+"</b> in one year." : (d<0 ? "the yen got <b>stronger by ¥"+(-d).toFixed(2)+"</b> in one year." : "it is at the same level as a year ago."));
+  SITE.lineChart(document.getElementById("chart-usd"), ["usdjpy"], {title:"USD/JPY (yen per $1, end of month)", foot:"Source: Bank of Japan, Time-Series Data (Tokyo market, USD/JPY at 17:00, end of month)"});
+});
+</script>
+</body>
+</html>

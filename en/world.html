@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Global Economy: GDP ranking, world inflation, rates and FX, Japan vs. U.S. | Learn Economy with Numbers</title>
+<meta name="description" content="World GDP ranking, inflation in major countries, how interest rates and exchange rates connect, and a Japan vs. U.S. comparison — with official data from the World Bank and the Bank of Japan.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/world.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/world.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">Home</a> › Global Economy</div>
+    <span class="pill">Global Economy</span>
+    <h1>Global Economy</h1>
+    <p class="lead">Which countries have the biggest economies? Where are prices rising fastest? How do interest rates and exchange rates connect? How do Japan and the U.S. compare? Let's look at the world today through numbers.</p>
+    <div class="toc"><a href="#gdp">GDP ranking</a><a href="#inflation">World inflation</a><a href="#ratefx">Rates and FX</a><a href="#compare">Japan vs. U.S.</a></div>
+  </div>
+
+  <section id="gdp">
+    <div class="sec-h"><h2>GDP ranking</h2><span class="sub" id="gdp-year"></span></div>
+    <div class="quick" style="margin-bottom:16px;">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>What is GDP (gross domestic product)?</h3>
+      <p style="margin:0;">It is the total value of all the new goods and services made in a country in one year. It is used to compare the size of economies. To compare countries, everything here is converted to <b>U.S. dollars</b> — so when the yen gets weaker, Japan's GDP looks smaller in dollars.</p>
+    </div>
+    <div class="card" id="gdp-bars"></div>
+    <p style="font-size:14px;margin-top:12px;" id="gdp-note"></p>
+  </section>
+
+  <section id="inflation">
+    <div class="sec-h"><h2>Inflation around the world</h2><span class="sub">Consumer prices, change from a year earlier</span></div>
+    <div class="quick" style="margin-bottom:16px;">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Inflation = how much prices rose in a year</h3>
+      <p style="margin:0;">2% inflation means something that cost 100 yen last year costs about 102 yen now, on average. Many central banks aim for "about 2% a year." Too high makes life hard; below zero (deflation, when prices keep falling) makes it hard for profits and wages to grow.</p>
+    </div>
+    <div class="card" id="inf-bars"></div>
+    <div class="card chart-card" id="inf-chart" style="margin-top:16px;"></div>
+  </section>
+
+  <section id="ratefx">
+    <div class="sec-h"><h2>Interest rates and exchange rates</h2><span class="sub">Month-end values</span></div>
+    <div class="grid g3" id="ratefx-tiles"></div>
+    <div class="quick" style="margin-top:16px;">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Rate gaps move exchange rates</h3>
+      <p id="gap-text"></p>
+      <p style="margin:0;">Money in a country with higher interest rates earns more, so its currency tends to be popular. When the gap between U.S. and Japanese rates is wide, people tend to sell yen and buy dollars, which can weaken the yen. But exchange rates also move with the economy, trade and news, so it does not always work this way.</p>
+    </div>
+    <div class="grid g2" style="margin-top:16px;">
+      <a class="card tile" href="fx.html"><div class="cat">More</div><div class="nm">Exchange rates (USD/JPY, EUR/JPY) over time</div><div class="more">See →</div></a>
+      <a class="card tile" href="rates.html"><div class="cat">More</div><div class="nm">Interest rates (policy rates, 10-year bonds): Japan vs. U.S.</div><div class="more">See →</div></a>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="sec-h"><h2>Japan vs. the U.S.</h2></div>
+    <div class="tbl-wrap"><table id="cmp"></table></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">Latest year published by the World Bank (the year can differ by country and item). Interest rates are this site's month-end data (Bank of Japan, FRB, Japan's Ministry of Finance, U.S. Treasury).</p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Sources and data</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var W = DATA.world, C = SITE.comma, CN = SITE.cname;
+  function ord(n){ return n+(["th","st","nd","rd"][(n%100-20)%10]||["th","st","nd","rd"][n%100]||"th"); }
+  document.getElementById("gdp-year").textContent = W.gdp_year+" · nominal · in U.S. dollars";
+  SITE.bars(document.getElementById("gdp-bars"), { title:"Top 15 economies by GDP ("+W.gdp_year+")", rank:true,
+    rows:W.gdp_rank.map(function(r){ return {label:CN(r), value:r.value, text:"$"+C(r.value,2)+" trillion", hl:r.code==="JPN"||r.code==="USA"}; }),
+    foot:"Source: World Bank, World Development Indicators, GDP (current US$) (NY.GDP.MKTP.CD)" });
+  var jp = W.gdp_rank.filter(function(r){ return r.code==="JPN"; })[0], us = W.gdp_rank[0];
+  if(jp) document.getElementById("gdp-note").innerHTML = "Japan is <b>"+ord(W.gdp_rank.indexOf(jp)+1)+"</b> ($"+C(jp.value,2)+" trillion). No. 1, "+CN(us)+" ($"+C(us.value,2)+" trillion), is about <b>"+(us.value/jp.value).toFixed(1)+" times</b> as large as Japan.";
+
+  SITE.bars(document.getElementById("inf-bars"), { title:"Inflation in major countries (latest year)",
+    rows:W.inflation_latest.map(function(r){ return {label:CN(r), sub:String(r.year), value:r.value, text:C(r.value,1)+"%", hl:r.code==="JPN"||r.code==="USA"}; }),
+    foot:"Source: World Bank, World Development Indicators, Inflation, consumer prices (annual %) (FP.CPI.TOTL.ZG)" });
+  var hj = W.inflation_hist.JPN, hu = W.inflation_hist.USA, yrs = [], mj = {}, mu = {};
+  hj.forEach(function(p){ mj[p.year] = p.value; }); hu.forEach(function(p){ mu[p.year] = p.value; });
+  for(var y = Math.min(hj[0].year, hu[0].year); y <= Math.max(hj[hj.length-1].year, hu[hu.length-1].year); y++) yrs.push(y);
+  SITE.plot(document.getElementById("inf-chart"), { title:"Inflation in Japan and the U.S.", labels:yrs.map(String), tipLabels:yrs.map(String),
+    series:[{name:"Japan", short:"Japan", values:yrs.map(function(y){ return mj[y]==null?null:mj[y]; })},{name:"U.S.", short:"U.S.", values:yrs.map(function(y){ return mu[y]==null?null:mu[y]; })}],
+    fmt:function(v){ return v.toFixed(1)+"%"; }, axisFmt:function(v){ return v+"%"; }, tickEvery:function(i,l){ return +l%5===0 ? l : null; },
+    foot:"Source: World Bank (FP.CPI.TOTL.ZG). Yearly average, change from the previous year" });
+
+  document.getElementById("ratefx-tiles").innerHTML = [
+    SITE.tile("usdjpy",{cat:"Exchange rate", href:"fx.html"}),
+    SITE.tile("jp_policy",{cat:"Policy rate", name:"Japan's policy rate", href:"rates.html"}),
+    SITE.tile("us_policy",{cat:"Policy rate", name:"U.S. policy rate", href:"rates.html"})
+  ].join("");
+  var L = SITE.last, gap = L("us10y").value - L("jp10y").value, gap1 = L("us10y",12).value - L("jp10y",12).value;
+  document.getElementById("gap-text").innerHTML = "At the "+SITE.endOf(L("us10y").ym).replace("End","end")+", the 10-year bond yield was "+L("us10y").value.toFixed(2)+"% in the U.S. and "+L("jp10y").value.toFixed(2)+"% in Japan — a gap of <b>"+gap.toFixed(2)+" points</b> (it was "+gap1.toFixed(2)+" points a year earlier).";
+
+  var UNIT = {"兆ドル":function(v){ return "$"+C(v,2)+" trillion"; }, "ドル":function(v){ return "$"+C(v,0); }, "%":function(v){ return C(v,1)+"%"; }, "億人":function(v){ return C(v*100,1)+" million"; }};
+  var rows = W.compare.map(function(r){
+    var f = UNIT[r.unit];
+    return '<tr><th>'+r.label_en+'</th><td>'+f(r.JPN.value)+' <small style="color:var(--muted)">('+r.JPN.year+')</small></td><td>'+f(r.USA.value)+' <small style="color:var(--muted)">('+r.USA.year+')</small></td></tr>';
+  });
+  rows.push('<tr><th>Policy rate</th><td>'+L("jp_policy").value.toFixed(2)+'% <small style="color:var(--muted)">('+SITE.endOf(L("jp_policy").ym)+')</small></td><td>'+L("us_policy").value.toFixed(2)+'% <small style="color:var(--muted)">('+SITE.endOf(L("us_policy").ym)+')</small></td></tr>');
+  rows.push('<tr><th>10-year bond yield</th><td>'+L("jp10y").value.toFixed(2)+'%</td><td>'+L("us10y").value.toFixed(2)+'%</td></tr>');
+  document.getElementById("cmp").innerHTML = '<tr><th></th><th>Japan</th><th>U.S.</th></tr>'+rows.join("");
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("wb", "GDP, inflation, GDP per person, growth, unemployment and population. Retrieved "+SITE.fmtDate(W.retrieved)+". World Bank data is published under a CC BY 4.0 license.")+
+    SITE.sourceLine("boj","USD/JPY and Japan's policy rate")+SITE.sourceLine("frb","U.S. policy rate")+SITE.sourceLine("mof","Japan 10-year bond")+SITE.sourceLine("ust","U.S. 10-year Treasury");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exchange rates (USD/JPY, EUR/JPY): weak yen vs. strong yen | Learn Economy with Numbers</title>
+<meta name="description" content="Month-end USD/JPY and EUR/JPY charts from Bank of Japan and European Central Bank data, plus what a weak or strong yen means for daily life and investing.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/fx.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/fx.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">Home</a> › <a href="world.html">Global Economy</a> › Exchange rates</div>
+    <h1>Exchange rates</h1>
+    <p class="lead">An exchange rate is the price for swapping yen into another currency. "$1 = ¥150" means you need 150 yen to get one dollar.</p>
+  </div>
+
+  <section>
+    <div class="grid g2" id="tiles"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>USD/JPY (U.S. dollar and Japanese yen)</h2></div>
+    <div class="card" style="margin-bottom:16px;">
+      <b>1. What does this number mean?</b>
+      <p style="font-size:14.5px;margin:6px 0 0;">It shows how many yen you need to buy one dollar. When the number gets <b>bigger</b>, the yen is "weaker" (worth less). When it gets <b>smaller</b>, the yen is "stronger" (worth more).</p>
+    </div>
+    <div class="card chart-card" id="chart-usd"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>¥150 became ¥160 — so why is the yen "weaker"?</h3>
+      <p>Imagine a $1 snack. Before, you could buy it for ¥150. Now you need ¥160. You need more yen to buy the same thing, so <b>the yen has lost power</b> — it is "weaker." The number goes up, but we call it a weak yen because we are looking at the yen's value.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>2. What happens when it changes?</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>When the yen gets weaker</th><th>When the yen gets stronger</th></tr>
+        <tr><td>Imports (wheat, gasoline, etc.) tend to cost more</td><td>Imports tend to cost less</td></tr>
+        <tr><td>Travel abroad tends to cost more</td><td>Travel abroad tends to cost less</td></tr>
+        <tr><td>Companies that sell overseas tend to earn more</td><td>Companies that sell overseas tend to earn less</td></tr>
+        <tr><td>Foreign stocks and funds tend to be worth more in yen</td><td>Foreign stocks and funds tend to be worth less in yen</td></tr>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px;">We say "tend to" because other things (like material costs or company efforts) also change the result.</p>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Why do exchange rates move?</h3>
+      <p>There are many reasons, but a big one is the <b>gap in interest rates between countries</b>. Money in a country with higher interest earns more, so that currency becomes popular and its price tends to rise. Trade, the economy and reactions to news also move rates every day.</p>
+      <p style="margin:0;">Compare Japanese and U.S. rates on the <a href="rates.html">interest rates page</a>.</p>
+    </div>
+  </section>
+
+  <section id="eur">
+    <div class="sec-h"><h2>EUR/JPY (euro and Japanese yen)</h2></div>
+    <div class="card" style="margin-bottom:16px;">
+      <p style="font-size:14.5px;margin:0;">The euro is the shared currency used by many European countries, such as Germany, France and Italy. This shows "how many yen for one euro," and you read it the same way as USD/JPY.</p>
+    </div>
+    <div class="card chart-card" id="chart-eur"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>3. Related numbers</h2></div>
+    <ul class="points">
+      <li><a href="rates.html">Policy rates in Japan and the U.S.</a></li>
+      <li><a href="rates.html#bond">10-year bond yields in Japan and the U.S.</a></li>
+      <li><a href="stocks.html">Stock indexes (foreign stocks are affected by exchange rates too)</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>4. Sources and data</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">Unit: yen per $1 (or per €1). These are end-of-month values, not daily values. We use the published numbers as they are and never fill in missing values by guessing.</p>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("tiles").innerHTML = [
+    SITE.tile("usdjpy",{cat:"Exchange rate", href:"#chart-usd"}),
+    SITE.tile("eurjpy",{cat:"Exchange rate", href:"#eur"})
+  ].join("");
+  SITE.lineChart(document.getElementById("chart-usd"), ["usdjpy"], {title:"USD/JPY over time (end of month)", foot:"Source: Bank of Japan, Time-Series Data (Tokyo market, USD/JPY spot at 17:00, end of month)"});
+  SITE.lineChart(document.getElementById("chart-eur"), ["eurjpy"], {title:"EUR/JPY over time (end of month)", foot:"Source: European Central Bank (ECB), euro reference rate in yen, end of month"});
+  SITE.sourceList(document.getElementById("sources"), ["usdjpy","eurjpy"]);
+});
+</script>
+</body>
+</html>

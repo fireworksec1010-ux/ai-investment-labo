@@ -135,6 +135,10 @@ def wb(ind, countries="all", date=None, mrv=None):
     return [r for r in (res[1] if len(res) > 1 and res[1] else []) if r["value"] is not None]
 
 
+COMPARE_EN = {"NY.GDP.MKTP.CD": "GDP (gross domestic product)", "NY.GDP.PCAP.CD": "GDP per person", "NY.GDP.MKTP.KD.ZG": "Real economic growth",
+              "FP.CPI.TOTL.ZG": "Inflation (consumer prices)", "SL.UEM.TOTL.ZS": "Unemployment rate (ILO estimate)", "SP.POP.TOTL": "Population"}
+
+
 def world():
     meta = json.loads(get("https://api.worldbank.org/v2/country?format=json&per_page=400"))[1]
     real = {c["id"] for c in meta if c["region"]["value"] != "Aggregates"}
@@ -142,7 +146,7 @@ def world():
     years = [int(r["date"]) for r in wb("NY.GDP.MKTP.CD", "JPN;USA", mrv=3)]
     yr = max(y for y in set(years) if years.count(y) == 2)
     gdp = sorted([r for r in wb("NY.GDP.MKTP.CD", date=yr) if r["countryiso3code"] in real], key=lambda r: -r["value"])
-    rank = [{"code": r["countryiso3code"], "name": JA.get(r["countryiso3code"], r["country"]["value"]), "value": round(r["value"] / 1e12, 3)} for r in gdp[:15]]
+    rank = [{"code": r["countryiso3code"], "name": JA.get(r["countryiso3code"], r["country"]["value"]), "name_en": r["country"]["value"], "value": round(r["value"] / 1e12, 3)} for r in gdp[:15]]
     # インフレ率（主要国の最新年・日米の推移）
     inf = wb("FP.CPI.TOTL.ZG", ";".join(WB_COUNTRIES), date=f"2000:{TODAY.year}")
     latest = {}
@@ -150,14 +154,14 @@ def world():
         c = r["countryiso3code"]
         if c not in latest or int(r["date"]) > int(latest[c]["date"]):
             latest[c] = r
-    inf_latest = sorted([{"code": c, "name": JA[c], "year": int(r["date"]), "value": round(r["value"], 2)} for c, r in latest.items()], key=lambda x: -x["value"])
+    inf_latest = sorted([{"code": c, "name": JA[c], "name_en": r["country"]["value"], "year": int(r["date"]), "value": round(r["value"], 2)} for c, r in latest.items()], key=lambda x: -x["value"])
     inf_hist = {c: sorted([{"year": int(r["date"]), "value": round(r["value"], 2)} for r in inf if r["countryiso3code"] == c], key=lambda x: x["year"]) for c in ("JPN", "USA")}
     # 日米比較
     compare = []
     for ind, label, unit, scale in [("NY.GDP.MKTP.CD", "GDP（国内総生産）", "兆ドル", 1e12), ("NY.GDP.PCAP.CD", "1人あたりGDP", "ドル", 1),
                                     ("NY.GDP.MKTP.KD.ZG", "経済成長率（実質）", "%", 1), ("FP.CPI.TOTL.ZG", "インフレ率（消費者物価）", "%", 1),
                                     ("SL.UEM.TOTL.ZS", "失業率（ILO推計）", "%", 1), ("SP.POP.TOTL", "人口", "億人", 1e8)]:
-        row = {"label": label, "unit": unit, "ind": ind}
+        row = {"label": label, "unit": unit, "ind": ind, "label_en": COMPARE_EN[ind]}
         for c in ("JPN", "USA"):
             r = max(wb(ind, c, mrv=5), key=lambda r: int(r["date"]))
             row[c] = {"year": int(r["date"]), "value": round(r["value"] / scale, 3)}
@@ -177,6 +181,9 @@ COMPANIES = [  # (CIK, 表示名, 国, 決算月の説明)
     (1045810, "エヌビディア", "US", "1月"), (1094517, "トヨタ自動車", "JP", "3月"), (715153, "本田技研工業（ホンダ）", "JP", "3月"),
     (313838, "ソニーグループ", "JP", "3月"),
 ]
+CO_EN = {104169: "Walmart", 1018724: "Amazon", 731766: "UnitedHealth", 320193: "Apple", 64803: "CVS Health", 1067983: "Berkshire Hathaway",
+         1652044: "Alphabet (Google)", 34088: "ExxonMobil", 789019: "Microsoft", 1045810: "NVIDIA", 1094517: "Toyota Motor", 715153: "Honda Motor",
+         313838: "Sony Group"}
 TAGS = {
     "revenue": ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "Revenue", "RevenuesNetOfInterestExpense", "SalesRevenueNet"],
     "op_income": ["OperatingIncomeLoss", "ProfitLossFromOperatingActivities"],
@@ -235,10 +242,29 @@ def companies():
             if cur == "JPY":
                 row["usdjpy_avg"] = fy_avg_usdjpy(e)
             years.append(row)
-        res.append({"cik": cik, "name": name, "entity": f["entityName"], "country": country, "fy_end_month": fyend, "years": years})
+        res.append({"cik": cik, "name": name, "name_en": CO_EN.get(cik, f["entityName"]), "entity": f["entityName"], "country": country, "fy_end_month": fyend, "years": years})
         last = years[-1]
         print(f"  {name:12s} 期末{last['end']} 売上 {last['revenue']/1e9:,.1f}B {last['currency']}  純利益 {(last['net_income'] or 0)/1e9:,.1f}B")
     return {"retrieved": TODAY.isoformat(), "list": res}
+
+
+SOURCES_EN = {
+    "boj": ("Bank of Japan", "Time-Series Data Search (foreign exchange, call rates)"),
+    "ecb": ("European Central Bank (ECB)", "Euro foreign exchange reference rate (JPY)"),
+    "mof": ("Ministry of Finance, Japan", "Interest Rate (JGB yields)"),
+    "ust": ("U.S. Department of the Treasury", "Daily Treasury Par Yield Curve Rates"),
+    "frb": ("Federal Reserve Board (FRB)", "H.15 Selected Interest Rates (effective federal funds rate)"),
+    "wb": ("World Bank", "World Development Indicators (CC BY 4.0)"),
+    "sec": ("U.S. Securities and Exchange Commission (SEC)", "EDGAR XBRL data from annual reports (10-K / 20-F)"),
+}
+SERIES_EN = {
+    "usdjpy": ("USD/JPY", "Tokyo market, USD/JPY spot at 17:00, end of month (series FXERM06)"),
+    "eurjpy": ("EUR/JPY", "ECB euro reference rate in yen, end of month"),
+    "jp_policy": ("Japan policy rate (uncollateralized overnight call rate)", "Uncollateralized overnight call rate, end of month (series STRECLUCON). The rate the Bank of Japan targets"),
+    "us_policy": ("U.S. policy rate (effective federal funds rate)", "Daily effective federal funds rate, value on the last business day of each month"),
+    "jp10y": ("Japan 10-year government bond yield", "Newly issued 10-year JGB yield (daily), value on the last business day of each month"),
+    "us10y": ("U.S. 10-year Treasury yield", "10-year Treasury yield (daily), value on the last business day of each month"),
+}
 
 
 def main():
@@ -249,8 +275,10 @@ def main():
         pts = keep(fn())
         if not pts:
             raise SystemExit(f"{key}: データが取れませんでした")
-        data["series"][key] = {"name": name, "unit": unit, "source": src, "note": note, "retrieved": TODAY.isoformat(), "points": pts}
+        data["series"][key] = {"name": name, "name_en": SERIES_EN[key][0], "note_en": SERIES_EN[key][1], "unit": unit, "source": src, "note": note, "retrieved": TODAY.isoformat(), "points": pts}
         print(f"{key:10s} {pts[0]['ym']}〜{pts[-1]['ym']}  最新 {pts[-1]['value']}{unit}  ({len(pts)}件)")
+    for src in data["meta"]["sources"]:
+        src["org_en"], src["name_en"] = SOURCES_EN[src["id"]]
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     # ページ用（ファイルを直接開いても表示できるように JS としても書き出す）
     (OUT.parent / "assets" / "data.js").write_text("window.DATA = " + json.dumps(data, ensure_ascii=False) + ";\n", encoding="utf-8")

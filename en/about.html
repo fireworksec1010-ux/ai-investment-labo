@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sources, data rules and disclaimer | Learn Economy with Numbers</title>
+<meta name="description" content="The data sources this site uses, our rules for publishing numbers, and our disclaimer.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/about.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/about.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">Home</a> › Sources</div>
+    <h1>Sources, data rules and disclaimer</h1>
+    <p class="lead">This is not a site that tells you what to invest in. It is a site that helps you learn to decide for yourself. That is why we show where every number comes from.</p>
+  </div>
+
+  <section>
+    <div class="sec-h"><h2>Data we use</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:13px;margin-top:10px;"><a href="../data.json">Download all the numbers (JSON)</a></p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>How we choose sources</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Priority</th><th>Source</th><th>Examples</th></tr>
+        <tr><td>① Top priority</td><td>Government and international bodies</td><td>Bank of Japan, Ministry of Finance (Japan), U.S. Treasury, FRB, European Central Bank, World Bank, U.S. SEC</td></tr>
+        <tr><td>② Next</td><td>Official index providers</td><td>MSCI, S&amp;P Dow Jones Indices, Nikkei Inc., JPX Market Innovation &amp; Research (links only)</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Our rules</h2></div>
+    <ul class="points">
+      <li>We always name the original source.</li>
+      <li>We show when the data was retrieved and what period it covers.</li>
+      <li>We update month-end values once a month, at the start of the month.</li>
+      <li>When we process data (for example, picking month-end values from daily data), we explain how.</li>
+      <li>We never fill in unpublished values by guessing.</li>
+      <li>Stock index values are copyrighted by the companies that calculate them, so we link to the official sites instead of copying them.</li>
+      <li>When a source revises past values, we reflect the change at our next update.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Disclaimer</h2></div>
+    <div class="disclaimer">
+      <p>This site provides information for learning about the economy and investing. It does not recommend buying or selling any specific stock or financial product, and it does not predict future prices.</p>
+      <p>The numbers are based on data from the original sources, but we cannot guarantee they are accurate or up to date. Always check the latest values on the source's official site.</p>
+      <p style="margin:0;">The site operator is not responsible for any loss caused by using this information. Please make your own investment decisions.</p>
+    </div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  SITE.sourceList(document.getElementById("sources"), ["usdjpy","eurjpy","jp_policy","us_policy","jp10y","us10y"]);
+  var box = document.getElementById("sources");
+  box.innerHTML += SITE.sourceLine("wb", "GDP, inflation, GDP per person, growth, unemployment, population and Japan's consumer price index (yearly). Retrieved "+SITE.fmtDate(DATA.world.retrieved)+". CC BY 4.0")+
+    SITE.sourceLine("sec", "Company sales, operating profit and net profit (annual reports, Form 10-K / 20-F). Retrieved "+SITE.fmtDate(DATA.companies.retrieved));
+});
+</script>
+</body>
+</html>

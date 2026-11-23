@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Company Analysis: biggest companies by sales, Apple vs. Microsoft, Japanese companies | Learn Economy with Numbers</title>
+<meta name="description" content="Compare the sales and profit of big global companies, Apple vs. Microsoft, and Toyota, Honda and Sony, using annual report data filed with the U.S. SEC. Plus: sales vs. profit vs. market value, explained simply.">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/companies.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/companies.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">Home</a> › Company Analysis</div>
+    <span class="pill">Company Analysis</span>
+    <h1>Company Analysis</h1>
+    <p class="lead">How much do the world's biggest companies sell, and how much do they earn? Let's compare them using the numbers they report to the government.</p>
+    <div class="toc"><a href="#terms">Sales, profit, market value</a><a href="#ranking">Biggest by sales</a><a href="#am">Apple vs. Microsoft</a><a href="#japan">Japanese companies</a></div>
+    <div class="disclaimer" style="margin-top:16px;">This page is for learning how to read company numbers. It does not recommend buying or selling any company's stock.</div>
+  </div>
+
+  <section id="terms">
+    <div class="sec-h"><h2>Sales, profit and market value</h2></div>
+    <div class="quick" style="margin-bottom:16px;">
+      <span class="tag">Economics in 30 seconds</span>
+      <h3>Think of a ramen shop</h3>
+      <p style="margin:0;">If the shop sells 10,000 bowls of ¥1,000 ramen in a year, its <b>sales</b> are ¥10 million. Take away ingredients, rent and wages, and what is left is <b>operating profit</b>. Take away taxes and other costs, and the final amount is <b>net profit</b>. And the price the market would put on "buying the whole shop" is its <b>market value</b>.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th style="width:9em;">Word</th><th>Meaning</th><th>Where to find it</th></tr>
+        <tr><td>Sales (revenue)</td><td>All the money that came in from selling goods and services. Shows the company's size.</td><td>Financial report</td></tr>
+        <tr><td>Operating profit</td><td>Sales minus the costs of the main business (materials, wages, advertising). Shows how well the main business earns.</td><td>Financial report</td></tr>
+        <tr><td>Net profit</td><td>What is left after everything, including interest and taxes. Dividends come from this.</td><td>Financial report</td></tr>
+        <tr><td>Market value</td><td>Share price × number of shares. What the market thinks the whole company is worth, including hopes for the future. Changes every day.</td><td>Calculated from the share price</td></tr>
+      </table>
+    </div>
+    <p style="font-size:14px;margin-top:12px;">A company with big sales does not always have big profit or market value. A supermarket can have huge sales but earns only a little on each item. Software companies often earn a lot compared with their sales.</p>
+    <p style="font-size:12.5px;color:var(--muted);margin:0;">Market value changes every day with the share price. This site does not handle share price data, so please check market values on each company's investor relations (IR) page or a stock exchange.</p>
+  </section>
+
+  <section id="ranking">
+    <div class="sec-h"><h2>Biggest companies by sales</h2><span class="sub">Each company's latest fiscal year</span></div>
+    <div class="card" id="rank-bars"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">Covers <span id="n-co"></span> major companies that file annual reports with the U.S. Securities and Exchange Commission (SEC). This is not a ranking of every company in the world (for example, state-owned companies in China or Saudi Arabia are not included). Japanese companies are converted to dollars using the 12-month average USD/JPY rate for their fiscal year (Bank of Japan, monthly average). Fiscal years end in different months.</p>
+    <div class="quick" style="margin-top:16px;">
+      <span class="tag">Look closer</span>
+      <p style="margin:0;" id="rank-insight"></p>
+    </div>
+  </section>
+
+  <section id="am">
+    <div class="sec-h"><h2>Apple vs. Microsoft</h2></div>
+    <div class="grid g2" style="margin-bottom:16px;">
+      <div class="card"><b>Apple</b><p style="font-size:14px;margin:6px 0 0;">Sells devices like iPhone, Mac and iPad, plus services like the App Store, music and cloud storage. Most of its sales come from products it designs itself.</p></div>
+      <div class="card"><b>Microsoft</b><p style="font-size:14px;margin:6px 0 0;">Sells software like Windows and Office, and cloud services for businesses (Azure). Services for companies and governments are a big part of its business.</p></div>
+    </div>
+    <div class="tbl-wrap"><table id="am-table"></table></div>
+    <div class="grid g2" style="margin-top:16px;">
+      <div class="card chart-card" id="am-rev"></div>
+      <div class="card chart-card" id="am-ni"></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">Their fiscal years end in different months (Apple in September, Microsoft in June), so the periods do not line up exactly.</p>
+  </section>
+
+  <section id="japan">
+    <div class="sec-h"><h2>How strong are Japanese companies?</h2></div>
+    <p style="font-size:14.5px;">These three big Japanese companies also file annual reports with the U.S. SEC. We show the amounts in yen and in dollars.</p>
+    <div class="tbl-wrap"><table id="jp-table"></table></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;" id="jp-note"></p>
+    <div class="quick" style="margin-top:16px;">
+      <span class="tag">Look closer</span>
+      <p style="margin:0;" id="jp-insight"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Sources and data</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">Numbers come from the XBRL data (machine-readable financial data) in the annual reports each company filed with the SEC (Form 10-K for U.S. companies, Form 20-F for Japanese companies). Sales use tags such as Revenues, operating profit uses OperatingIncomeLoss and similar tags, and net profit is the amount attributable to the parent company's shareholders. Companies use different accounting standards (U.S. GAAP or IFRS), so treat comparisons as a guide. Check each company's IR page for the latest results.</p>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var CO = DATA.companies.list, C = SITE.comma, MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function fy(e){ var a = e.split("-"); return "FY ended "+MON[+a[1]-1]+" "+a[0]; }
+  function fyS(e){ var a = e.split("-"); return MON[+a[1]-1]+" "+a[0]; }
+  function lastY(c){ return c.years[c.years.length-1]; }
+  function toUsd(y, v){ return v==null ? null : (y.currency==="JPY" ? (y.usdjpy_avg ? v/y.usdjpy_avg : null) : v); }
+  function bn(v){ return v==null ? "—" : "$"+C(v/1e9,1)+" billion"; }
+  function tn(v){ return v==null ? "—" : "¥"+C(v/1e12,2)+" trillion"; }
+  function pct(a,b){ return (a==null||!b) ? "—" : (a/b*100).toFixed(1)+"%"; }
+  function find(n){ return CO.filter(function(c){ return c.name_en.indexOf(n)===0; })[0]; }
+
+  var ranked = CO.map(function(c){ var y = lastY(c); return {c:c, y:y, usd:toUsd(y, y.revenue)}; }).filter(function(r){ return r.usd; })
+    .sort(function(a,b){ return b.usd-a.usd; });
+  document.getElementById("n-co").textContent = ranked.length;
+  SITE.bars(document.getElementById("rank-bars"), { title:"Sales (in U.S. dollars)", rank:true,
+    rows:ranked.map(function(r){ return {label:r.c.name_en, after:fyS(r.y.end), value:r.usd, text:bn(r.usd), hl:r.c.country==="JP"}; }),
+    foot:"Source: U.S. Securities and Exchange Commission (SEC) EDGAR. Japanese companies converted with Bank of Japan USD/JPY (monthly average)" });
+  var top = ranked[0], best = ranked.slice().sort(function(a,b){ return (b.y.net_income/b.y.revenue)-(a.y.net_income/a.y.revenue); })[0];
+  document.getElementById("rank-insight").innerHTML = "The biggest seller is <b>"+top.c.name_en+"</b> ("+bn(top.usd)+"). But the company that keeps the largest share of its sales as net profit (net margin) is <b>"+best.c.name_en+"</b>, at "+pct(best.y.net_income, best.y.revenue)+". Being big and being good at earning are different things.";
+
+  var ap = find("Apple"), ms = find("Microsoft"), ya = lastY(ap), ym = lastY(ms);
+  function row(label, fa, fm){ return '<tr><th>'+label+'</th><td>'+fa+'</td><td>'+fm+'</td></tr>'; }
+  document.getElementById("am-table").innerHTML = '<tr><th></th><th>Apple ('+fy(ya.end)+')</th><th>Microsoft ('+fy(ym.end)+')</th></tr>'+
+    row("Sales", bn(ya.revenue), bn(ym.revenue))+row("Operating profit", bn(ya.op_income), bn(ym.op_income))+row("Net profit", bn(ya.net_income), bn(ym.net_income))+
+    row("Operating margin<br><small>(share of sales kept as operating profit)</small>", pct(ya.op_income, ya.revenue), pct(ym.op_income, ym.revenue))+
+    row("Net margin", pct(ya.net_income, ya.revenue), pct(ym.net_income, ym.revenue));
+  [["revenue","am-rev","Sales over time"],["net_income","am-ni","Net profit over time"]].forEach(function(k){
+    var n = Math.min(ap.years.length, ms.years.length), A = ap.years.slice(-n), M = ms.years.slice(-n);
+    SITE.plot(document.getElementById(k[1]), { title:k[2]+" ($ billion)", zero:true,
+      labels:A.map(function(y,i){ return String(i); }), tipLabels:A.map(function(y,i){ return "Apple "+fyS(y.end)+" / Microsoft "+fyS(M[i].end); }),
+      series:[{name:"Apple", short:"Apple", values:A.map(function(y){ return y[k[0]]==null?null:Math.round(y[k[0]]/1e8)/10; })},
+              {name:"Microsoft", short:"Microsoft", values:M.map(function(y){ return y[k[0]]==null?null:Math.round(y[k[0]]/1e8)/10; })}],
+      fmt:function(v){ return "$"+C(v,1)+"B"; }, axisFmt:function(v){ return C(v,0); },
+      tickEvery:function(i,l,len){ return i===len-1 ? "Latest" : (i===0 ? (len-1)+" yrs ago" : null); },
+      foot:"Source: SEC EDGAR (Form 10-K)" });
+  });
+
+  var jps = CO.filter(function(c){ return c.country==="JP"; });
+  document.getElementById("jp-table").innerHTML = '<tr><th></th>'+jps.map(function(c){ return '<th>'+c.name_en+'<br><small>'+fy(lastY(c).end)+'</small></th>'; }).join("")+'</tr>'+
+    [["Sales", function(y){ return tn(y.revenue)+'<br><small style="color:var(--muted)">about '+bn(toUsd(y,y.revenue))+'</small>'; }],
+     ["Operating profit", function(y){ return tn(y.op_income); }], ["Net profit", function(y){ return tn(y.net_income); }],
+     ["Operating margin", function(y){ return pct(y.op_income, y.revenue); }],
+     ["Exchange rate used", function(y){ return y.usdjpy_avg ? "$1 = ¥"+y.usdjpy_avg.toFixed(2) : "—"; }],
+     ["Rank in the list above", function(y, c){ return (ranked.map(function(r){ return r.c; }).indexOf(c)+1)+" of "+ranked.length; }]
+    ].map(function(r){ return '<tr><th>'+r[0]+'</th>'+jps.map(function(c){ return '<td>'+r[1](lastY(c), c)+'</td>'; }).join("")+'</tr>'; }).join("");
+  document.getElementById("jp-note").textContent = "The latest fiscal year available in SEC data is the "+fy(lastY(jps[0]).end)+". Newer results are on each company's IR page.";
+  var ty = find("Toyota"), tyy = lastY(ty);
+  document.getElementById("jp-insight").innerHTML = "Toyota's sales were about <b>"+tn(tyy.revenue)+"</b> and its operating profit about <b>"+tn(tyy.op_income)+"</b>. In dollars, sales were about "+bn(toUsd(tyy,tyy.revenue))+" — number "+(ranked.map(function(r){ return r.c; }).indexOf(ty)+1)+" in the list above.";
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("sec", "Retrieved "+SITE.fmtDate(DATA.companies.retrieved))+
+    CO.map(function(c){ return '<div>'+c.name_en+' ('+c.entity+'): <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK='+c.cik+'&type='+(c.country==="JP"?"20-F":"10-K")+'" target="_blank" rel="noopener">SEC filings</a></div>'; }).join("")+
+    SITE.sourceLine("boj","USD/JPY used to convert Japanese companies (Tokyo market, 17:00, monthly average, series FXERM07)");
+});
+</script>
+</body>
+</html>
