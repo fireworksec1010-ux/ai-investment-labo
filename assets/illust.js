@@ -1,7 +1,7 @@
 /* オリジナルのイラスト（すべてインラインSVG） */
 (function(){
   var K = "#1b1f3b"; // 線の色
-  var EN = document.documentElement.lang === "en";
+  var EN = document.documentElement.lang === "en", ZHL = /^zh/.test(document.documentElement.lang);
   function svg(vb, inner, cls){ return '<svg class="illu '+(cls||"")+'" viewBox="'+vb+'" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+inner+'</svg>'; }
   var S = 'stroke="'+K+'" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
 
@@ -16,7 +16,7 @@
   function bigCoin(cx, cy, r, sym, fill, cls){
     return '<g class="'+(cls||"")+'"><circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+(fill||"#ffc53d")+'" '+S+'/>'+
       '<circle cx="'+cx+'" cy="'+cy+'" r="'+(r*0.74)+'" fill="none" stroke="rgba(27,31,59,.25)" stroke-width="2.5"/>'+
-      '<text x="'+cx+'" y="'+(cy+r*0.36)+'" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="800" font-size="'+(r*1.05)+'" fill="'+K+'">'+sym+'</text></g>';
+      '<text x="'+cx+'" y="'+(cy+r*0.36)+'" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="800" font-size="'+(r*1.05)+'" fill="'+K+'">'+sym+'</text></g>';
   }
 
   /* コイン先生（オリジナルキャラクター） */
@@ -52,7 +52,7 @@
       '<path d="M238 58 C230 44 234 30 242 22 C250 32 248 46 238 58Z" fill="#5ee0b0" '+S+'/></g>'+
       '<path class="draw" d="M34 170 C90 168 120 140 160 120 S230 70 290 40" fill="none" stroke="#3b6cff" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round"/>'+
       '<path d="M278 34 L294 38 L286 52" fill="none" stroke="#3b6cff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'+
-      '<g class="float"><rect x="22" y="40" width="96" height="40" rx="12" fill="#fff" '+S+'/><text x="70" y="67" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="800" font-size="20" fill="#12b886">'+(EN?"+5%/yr":"+5%/年")+'</text></g>'+
+      '<g class="float"><rect x="22" y="40" width="96" height="40" rx="12" fill="#fff" '+S+'/><text x="70" y="67" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="800" font-size="20" fill="#12b886">'+(EN?"+5%/yr":"+5%/年")+'</text></g>'+
       sparkle(286, 92, 9, "#ffc53d", 0)+sparkle(150, 70, 7, "#12b886", .6)+sparkle(40, 120, 6, "#ffc53d", 1.2));
   }
 
@@ -84,7 +84,7 @@
       '<line x1="248" y1="40" x2="248" y2="18" '+S+'/><path d="M248 18 L270 24 L248 30Z" fill="#ffc53d" '+S+'/>'+
       '<line x1="10" y1="220" x2="310" y2="220" '+S+'/>'+
       '<g class="peek"><circle cx="122" cy="98" r="34" fill="rgba(255,255,255,.55)" '+S+' stroke-width="5"/><line x1="146" y1="122" x2="176" y2="152" '+K.replace(/.*/, 'stroke="'+K+'"')+' stroke-width="10" stroke-linecap="round"/></g>'+
-      '<g class="float d1"><rect x="10" y="30" width="94" height="40" rx="12" fill="#fff" '+S+'/><text x="57" y="57" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="800" font-size="18" fill="#ff6b57">'+(EN?"Sales ↑":"売上 ↑")+'</text></g>'+
+      '<g class="float d1"><rect x="10" y="30" width="94" height="40" rx="12" fill="#fff" '+S+'/><text x="57" y="57" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="800" font-size="18" fill="#ff6b57">'+(EN?"Sales ↑":ZHL?"營收 ↑":"売上 ↑")+'</text></g>'+
       sparkle(300, 70, 8, "#ffc53d", .4)+sparkle(196, 60, 6, "#ff6b57", 1.1));
   }
 
@@ -100,7 +100,7 @@
       '<circle cx="216" cy="128" r="6" fill="'+K+'"/><ellipse cx="226" cy="150" rx="9" ry="6" fill="#ff8f80" opacity=".7"/>'+
       '<rect x="146" y="86" width="44" height="9" rx="4.5" fill="'+K+'"/>'+
       '<path d="M70 146 C52 140 50 160 62 160 C72 160 66 146 56 150" fill="none" '+S+'/>'+
-      '<g class="float d2"><rect x="14" y="40" width="98" height="40" rx="12" fill="#fff" '+S+'/><text x="63" y="67" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="800" font-size="18" fill="#e08a00">'+(EN?"¥1M":"100万円")+'</text></g>'+
+      '<g class="float d2"><rect x="14" y="40" width="98" height="40" rx="12" fill="#fff" '+S+'/><text x="63" y="67" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="800" font-size="18" fill="#e08a00">'+(EN?"¥1M":ZHL?"100萬日圓":"100万円")+'</text></g>'+
       sparkle(286, 60, 9, "#ffc53d", .2)+sparkle(250, 214, 6, "#ff6b57", .9)+sparkle(60, 206, 7, "#ffc53d", 1.4));
   }
 
@@ -121,7 +121,7 @@
       '<path d="M40 110 L130 70 L220 110Z" fill="#cfe0ff" '+S+'/>'+
       [56,86,116,146,176].map(function(x){ return '<rect x="'+x+'" y="114" width="16" height="90" rx="3" fill="#fff" '+S+'/>'; }).join("")+
       '<rect x="36" y="204" width="188" height="20" rx="4" fill="#cfe0ff" '+S+'/>'+
-      '<g class="float"><circle cx="248" cy="96" r="52" fill="#3b6cff" '+S+' stroke-width="4"/><text x="248" y="116" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="900" font-size="58" fill="#fff">%</text></g>'+
+      '<g class="float"><circle cx="248" cy="96" r="52" fill="#3b6cff" '+S+' stroke-width="4"/><text x="248" y="116" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="900" font-size="58" fill="#fff">%</text></g>'+
       '<g class="nudge-up"><path d="M282 176 L282 140 M270 152 L282 140 L294 152" fill="none" stroke="#12b886" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>'+
       '<g class="nudge-down"><path d="M246 178 L246 214 M234 202 L246 214 L258 202" fill="none" stroke="#ff6b57" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>'+
       sparkle(300, 30, 8, "#ffc53d", .5));
@@ -137,7 +137,7 @@
       candles.map(function(c,i){ var up = i!==2 && i!==5; return '<line x1="'+c[0]+'" y1="'+(c[2]-10)+'" x2="'+c[0]+'" y2="'+(c[3]+10)+'" stroke="'+K+'" stroke-width="2.5"/>'+
         '<rect x="'+(c[0]-8)+'" y="'+c[2]+'" width="16" height="'+(c[3]-c[2])+'" rx="3" fill="'+(up?"#12b886":"#ff6b57")+'" stroke="'+K+'" stroke-width="2.5"/>'; }).join("")+
       '<path class="draw" d="M52 176 L88 150 L116 158 L144 128 L172 112 L200 118 L228 90 L262 66" fill="none" stroke="#3b6cff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'+
-      '<g class="float d1"><rect x="200" y="14" width="96" height="36" rx="12" fill="#ffc53d" '+S+'/><text x="248" y="38" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="800" font-size="17" fill="'+K+'">INDEX</text></g>'+
+      '<g class="float d1"><rect x="200" y="14" width="96" height="36" rx="12" fill="#ffc53d" '+S+'/><text x="248" y="38" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="800" font-size="17" fill="'+K+'">INDEX</text></g>'+
       sparkle(30, 230, 7, "#ffc53d", .8));
   }
 

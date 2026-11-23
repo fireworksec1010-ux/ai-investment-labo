@@ -1,15 +1,19 @@
 /* 共通：ヘッダー・フッター・データ・グラフ */
 (function(){
-  var EN = document.documentElement.lang === "en";
-  function T(ja, en){ return EN ? en : ja; }
-  var NAV = EN ? [
+  var LANG = document.documentElement.lang === "en" ? "en" : (/^zh/.test(document.documentElement.lang) ? "zh" : "ja");
+  var EN = LANG === "en", ZH = LANG === "zh";
+  function T(ja, en, zh){ return ZH ? (zh != null ? zh : en) : (EN ? en : ja); }
+  var NAV = ZH ? [
+    ["index.html","首頁"],["basics.html","投資基礎"],["world.html","全球經濟"],["companies.html","企業分析"],
+    ["money.html","理財素養"],["about.html","資料來源"]
+  ] : EN ? [
     ["index.html","Home"],["basics.html","Basics"],["world.html","Economy"],["companies.html","Companies"],
     ["money.html","Money"],["about.html","Sources"]
   ] : [
     ["index.html","トップ"],["basics.html","投資の基礎"],["world.html","世界経済"],["companies.html","企業分析"],
     ["money.html","お金の教養"],["about.html","出典・免責"]
   ];
-  var SUBNAV = EN ? [["stocks.html","Stock indexes"],["fx.html","Exchange rates"],["rates.html","Interest rates"]] : [["stocks.html","株価指数"],["fx.html","為替"],["rates.html","金利"]];
+  var SUBNAV = ZH ? [["stocks.html","股價指數"],["fx.html","匯率"],["rates.html","利率"]] : EN ? [["stocks.html","Stock indexes"],["fx.html","Exchange rates"],["rates.html","Interest rates"]] : [["stocks.html","株価指数"],["fx.html","為替"],["rates.html","金利"]];
   var CTRY_EN = { KOR:"South Korea", RUS:"Russia", TUR:"Turkey", IRN:"Iran", EGY:"Egypt", VNM:"Vietnam" };
   var PARENT = { "stocks.html":"basics.html", "fx.html":"world.html", "rates.html":"world.html" };
   var here = location.pathname.split("/").pop() || "index.html";
@@ -22,36 +26,41 @@
   var LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="21" r="16" fill="#ffc53d" stroke="#1b1f3b" stroke-width="2.5"/><circle cx="20" cy="21" r="11" fill="none" stroke="#e39b00" stroke-width="2"/>'+
     '<path d="M13 26 L18 20 L22 23 L28 15" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 14.5 L28.5 14.5 L28.5 19" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-  var other = EN ? "../"+(here==="index.html"?"":here) : "en/"+(here==="index.html"?"":here);
+  var page = here==="index.html" ? "" : here;
+  function langHref(l){ return (LANG==="ja" ? "" : "../")+(l==="ja" ? "" : l+"/")+page; }
+  var LANGS = [["ja","日本語"],["en","EN"],["zh","中文"]].filter(function(x){ return x[0]!==LANG; });
+  var other = langHref(LANGS[0][0]);
   function head(){
     document.body.dataset.theme = THEME[here] || "home";
     var h = document.createElement("header"); h.className = "site-head";
-    h.innerHTML = '<div class="wrap"><a class="logo" href="index.html">'+LOGO+'<span class="lt">'+T('数字で学ぶ<i>、</i>経済と投資','Learn <i>Economy</i> with Numbers')+'</span></a><nav class="nav">'+
+    h.innerHTML = '<div class="wrap"><a class="logo" href="index.html">'+LOGO+'<span class="lt">'+T('数字で学ぶ<i>、</i>経済と投資','Learn <i>Economy</i> with Numbers','用數字學<i>經濟</i>與投資')+'</span></a><nav class="nav">'+
       NAV.map(function(n){ return '<a href="'+n[0]+'"'+(n[0]===active?' class="active"':'')+'>'+n[1]+'</a>'; }).join("")+
-      '<a class="lang" href="'+other+'" hreflang="'+T("en","ja")+'" lang="'+T("en","ja")+'">'+T("EN","日本語")+'</a></nav></div>';
+      LANGS.map(function(x,i){ return '<a class="lang'+(i?' lang2':'')+'" href="'+langHref(x[0])+'" hreflang="'+(x[0]==="zh"?"zh-Hant":x[0])+'" lang="'+(x[0]==="zh"?"zh-Hant":x[0])+'">'+x[1]+'</a>'; }).join("")+'</nav></div>';
     document.body.insertBefore(h, document.body.firstChild);
     if(window.DATA) h.insertAdjacentElement("afterend", ticker());
     var M = window.ILLUST ? ILLUST.mascot() : "";
     var f = document.createElement("footer");
-    f.innerHTML = '<div class="wrap">'+M+'<div><div class="fname">'+T("数字で学ぶ、経済と投資","Learn Economy with Numbers")+'</div><div class="links">'+NAV.concat(SUBNAV).map(function(n){ return '<a href="'+n[0]+'">'+n[1]+'</a>'; }).join("")+
-      '<a href="'+other+'">'+T("English","日本語")+'</a></div>'+
+    f.innerHTML = '<div class="wrap">'+M+'<div><div class="fname">'+T("数字で学ぶ、経済と投資","Learn Economy with Numbers","用數字學經濟與投資")+'</div><div class="links">'+NAV.concat(SUBNAV).map(function(n){ return '<a href="'+n[0]+'">'+n[1]+'</a>'; }).join("")+
+      LANGS.map(function(x){ return '<a href="'+langHref(x[0])+'">'+({ja:"日本語",en:"English",zh:"中文（繁體）"})[x[0]]+'</a>'; }).join("")+'</div>'+
       '<div>'+T('このサイトは経済と投資について学ぶための情報提供を目的としており、特定の銘柄や金融商品の売買をすすめるものではありません。投資の判断はご自身の責任で行ってください。',
-        'This site is for learning about the economy and investing. It does not recommend buying or selling any specific stock or financial product. Please make your own investment decisions.')+'</div>'+
-      '<div style="margin-top:6px;">'+T('データ更新：','Data updated: ')+(window.DATA ? fmtDate(DATA.meta.generated_at) : "")+T('（毎月はじめに更新）・キャラクター「コイン先生」はこのサイトのオリジナルです',' (updated at the start of each month) · "Coin Sensei" is an original character of this site')+'</div></div></div>';
+        'This site is for learning about the economy and investing. It does not recommend buying or selling any specific stock or financial product. Please make your own investment decisions.',
+        '本網站以學習經濟與投資為目的提供資訊，並不推薦買賣任何特定股票或金融商品。投資判斷請自行負責。')+'</div>'+
+      '<div style="margin-top:6px;">'+T('データ更新：','Data updated: ','資料更新：')+(window.DATA ? fmtDate(DATA.meta.generated_at) : "")+T('（毎月はじめに更新）・キャラクター「コイン先生」はこのサイトのオリジナルです',' (updated at the start of each month) · "Coin Sensei" is an original character of this site','（每月月初更新）・角色「硬幣老師」為本網站原創')+'</div></div></div>';
     document.body.appendChild(f);
     decorate();
   }
 
   /* ニュースのような数字のテロップ */
   function ticker(){
-    var items = EN ? [["usdjpy","USD/JPY"],["eurjpy","EUR/JPY"],["jp_policy","Japan policy rate"],["us_policy","U.S. policy rate"],["jp10y","Japan 10Y bond"],["us10y","U.S. 10Y Treasury"]]
+    var items = ZH ? [["usdjpy","美元兌日圓"],["eurjpy","歐元兌日圓"],["jp_policy","日本政策利率"],["us_policy","美國政策利率"],["jp10y","日本10年期國債"],["us10y","美國10年期公債"]]
+      : EN ? [["usdjpy","USD/JPY"],["eurjpy","EUR/JPY"],["jp_policy","Japan policy rate"],["us_policy","U.S. policy rate"],["jp10y","Japan 10Y bond"],["us10y","U.S. 10Y Treasury"]]
       : [["usdjpy","ドル円"],["eurjpy","ユーロ円"],["jp_policy","日本の政策金利"],["us_policy","アメリカの政策金利"],["jp10y","日本10年国債"],["us10y","アメリカ10年国債"]];
     var one = '<span class="it"><span class="lbl">'+endOf(last("usdjpy").ym)+'</span></span>'+items.map(function(k){
       var s = S(k[0]), a = last(k[0]), b = last(k[0],1), d = a.value-b.value;
       var cls = d>0.0005 ? "u" : (d<-0.0005 ? "d" : "f"), mark = d>0.0005 ? "▲" : (d<-0.0005 ? "▼" : "−");
       return '<span class="it">'+k[1]+' <b>'+num(a.value, s.unit)+unitTxt(s.unit)+'</b><span class="'+cls+'">'+mark+Math.abs(d).toFixed(2)+'</span></span>';
     }).join("");
-    var t = document.createElement("div"); t.className = "ticker"; t.setAttribute("aria-label",T("最新の為替と金利","Latest exchange and interest rates"));
+    var t = document.createElement("div"); t.className = "ticker"; t.setAttribute("aria-label",T("最新の為替と金利","Latest exchange and interest rates","最新匯率與利率"));
     t.innerHTML = '<div class="track">'+one+one+one+one+'</div>';
     return t;
   }
@@ -65,10 +74,22 @@
       hero.appendChild(txt);
       var art = document.createElement("div"); art.className = "hero-art"; art.innerHTML = ILLUST[ART[here]]();
       hero.appendChild(art);
+      if(here==="index.html" && window.DATA){ // 食品サイトのような「浮かぶ値札」
+        var W = DATA.world, rk = W.gdp_rank.map(function(r){ return r.code; }).indexOf("JPN")+1;
+        art.insertAdjacentHTML("beforeend",
+          '<div class="scene-tag t1" style="--tc:#2a78d6">'+T("ドル円","USD/JPY","美元兌日圓")+'<span class="v">'+last("usdjpy").value.toFixed(2)+'<small>'+T("円","yen","日圓")+'</small></span></div>'+
+          '<div class="scene-tag t2" style="--tc:#1baf7a">'+T("日本の10年国債","Japan 10Y bond","日本10年期國債")+'<span class="v">'+last("jp10y").value.toFixed(2)+'<small>%</small></span></div>'+
+          '<div class="scene-tag t3" style="--tc:#eb6834">'+T("日本のGDP（"+W.gdp_year+"年）","Japan GDP ("+W.gdp_year+")","日本GDP（"+W.gdp_year+"年）")+'<span class="v">'+T(rk+"<small>位</small>", "No."+rk, "第"+rk+"<small>名</small>")+'</span></div>');
+      }
+    }
+    if(!document.querySelector(".bg-deco")){
+      var bg = document.createElement("div"); bg.className = "bg-deco"; bg.setAttribute("aria-hidden","true");
+      bg.innerHTML = '<div class="wave"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>';
+      document.body.insertBefore(bg, document.body.firstChild);
     }
     if(window.ILLUST) document.querySelectorAll(".quick").forEach(function(q){
       if(q.classList.contains("has-mascot")) return;
-      var tag = q.querySelector(".tag"), wow = tag && /注意|注目|Watch|Note|Look/.test(tag.textContent);
+      var tag = q.querySelector(".tag"), wow = tag && /注意|注目|Watch|Note|Look|留意|重點/.test(tag.textContent);
       var b = document.createElement("div"); b.className = "bubble";
       while(q.firstChild) b.appendChild(q.firstChild);
       q.innerHTML = ILLUST.mascot(wow ? "wow" : ""); q.appendChild(b); q.classList.add("has-mascot");
@@ -95,15 +116,15 @@
   var MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   function fmtDate(s){ var a = s.split("-"); return EN ? MON[+a[1]-1]+" "+(+a[2])+", "+a[0] : a[0]+"年"+(+a[1])+"月"+(+a[2])+"日"; }
   function ymLabel(ym){ var a = ym.split("-"); return EN ? MON[+a[1]-1]+" "+a[0] : a[0]+"年"+(+a[1])+"月"; }
-  function endOf(ym){ return EN ? "End of "+ymLabel(ym) : ymLabel(ym)+"末"; }
-  function unitTxt(u){ return u==="%" ? "%" : (EN ? " yen" : "円"); }
-  function nm(o){ return o ? (EN ? (o.name_en||o.name) : o.name) : ""; }
-  function cname(r){ return EN ? (CTRY_EN[r.code] || r.name_en || r.name) : r.name; }
+  function endOf(ym){ return EN ? "End of "+ymLabel(ym) : ymLabel(ym)+T("末","","底"); }
+  function unitTxt(u){ return u==="%" ? "%" : T("円"," yen"," 日圓"); }
+  function nm(o){ return o ? (ZH ? (o.name_zh||o.name_en||o.name) : EN ? (o.name_en||o.name) : o.name) : ""; }
+  function cname(r){ return ZH ? (r.name_zh || r.name) : EN ? (CTRY_EN[r.code] || r.name_en || r.name) : r.name; }
   function S(key){ return DATA.series[key]; }
   function last(key, back){ var p = S(key).points; return p[p.length-1-(back||0)]; }
   function num(v, unit){ return unit==="%" ? v.toFixed(2) : v.toFixed(2); }
   function src(id){ return DATA.meta.sources.filter(function(s){ return s.id===id; })[0]; }
-  function comma(v, d){ return v.toLocaleString(EN ? "en-US" : "ja-JP", {minimumFractionDigits:d||0, maximumFractionDigits:d||0}); }
+  function comma(v, d){ return v.toLocaleString(EN ? "en-US" : ZH ? "zh-TW" : "ja-JP", {minimumFractionDigits:d||0, maximumFractionDigits:d||0}); }
   /* 大きな金額を「兆・億」で */
   function yen(v){ // v: 円
     var a = Math.abs(v);
@@ -119,7 +140,7 @@
     var a = last(key), b = last(key, back), s = S(key), d = a.value - b.value;
     var cls = d>0.0005 ? "up" : (d<-0.0005 ? "down" : "");
     var sign = d>0 ? "+" : (d<0 ? "−" : "±");
-    var txt = s.unit==="%" ? sign+Math.abs(d).toFixed(2)+T("ポイント"," pt") : sign+Math.abs(d).toFixed(2)+T("円"," yen");
+    var txt = s.unit==="%" ? sign+Math.abs(d).toFixed(2)+T("ポイント"," pt"," 個百分點") : sign+Math.abs(d).toFixed(2)+T("円"," yen"," 日圓");
     return '<span class="'+cls+'">'+txt+'</span>';
   }
 
@@ -135,9 +156,9 @@
     var s = S(key), p = last(key);
     return '<a class="card tile" href="'+o.href+'"><div class="cat">'+o.cat+'</div><div class="nm">'+(o.name||nm(s))+'</div>'+
       spark(key)+
-      '<div class="val"><span data-count="'+p.value+'" data-dec="2">'+num(p.value, s.unit)+'</span><small>'+(s.unit==="%"?"%":T("円","yen"))+'</small></div>'+
-      '<div class="chg">'+T('前の月から ','vs last month ')+change(key,1)+T('　1年前から ','　vs 1 year ago ')+change(key,12)+'</div>'+
-      '<div class="when">'+T(ymLabel(p.ym)+'末時点・出典：'+src(s.source).org, endOf(p.ym)+' · Source: '+src(s.source).org_en)+'</div>'+
+      '<div class="val"><span data-count="'+p.value+'" data-dec="2">'+num(p.value, s.unit)+'</span><small>'+(s.unit==="%"?"%":T("円","yen","日圓"))+'</small></div>'+
+      '<div class="chg">'+T('前の月から ','vs last month ','較上月 ')+change(key,1)+T('　1年前から ','　vs 1 year ago ','　較1年前 ')+change(key,12)+'</div>'+
+      '<div class="when">'+T(ymLabel(p.ym)+'末時点・出典：'+src(s.source).org, endOf(p.ym)+' · Source: '+src(s.source).org_en, endOf(p.ym)+'・來源：'+src(s.source).org_zh)+'</div>'+
       (o.more ? '<div class="more">'+o.more+' →</div>' : '')+'</a>';
   }
 
@@ -154,7 +175,7 @@
       (multi ? '<div class="legend">'+cfg.series.map(function(s,i){ return '<span><i style="background:'+COLORS[i]+'"></i>'+s.name+'</span>'; }).join("")+'</div>' : '')+
       '<div class="chart-wrap"><svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+cfg.title+'"></svg><div class="tip"></div></div>'+
       '<div class="chart-foot">'+(cfg.foot||"")+'</div>'+
-      '<details class="table-view"><summary>'+T("数値を表で見る","Show as a table")+'</summary><div class="tbl-wrap"></div></details>';
+      '<details class="table-view"><summary>'+T("数値を表で見る","Show as a table","以表格檢視數值")+'</summary><div class="tbl-wrap"></div></details>';
     var svg = box.querySelector("svg"), tip = box.querySelector(".tip");
     box.querySelectorAll(".seg button").forEach(function(b){
       b.addEventListener("click", function(){
@@ -251,7 +272,7 @@
       axisFmt:function(v,st){ return (st<1 ? v.toFixed(st<0.1?2:1) : v)+(unit==="%"?"%":""); },
       tickEvery:function(i, ym, len){ var mo = +ym.slice(5), yr = ym.slice(0,4);
         if(len<=13) return i%2===0 ? (EN ? (mo===1||i===0 ? MON[mo-1]+" '"+yr.slice(2) : MON[mo-1]) : (mo===1||i===0 ? yr.slice(2)+"年"+mo+"月" : mo+"月")) : null;
-        if(mo!==1) return null; return (len<=61 || +yr%2===0) ? yr+T("年","") : null; }
+        if(mo!==1) return null; return (len<=61 || +yr%2===0) ? yr+T("年","","年") : null; }
     });
   }
 
@@ -271,6 +292,8 @@
   function sourceList(box, keys){
     box.innerHTML = keys.map(function(k){
       var s = S(k), o = src(s.source);
+      if(ZH) return '<div><b>'+s.name_zh+'</b>：'+o.org_zh+'「'+o.name_zh+'」　<a href="'+o.url+'" target="_blank" rel="noopener">查看來源</a><br>'+
+        '<span style="color:var(--muted)">內容：'+s.note_zh+'／期間：'+ymLabel(s.points[0].ym)+'～'+ymLabel(s.points[s.points.length-1].ym)+'（月底數值・每月更新）／取得日：'+fmtDate(s.retrieved)+'</span></div>';
       if(EN) return '<div><b>'+s.name_en+'</b>: '+o.org_en+', "'+o.name_en+'"　<a href="'+o.url+'" target="_blank" rel="noopener">View source</a><br>'+
         '<span style="color:var(--muted)">What: '+s.note_en+' / Period: '+ymLabel(s.points[0].ym)+' – '+ymLabel(s.points[s.points.length-1].ym)+' (month-end values, updated monthly) / Retrieved: '+fmtDate(s.retrieved)+'</span></div>';
       return '<div><b>'+s.name+'</b>：'+o.org+'「'+o.name+'」　<a href="'+o.url+'" target="_blank" rel="noopener">出典を見る</a><br>'+
@@ -279,11 +302,12 @@
   }
   function sourceLine(id, extra){
     var o = src(id);
+    if(ZH) return '<div><b>'+o.org_zh+'</b>「'+o.name_zh+'」　<a href="'+o.url+'" target="_blank" rel="noopener">查看來源</a>'+(extra?'<br><span style="color:var(--muted)">'+extra+'</span>':'')+'</div>';
     if(EN) return '<div><b>'+o.org_en+'</b>, "'+o.name_en+'"　<a href="'+o.url+'" target="_blank" rel="noopener">View source</a>'+(extra?'<br><span style="color:var(--muted)">'+extra+'</span>':'')+'</div>';
     return '<div><b>'+o.org+'</b>「'+o.name+'」　<a href="'+o.url+'" target="_blank" rel="noopener">出典を見る</a>'+(extra?'<br><span style="color:var(--muted)">'+extra+'</span>':'')+'</div>';
   }
 
   window.SITE = { tile:tile, plot:plot, lineChart:lineChart, bars:bars, sourceList:sourceList, sourceLine:sourceLine,
-    last:last, ymLabel:ymLabel, endOf:endOf, fmtDate:fmtDate, num:num, S:S, comma:comma, yen:yen, oku:oku, nm:nm, cname:cname, EN:EN, T:T };
+    last:last, ymLabel:ymLabel, endOf:endOf, fmtDate:fmtDate, num:num, S:S, comma:comma, yen:yen, oku:oku, nm:nm, cname:cname, EN:EN, ZH:ZH, T:T };
   document.addEventListener("DOMContentLoaded", head);
 })();

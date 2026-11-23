@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>理財素養｜儲蓄與投資的差別・通膨與金錢價值・風險與報酬｜用數字學經濟與投資</title>
+<meta name="description" content="以公開資料與試算工具，淺顯解說儲蓄與投資的差別、通膨如何改變金錢價值、100萬日圓的未來價值，以及風險與報酬的關係。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/money.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/money.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/money.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ 理財素養</div>
+    <span class="pill">Money Education</span>
+    <h1>理財素養</h1>
+    <p class="lead">錢不只是用來「存」的，物價上漲時，它的價值也會改變。了解儲蓄與投資的差別、通膨與金錢價值、風險與報酬的關係，想想適合自己的用錢方式。</p>
+    <div class="toc"><a href="#save">儲蓄與投資的差別</a><a href="#inflation">通膨與金錢價值</a><a href="#future">100萬日圓的未來價值</a><a href="#risk">風險與報酬</a><a href="#self">投資自負責任</a></div>
+  </div>
+
+  <section id="save">
+    <div class="sec-h"><h2>儲蓄與投資的差別</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th></th><th>儲蓄（銀行存款）</th><th>投資（股票・基金等）</th></tr>
+        <tr><th>本金</th><td>不會減少（在日本，即使銀行倒閉，每人在每家銀行1,000萬日圓及其利息受到保障）</td><td>可能減少</td></tr>
+        <tr><th>增加方式</th><td>靠利息慢慢增加</td><td>可能因股價上漲或股利大幅增加，也可能減少</td></tr>
+        <tr><th>需要用錢時</th><td>隨時都能領出相同金額</td><td>拿回的金額取決於賣出時的價格</td></tr>
+        <tr><th>適合的錢</th><td>近期要用的錢、應急的錢</td><td>好幾年都不會用到的錢</td></tr>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">存款保障制度：<a href="https://www.dic.go.jp/english/" target="_blank" rel="noopener">日本存款保險機構（英文）</a>。部分存款（如外幣存款）不在保障範圍內。</p>
+    <div class="quick" style="margin-top:14px;">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>沒有哪一個才是「正確」</h3>
+      <p style="margin:0;">儲蓄換來「安心」，投資則是以接受「可能減少」來換取「可能增加」。許多人把生活所需的錢放在存款，再用多年不會動用的錢的一部分來投資。比例該怎麼分配，因年齡、收入與用錢計畫而異。</p>
+    </div>
+  </section>
+
+  <section id="inflation">
+    <div class="sec-h"><h2>通膨與金錢的價值</h2></div>
+    <div class="quick" style="margin-bottom:14px;">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>物價上漲，金錢的價值就下降</h3>
+      <p style="margin:0;">去年100日圓買得到的麵包，今年變成110日圓，同樣的100日圓就買不到了。金額沒變，能買的東西卻變少了，也就是<b>金錢的價值下降了</b>。這就是通貨膨脹。</p>
+    </div>
+    <div class="card">
+      <b>過去的100萬日圓，相當於現在的多少？</b>
+      <div class="calc">
+        <label>選擇年份<select id="i-year"></select></label>
+      </div>
+      <p style="font-size:15px;margin:0;" id="i-result"></p>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">計算方式：使用日本消費者物價指數（世界銀行資料，2010年＝100），以「100萬日圓 × 最新年度指數 ÷ 所選年度指數」計算。這是整體物價的平均，各品項的漲幅不同。食品價格走勢可參考<a href="https://fireworksec1010-ux.github.io/ai-taste-labo/" target="_blank" rel="noopener">AI Taste Labo「食卓の物価」</a>（日文）。</p>
+    </div>
+    <div class="card chart-card" id="cpi-chart" style="margin-top:14px;"></div>
+  </section>
+
+  <section id="future">
+    <div class="sec-h"><h2>100萬日圓的未來價值</h2></div>
+    <p style="font-size:14.5px;">把現在的100萬日圓 ①原封不動拿著，或 ②每年以固定比例增加，考慮物價上漲後，未來的「購買力」會是多少？</p>
+    <div class="card chart-card">
+      <b>未來價值試算工具</b> <span class="example">假設性計算</span>
+      <div class="calc">
+        <label>現在的金額（萬日圓）<input type="number" id="f-p" value="100" min="0"></label>
+        <label>物價上漲率（年%）<input type="number" id="f-i" value="2" step="0.1"></label>
+        <label>增加比例（年%）<input type="number" id="f-r" value="4" step="0.1"></label>
+        <label>年數<input type="number" id="f-y" value="20" min="1" max="60"></label>
+      </div>
+      <div class="result">
+        <div><span>①原封不動時的「購買力」</span><b id="f-cash"></b></div>
+        <div><span>②增加後的金額</span><b id="f-nom"></b></div>
+        <div><span>②的「購買力」（以現在物價計）</span><b id="f-real"></b></div>
+      </div>
+      <div id="f-chart"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">計算方式：「購買力」＝ 未來金額 ÷（1＋物價上漲率）<sup>年數</sup>。假設每年以相同比例增加、物價也以相同比例上漲，未計入稅金與手續費。實際物價與投資成績每年都會變動，也可能低於本金。日本銀行以物價上漲率「每年2%」為目標。</p>
+    </div>
+  </section>
+
+  <section id="risk">
+    <div class="sec-h"><h2>風險與報酬</h2></div>
+    <div class="quick" style="margin-bottom:14px;">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>投資的「風險」不是危險，而是「波動幅度」</h3>
+      <p style="margin:0;">投資上說的<b>風險</b>，是指「結果會有多大的波動」。<b>報酬</b>則是投資得到的成果（增加或減少的部分）。一般來說，可能大幅增加的東西，也可能大幅減少。「風險低、報酬高」這種好事，通常並不存在。</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>種類</th><th>波動幅度（風險）</th><th>可期待的成果（報酬）</th><th>一句話</th></tr>
+        <tr><td>存款</td><td>非常小</td><td>小</td><td>本金有保障，但可能輸給通膨</td></tr>
+        <tr><td>國債・債券</td><td>小～中</td><td>小～中</td><td>可領取固定利息，但中途賣出價格會變動</td></tr>
+        <tr><td>股票・股票型基金</td><td>大</td><td>可能大</td><td>一年內也可能下跌數十%</td></tr>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">此表僅說明一般傾向，並非個別商品的績效。</p>
+    <div class="grid g3" style="margin-top:14px;">
+      <div class="card"><b>分散（分散投資）</b><p style="font-size:14px;margin:6px 0 0;">不只投資一家公司或一個國家，而是分散到多家公司、多個國家，可以減少單一標的下跌時的影響。</p></div>
+      <div class="card"><b>長期持有（長期）</b><p style="font-size:14px;margin:6px 0 0;">短期內可能大幅漲跌，但長期來看波動容易被平均化。不過，並不保證一定會增加。</p></div>
+      <div class="card"><b>少量分次買（定期定額）</b><p style="font-size:14px;margin:6px 0 0;">每月以相同金額買進，價格高時買得少、價格低時買得多，可減少買進時機的偏差。</p></div>
+    </div>
+  </section>
+
+  <section id="self">
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>「投資自負責任」是什麼意思？</h3>
+      <p>投資可能讓錢增加，也可能讓錢減少。買什麼、何時買、買多少都由自己決定，結果也由自己承擔，就是這個意思。</p>
+      <p style="margin:0;">正因如此，不要只憑別人的「推薦」做決定，而要自己確認公開資訊與官方資料。日本<a href="https://www.fsa.go.jp/en/" target="_blank" rel="noopener">金融廳（英文）</a>與<a href="https://www.j-flec.go.jp/" target="_blank" rel="noopener">J-FLEC（金融經濟教育推進機構，日文）</a>也提供理財基礎知識。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>資料來源</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var cpi = DATA.world.jp_cpi, lastC = cpi[cpi.length-1], C = SITE.comma, sel = document.getElementById("i-year");
+  cpi.slice(0, -1).reverse().forEach(function(p){ var o = document.createElement("option"); o.value = p.year; o.textContent = p.year+"年"; sel.appendChild(o); });
+  sel.value = String(lastC.year-30 >= cpi[0].year ? lastC.year-30 : cpi[0].year);
+  function infl(){
+    var y = +sel.value, p = cpi.filter(function(c){ return c.year===y; })[0];
+    var now = 100*lastC.value/p.value, back = 100*p.value/lastC.value;
+    document.getElementById("i-result").innerHTML = y+"年的<b>100萬日圓</b>，以"+lastC.year+"年物價換算約為<b>"+C(now,0)+"萬日圓</b>。<br>反過來說，"+lastC.year+"年用100萬日圓買得到的東西，在"+y+"年約"+C(back,0)+"萬日圓就買得到。";
+  }
+  sel.addEventListener("change", infl); infl();
+  SITE.plot(document.getElementById("cpi-chart"), { title:"日本消費者物價指數（2010年＝100）", labels:cpi.map(function(c){ return String(c.year); }),
+    tipLabels:cpi.map(function(c){ return c.year+"年"; }), series:[{name:"消費者物價指數", values:cpi.map(function(c){ return c.value; })}],
+    fmt:function(v){ return v.toFixed(1); }, axisFmt:function(v){ return v; }, tickEvery:function(i,l){ return +l%5===0 ? l+"年" : null; },
+    foot:"來源：世界銀行「World Development Indicators」Consumer price index (2010 = 100)（FP.CPI.TOTL）。原始資料為日本總務省統計局消費者物價指數" });
+
+  function v(id){ return parseFloat(document.getElementById(id).value)||0; }
+  function man(x){ return x>=10000 ? C(x/10000,2)+"億日圓" : C(x,1)+"萬日圓"; }
+  function fut(){
+    var P = Math.max(0,v("f-p")), i = v("f-i")/100, r = v("f-r")/100, Y = Math.min(60, Math.max(1, Math.round(v("f-y")||1)));
+    var labels = [], cash = [], real = [];
+    for(var y=0;y<=Y;y++){ labels.push("第"+y+"年"); cash.push(P/Math.pow(1+i,y)); real.push(P*Math.pow(1+r,y)/Math.pow(1+i,y)); }
+    document.getElementById("f-cash").textContent = man(cash[Y]);
+    document.getElementById("f-nom").textContent = man(P*Math.pow(1+r,Y));
+    document.getElementById("f-real").textContent = man(real[Y]);
+    SITE.plot(document.getElementById("f-chart"), { title:"以現在物價計算的「購買力」變化", labels:labels, zero:true,
+      series:[{name:"②每年增加"+v("f-r")+"%", short:"②增加", values:real},{name:"①原封不動", short:"①不動", values:cash}],
+      fmt:man, axisFmt:function(x){ return x>=10000 ? (x/10000)+"億" : x+"萬"; },
+      tickEvery:function(i,l,len){ var st = len>40?10:(len>20?5:(len>10?2:1)); return i%st===0 ? i+"年" : null; } });
+  }
+  ["f-p","f-i","f-r","f-y"].forEach(function(id){ document.getElementById(id).addEventListener("input", fut); }); fut();
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("wb", "日本消費者物價指數（FP.CPI.TOTL，"+cpi[0].year+"～"+lastC.year+"年）。取得日："+SITE.fmtDate(DATA.world.retrieved));
+});
+</script>
+</body>
+</html>

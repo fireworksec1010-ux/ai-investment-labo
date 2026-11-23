@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>用數字學經濟與投資｜投資基礎・全球經濟・企業分析・理財素養</title>
+<meta name="description" content="以日本銀行、世界銀行、美國證券交易委員會等公開資料，用淺顯易懂的方式解說投資基礎、全球經濟、企業分析與理財素養。不推薦特定股票，只整理讓你自己判斷所需的資訊。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="hero home-hero">
+    <span class="pill">Learn economy with numbers</span>
+    <h1>用數字學<br><span class="mk">經濟與投資。</span></h1>
+    <p class="lead">股價、匯率、利率、企業財報——新聞中常聽到的「金錢與經濟數字」。我們使用日本銀行、世界銀行、美國證券交易委員會等公開資料，和硬幣老師一起用淺顯的方式解讀。</p>
+    <div class="stat-row" id="hero-stats"></div>
+  </div>
+
+  <section>
+    <div class="sec-h"><h2>從四個主題開始學</h2><span class="sub">從感興趣的地方讀起</span></div>
+    <div class="grid g2">
+      <a class="card tile theme-card tc-basics" href="basics.html"><div class="art" data-illust="basics"></div><div class="body"><div class="en">Investment Basics</div><h3>投資基礎</h3>
+        <ul><li>什麼是股票？</li><li>什麼是本益比、股價淨值比？</li><li>什麼是股利？</li><li>複利的原理（附試算工具）</li></ul><div class="more">閱讀 →</div></div></a>
+      <a class="card tile theme-card tc-world" href="world.html"><div class="art" data-illust="world"></div><div class="body"><div class="en">Global Economy</div><h3>全球經濟</h3>
+        <ul><li>GDP排名</li><li>世界各國的通膨率</li><li>利率與匯率</li><li>日本與美國的經濟比較</li></ul><div class="more">閱讀 →</div></div></a>
+      <a class="card tile theme-card tc-companies" href="companies.html"><div class="art" data-illust="companies"></div><div class="body"><div class="en">Company Analysis</div><h3>企業分析</h3>
+        <ul><li>全球企業營收排名</li><li>蘋果與微軟比較</li><li>日本企業的實力</li><li>營收、利潤、市值有什麼不同</li></ul><div class="more">閱讀 →</div></div></a>
+      <a class="card tile theme-card tc-money" href="money.html"><div class="art" data-illust="money"></div><div class="body"><div class="en">Money Education</div><h3>理財素養</h3>
+        <ul><li>儲蓄與投資的差別</li><li>通膨與金錢的價值</li><li>100萬日圓的未來價值（附試算工具）</li><li>風險與報酬</li></ul><div class="more">閱讀 →</div></div></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>用數字看現在的世界</h2></div>
+    <div class="grid g3" id="highlights"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>現在的匯率與利率</h2><span class="sub" id="asof"></span></div>
+    <div class="grid g3" id="tiles"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>本月主題：日圓貶值時，生活會有什麼變化？</h2></div>
+    <div class="card">
+      <p id="theme-num"></p>
+      <ul class="points">
+        <li><b>出國旅行</b>：買同樣1美元的東西，要付更多日圓。</li>
+        <li><b>進口商品</b>：小麥、能源等從海外購買的東西容易漲價。</li>
+        <li><b>海外股票與基金</b>：即使以美元計價不變，換算成日圓金額也會變大（日圓升值時則相反）。</li>
+      </ul>
+      <p style="margin:10px 0 0;"><a href="fx.html">在匯率頁面了解更多 →</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card chart-card" id="chart-usd"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>股價為什麼會漲漲跌跌？</h3>
+      <p>股價由「想買的人」和「想賣的人」之間的平衡決定。當越多人認為公司商品賣得好、未來利潤會增加，想買的人就會變多，股價就容易上漲。</p>
+      <p style="margin:0;">不過，即使業績很好，股價也可能下跌。因為大家可能早已預期到好消息，並已反映在股價上。<a href="basics.html#stock">什麼是股票？</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>股價指數</h2><span class="sub">數值請至官方網站確認</span></div>
+    <div class="grid g2">
+      <a class="card tile link-only" href="stocks.html#acwi"><div class="cat">全球股票</div><div class="nm">全世界股票（MSCI ACWI）</div><div class="val">集合世界各地公司的「全包組合」</div><div class="more">原理與官方網站</div></a>
+      <a class="card tile link-only" href="stocks.html#sp500"><div class="cat">美國股票</div><div class="nm">標普500指數（S&amp;P 500）</div><div class="val">美國約500家大型企業的表現</div><div class="more">原理與官方網站</div></a>
+      <a class="card tile link-only" href="stocks.html#nikkei"><div class="cat">日本股票</div><div class="nm">日經平均指數（日經225）</div><div class="val">由日本具代表性的225家公司計算</div><div class="more">原理與官方網站</div></a>
+      <a class="card tile link-only" href="stocks.html#topix"><div class="cat">日本股票</div><div class="nm">東證股價指數（TOPIX）</div><div class="val">東京證券交易所眾多公司的表現</div><div class="more">原理與官方網站</div></a>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:10px;">股價指數的數值，著作權屬於計算該指數的公司。本網站不轉載數值，只說明原理並附上官方網站連結。</p>
+  </section>
+
+  <section>
+    <div class="disclaimer">本網站以提供資訊為目的，不推薦買賣任何特定股票或金融商品。數值直接使用公家機關等公布的資料。投資判斷請自行負責。<a href="about.html">資料來源・資料規則・免責聲明</a></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var T = SITE.tile, L = SITE.last, C = SITE.comma, W = DATA.world, CO = DATA.companies.list;
+  var jpRank = W.gdp_rank.map(function(r){ return r.code; }).indexOf("JPN")+1, jp = W.gdp_rank[jpRank-1];
+  var cpi = W.jp_cpi, c30 = cpi.filter(function(c){ return c.year===cpi[cpi.length-1].year-30; })[0], cl = cpi[cpi.length-1];
+  var ranked = CO.map(function(c){ var y = c.years[c.years.length-1]; return {c:c, usd: y.currency==="JPY" ? y.revenue/(y.usdjpy_avg||1e9) : y.revenue}; }).sort(function(a,b){ return b.usd-a.usd; });
+  function hi(cat, big, txt, href){ return '<a class="card tile" href="'+href+'"><div class="cat">'+cat+'</div><div class="val" style="font-size:24px;">'+big+'</div><div class="chg">'+txt+'</div><div class="more">了解更多 →</div></a>'; }
+  document.getElementById("highlights").innerHTML = [
+    hi("全球經濟・GDP（"+W.gdp_year+"年）", "日本排名第"+jpRank, "第1名是"+SITE.cname(W.gdp_rank[0])+"（"+C(W.gdp_rank[0].value,1)+"兆美元），日本為"+C(jp.value,2)+"兆美元", "world.html#gdp"),
+    hi("企業分析・營收", ranked[0].c.name_zh, "在向SEC申報財報的"+ranked.length+"家主要企業中營收第1（約"+C(ranked[0].usd/1e8,0)+"億美元）", "companies.html#ranking"),
+    hi("理財素養・通膨", c30 ? c30.year+"年的100萬日圓 ≈ "+C(100*cl.value/c30.value,0)+"萬日圓" : "", "以"+cl.year+"年物價換算的價值（依日本消費者物價指數）", "money.html#inflation")
+  ].join("");
+  document.getElementById("hero-stats").innerHTML =
+    '<div>美元兌日圓（'+SITE.endOf(L("usdjpy").ym)+'）<b>'+L("usdjpy").value.toFixed(2)+'日圓</b></div>'+
+    '<div>日本GDP（'+W.gdp_year+'年）<b>全球第'+jpRank+'名</b></div>'+
+    '<div>資料來源<b>'+DATA.meta.sources.length+'個公家機關</b></div>';
+  document.getElementById("asof").textContent = SITE.endOf(L("usdjpy").ym)+"數值（每月更新）";
+  document.getElementById("tiles").innerHTML = [
+    T("usdjpy",{cat:"匯率", href:"fx.html", more:"了解日圓升值與貶值"}),
+    T("eurjpy",{cat:"匯率", href:"fx.html#eur", more:"查看歐元兌日圓"}),
+    T("jp10y",{cat:"利率", href:"rates.html#bond", more:"什麼是國債殖利率？"}),
+    T("us10y",{cat:"利率", href:"rates.html#bond", more:"比較日本與美國"}),
+    T("jp_policy",{cat:"利率", name:"日本政策利率", href:"rates.html", more:"什麼是政策利率？"}),
+    T("us_policy",{cat:"利率", name:"美國政策利率", href:"rates.html", more:"比較日本與美國"})
+  ].join("");
+  var a = L("usdjpy"), b = L("usdjpy",12), d = a.value-b.value;
+  document.getElementById("theme-num").innerHTML = SITE.endOf(a.ym)+"的匯率為 <b>1美元＝"+a.value.toFixed(2)+"日圓</b>。1年前（"+SITE.endOf(b.ym)+"）為"+b.value.toFixed(2)+"日圓，因此"+
+    (d>0 ? "1年內<b>日圓貶值了"+d.toFixed(2)+"日圓</b>。" : (d<0 ? "1年內<b>日圓升值了"+(-d).toFixed(2)+"日圓</b>。" : "與1年前相同。"));
+  SITE.lineChart(document.getElementById("chart-usd"), ["usdjpy"], {title:"美元兌日圓走勢（1美元兌多少日圓・月底）", foot:"來源：日本銀行「時間序列統計資料」東京市場 美元・日圓 17時／月底"});
+});
+</script>
+</body>
+</html>

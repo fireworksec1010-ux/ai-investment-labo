@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>全球經濟｜GDP排名・世界通膨率・利率與匯率・日美比較｜用數字學經濟與投資</title>
+<meta name="description" content="以世界銀行、日本銀行等公開資料，淺顯解說世界GDP排名、主要國家通膨率、利率與匯率的關係，以及日本與美國的經濟比較。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/world.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/world.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/world.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ 全球經濟</div>
+    <span class="pill">Global Economy</span>
+    <h1>全球經濟</h1>
+    <p class="lead">哪個國家的經濟規模最大？物價在哪些國家上漲最多？利率與匯率如何連動？日本和美國有什麼不同？用數字來看看世界的「現在」。</p>
+    <div class="toc"><a href="#gdp">GDP排名</a><a href="#inflation">世界通膨率</a><a href="#ratefx">利率與匯率</a><a href="#compare">日本與美國比較</a></div>
+  </div>
+
+  <section id="gdp">
+    <div class="sec-h"><h2>GDP排名</h2><span class="sub" id="gdp-year"></span></div>
+    <div class="quick" style="margin-bottom:14px;">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>GDP（國內生產毛額）是什麼？</h3>
+      <p style="margin:0;">一年內在一個國家境內新生產的「商品」與「服務」價值的總和，用來比較國家經濟的規模。為了跨國比較，這裡全部換算成<b>美元</b>。因此日圓貶值時，以美元計算的日本GDP會變小。</p>
+    </div>
+    <div class="card" id="gdp-bars"></div>
+    <p style="font-size:14px;margin-top:12px;" id="gdp-note"></p>
+  </section>
+
+  <section id="inflation">
+    <div class="sec-h"><h2>世界各國的通膨率</h2><span class="sub">消費者物價年增率</span></div>
+    <div class="quick" style="margin-bottom:14px;">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>通膨率＝「物價一年漲了多少%」</h3>
+      <p style="margin:0;">通膨率2%，代表去年100日圓的東西今年平均變成102日圓。許多中央銀行以「每年2%左右」為目標。太高會讓生活變辛苦；變成負數（物價持續下跌的通縮）則公司獲利和薪資都不容易成長。</p>
+    </div>
+    <div class="card" id="inf-bars"></div>
+    <div class="card chart-card" id="inf-chart" style="margin-top:14px;"></div>
+  </section>
+
+  <section id="ratefx">
+    <div class="sec-h"><h2>利率與匯率</h2><span class="sub">每月月底數值</span></div>
+    <div class="grid g3" id="ratefx-tiles"></div>
+    <div class="quick" style="margin-top:14px;">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>利差會推動匯率</h3>
+      <p id="gap-text"></p>
+      <p style="margin:0;">利率高的國家，存款利息多，貨幣容易受歡迎。日美利差大時，賣日圓、買美元的動作容易增加，日圓就容易貶值。不過匯率也受景氣、貿易和新聞等許多因素影響，不一定總是如此。</p>
+    </div>
+    <div class="grid g2" style="margin-top:14px;">
+      <a class="card tile" href="fx.html"><div class="cat">詳細</div><div class="nm">匯率（美元兌日圓・歐元兌日圓）走勢</div><div class="more">查看 →</div></a>
+      <a class="card tile" href="rates.html"><div class="cat">詳細</div><div class="nm">利率（政策利率・10年期國債）日美比較</div><div class="more">查看 →</div></a>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="sec-h"><h2>日本與美國的經濟比較</h2></div>
+    <div class="tbl-wrap"><table id="cmp"></table></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">皆為世界銀行公布的最新年度數值（國家或項目不同，年度可能不同）。利率為本網站的月底資料（日本銀行・FRB・日本財務省・美國財政部）。</p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>資料來源</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var W = DATA.world, C = SITE.comma, CN = SITE.cname;
+  document.getElementById("gdp-year").textContent = W.gdp_year+"年・名目・以美元換算";
+  SITE.bars(document.getElementById("gdp-bars"), { title:"GDP前15大國家・地區（"+W.gdp_year+"年）", rank:true,
+    rows:W.gdp_rank.map(function(r){ return {label:CN(r), value:r.value, text:C(r.value,2)+"兆美元", hl:r.code==="JPN"||r.code==="USA"}; }),
+    foot:"來源：世界銀行「World Development Indicators」GDP (current US$)（NY.GDP.MKTP.CD）" });
+  var jp = W.gdp_rank.filter(function(r){ return r.code==="JPN"; })[0], us = W.gdp_rank[0];
+  if(jp) document.getElementById("gdp-note").innerHTML = "日本排名<b>第"+(W.gdp_rank.indexOf(jp)+1)+"</b>（"+C(jp.value,2)+"兆美元）。第1名的"+CN(us)+"（"+C(us.value,2)+"兆美元）約為日本的<b>"+(us.value/jp.value).toFixed(1)+"倍</b>。";
+
+  SITE.bars(document.getElementById("inf-bars"), { title:"主要國家的通膨率（最新年度）",
+    rows:W.inflation_latest.map(function(r){ return {label:CN(r), sub:r.year+"年", value:r.value, text:C(r.value,1)+"%", hl:r.code==="JPN"||r.code==="USA"}; }),
+    foot:"來源：世界銀行「World Development Indicators」Inflation, consumer prices (annual %)（FP.CPI.TOTL.ZG）" });
+  var hj = W.inflation_hist.JPN, hu = W.inflation_hist.USA, yrs = [], mj = {}, mu = {};
+  hj.forEach(function(p){ mj[p.year] = p.value; }); hu.forEach(function(p){ mu[p.year] = p.value; });
+  for(var y = Math.min(hj[0].year, hu[0].year); y <= Math.max(hj[hj.length-1].year, hu[hu.length-1].year); y++) yrs.push(y);
+  SITE.plot(document.getElementById("inf-chart"), { title:"日本與美國的通膨率走勢", labels:yrs.map(String), tipLabels:yrs.map(function(y){ return y+"年"; }),
+    series:[{name:"日本", short:"日本", values:yrs.map(function(y){ return mj[y]==null?null:mj[y]; })},{name:"美國", short:"美國", values:yrs.map(function(y){ return mu[y]==null?null:mu[y]; })}],
+    fmt:function(v){ return v.toFixed(1)+"%"; }, axisFmt:function(v){ return v+"%"; }, tickEvery:function(i,l){ return +l%5===0 ? l+"年" : null; },
+    foot:"來源：世界銀行（FP.CPI.TOTL.ZG）。年平均的年增率" });
+
+  document.getElementById("ratefx-tiles").innerHTML = [
+    SITE.tile("usdjpy",{cat:"匯率", href:"fx.html"}),
+    SITE.tile("jp_policy",{cat:"政策利率", name:"日本政策利率", href:"rates.html"}),
+    SITE.tile("us_policy",{cat:"政策利率", name:"美國政策利率", href:"rates.html"})
+  ].join("");
+  var L = SITE.last, gap = L("us10y").value - L("jp10y").value, gap1 = L("us10y",12).value - L("jp10y",12).value;
+  document.getElementById("gap-text").innerHTML = SITE.endOf(L("us10y").ym)+"的10年期國債殖利率，美國為"+L("us10y").value.toFixed(2)+"%、日本為"+L("jp10y").value.toFixed(2)+"%，差距為<b>"+gap.toFixed(2)+"個百分點</b>（1年前為"+gap1.toFixed(2)+"個百分點）。";
+
+  var UNIT = {"兆ドル":function(v){ return C(v,2)+" 兆美元"; }, "ドル":function(v){ return C(v,0)+" 美元"; }, "%":function(v){ return C(v,1)+"%"; }, "億人":function(v){ return C(v,2)+" 億人"; }};
+  var rows = W.compare.map(function(r){
+    var f = UNIT[r.unit];
+    return '<tr><th>'+r.label_zh+'</th><td>'+f(r.JPN.value)+' <small style="color:var(--muted)">（'+r.JPN.year+'年）</small></td><td>'+f(r.USA.value)+' <small style="color:var(--muted)">（'+r.USA.year+'年）</small></td></tr>';
+  });
+  rows.push('<tr><th>政策利率</th><td>'+L("jp_policy").value.toFixed(2)+'% <small style="color:var(--muted)">（'+SITE.endOf(L("jp_policy").ym)+'）</small></td><td>'+L("us_policy").value.toFixed(2)+'% <small style="color:var(--muted)">（'+SITE.endOf(L("us_policy").ym)+'）</small></td></tr>');
+  rows.push('<tr><th>10年期國債殖利率</th><td>'+L("jp10y").value.toFixed(2)+'%</td><td>'+L("us10y").value.toFixed(2)+'%</td></tr>');
+  document.getElementById("cmp").innerHTML = '<tr><th></th><th>日本</th><th>美國</th></tr>'+rows.join("");
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("wb", "GDP・通膨率・人均GDP・經濟成長率・失業率・人口。取得日："+SITE.fmtDate(W.retrieved)+"。世界銀行資料以CC BY 4.0授權公開。")+
+    SITE.sourceLine("boj","美元兌日圓・日本政策利率")+SITE.sourceLine("frb","美國政策利率")+SITE.sourceLine("mof","日本10年期國債")+SITE.sourceLine("ust","美國10年期公債");
+});
+</script>
+</body>
+</html>

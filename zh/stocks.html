@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>股價指數的原理｜全世界股票（MSCI ACWI）・標普500・日經平均・TOPIX｜用數字學經濟與投資</title>
+<meta name="description" content="淺顯解說全世界股票（MSCI ACWI）、標普500、日經平均指數、TOPIX分別代表什麼。數值請至各指數官方網站確認。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/stocks.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/stocks.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/stocks.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ <a href="basics.html">投資基礎</a> ＞ 股價指數</div>
+    <h1>什麼是股價指數？</h1>
+    <p class="lead">股價指數是把許多公司的股價彙整成一個數字。就像全班考試的「平均分數」，不用一家一家看，也能知道整個市場的狀況好不好。</p>
+  </div>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>為什麼要看「指數」？</h3>
+      <p>單一公司的股價，常因該公司本身的因素大幅波動。看彙整許多公司的指數，就能了解「日本企業整體」「美國企業整體」「全球企業整體」的狀況。許多基金的設計，就是追蹤這些指數的走勢。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>主要股價指數</h2><span class="sub">數值與圖表請至官方網站確認</span></div>
+    <div class="grid g2">
+      <div class="card idx" id="acwi">
+        <h3>全世界股票（MSCI ACWI）</h3>
+        <div class="what">集合世界各地公司的「全包組合」</div>
+        <p style="font-size:14px;">在日本，「オルカン（All-Country）」是一檔熱門基金「eMAXIS Slim 全世界股票（All Country）」的暱稱，可一次投資全球股票。這檔基金以追蹤「MSCI ACWI」指數為目標。</p>
+        <dl>
+          <dt>對象</dt><dd>已開發國家與新興國家的大型・中型公司（2,000家以上）</dd>
+          <dt>計算機構</dt><dd>MSCI（美國指數公司）</dd>
+          <dt>基金管理公司</dt><dd>三菱UFJ資產管理</dd>
+        </dl>
+        <a class="btn" href="https://www.msci.com/indexes/index/892400" target="_blank" rel="noopener">MSCI ACWI 官方網站</a>
+        <a class="btn ghost" href="https://emaxis.am.mufg.jp/fund/253425.html" target="_blank" rel="noopener">基金淨值（日文）</a>
+      </div>
+      <div class="card idx" id="sp500">
+        <h3>標普500指數（S&amp;P 500）</h3>
+        <div class="what">美國約500家大型企業的表現</div>
+        <p style="font-size:14px;">從在美國股市上市的大型公司中選出約500家計算的指數。公司規模（市值）越大，對指數的影響越大。</p>
+        <dl>
+          <dt>對象</dt><dd>美國大型股（約500家）</dd>
+          <dt>計算機構</dt><dd>標普道瓊斯指數公司</dd>
+          <dt>單位</dt><dd>點（以美元計算）</dd>
+        </dl>
+        <a class="btn" href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/" target="_blank" rel="noopener">S&amp;P 500 官方網站</a>
+      </div>
+      <div class="card idx" id="nikkei">
+        <h3>日經平均指數（日經225）</h3>
+        <div class="what">由日本具代表性的225家公司計算</div>
+        <p style="font-size:14px;">從東京證券交易所Prime市場上市公司中選出225家計算。每股價格越高的公司影響越大。日本新聞常以「日經平均○○日圓」的方式報導。</p>
+        <dl>
+          <dt>對象</dt><dd>東證Prime市場的225家公司</dd>
+          <dt>計算機構</dt><dd>日本經濟新聞社</dd>
+          <dt>單位</dt><dd>日圓</dd>
+        </dl>
+        <a class="btn" href="https://indexes.nikkei.co.jp/en/nkave" target="_blank" rel="noopener">日經平均 官方網站（英文）</a>
+      </div>
+      <div class="card idx" id="topix">
+        <h3>東證股價指數（TOPIX）</h3>
+        <div class="what">東京證券交易所眾多公司的表現</div>
+        <p style="font-size:14px;">彙整在東京證券交易所上市之眾多公司的指數。與標普500一樣，公司規模（市值）越大影響越大。包含的公司比日經平均多，被認為更接近日本整體市場的樣貌。</p>
+        <dl>
+          <dt>對象</dt><dd>東證上市的眾多公司（以Prime市場為主）</dd>
+          <dt>計算機構</dt><dd>JPX總研（日本交易所集團）</dd>
+          <dt>單位</dt><dd>點</dd>
+        </dl>
+        <a class="btn" href="https://www.jpx.co.jp/english/markets/indices/topix/" target="_blank" rel="noopener">TOPIX 官方網站（英文）</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="diff">
+    <div class="sec-h"><h2>全世界股票與標普500有什麼不同？</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th></th><th>全世界股票（MSCI ACWI）</th><th>標普500</th></tr>
+        <tr><th>涵蓋國家</th><td>全球已開發國家與新興國家</td><td>只有美國</td></tr>
+        <tr><th>公司數</th><td>2,000家以上</td><td>約500家</td></tr>
+        <tr><th>美國公司比重</th><td>高（約6成左右）</td><td>全部</td></tr>
+        <tr><th>打個比方</th><td>裝滿各國料理的「全包便當」</td><td>美國料理的「人氣菜單500道」</td></tr>
+      </table>
+    </div>
+    <p style="font-size:14px;margin-top:12px;">全世界股票中也包含許多美國公司，因此兩者的走勢常常相似。差別在於「是否也分散投資到美國以外的國家」。哪一個比較好，取決於每個人的想法。各國比重會變動，最新內容請至官方網站確認。</p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>看指數數字時的3個注意事項</h2></div>
+    <div class="grid g3">
+      <div class="card"><b>① 含息或不含息</b><p style="font-size:14px;margin:6px 0 0;">指數有計入公司配給股東之「股利」的版本，也有不計入的版本。含息版本的數字較大。</p></div>
+      <div class="card"><b>② 以美元或日圓計</b><p style="font-size:14px;margin:6px 0 0;">標普500以美元計算。從日本投資時也會受<a href="fx.html">匯率</a>影響，可能以美元計上漲、以日圓計卻下跌。</p></div>
+      <div class="card"><b>③ 指數和基金不一樣</b><p style="font-size:14px;margin:6px 0 0;">基金以追蹤指數為目標，但因有手續費（信託報酬）等成本，不會與指數完全一致。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="disclaimer">股價指數的數值，是計算各指數之公司的著作物。本網站不轉載數值，只說明原理並附上官方網站連結，並非推薦任何金融商品。</div>
+  </section>
+</main>
+</body>
+</html>

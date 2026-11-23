@@ -11,7 +11,9 @@
     "url": "https://www.stat-search.boj.or.jp/",
     "terms": "https://www.boj.or.jp/about/copyright.htm",
     "org_en": "Bank of Japan",
-    "name_en": "Time-Series Data Search (foreign exchange, call rates)"
+    "name_en": "Time-Series Data Search (foreign exchange, call rates)",
+    "org_zh": "日本銀行",
+    "name_zh": "時間序列統計資料（外匯行情・拆款利率）"
    },
    {
     "id": "ecb",
@@ -19,7 +21,9 @@
     "name": "ユーロ参照レート（円）",
     "url": "https://data.ecb.europa.eu/data/datasets/EXR/EXR.M.JPY.EUR.SP00.E",
     "org_en": "European Central Bank (ECB)",
-    "name_en": "Euro foreign exchange reference rate (JPY)"
+    "name_en": "Euro foreign exchange reference rate (JPY)",
+    "org_zh": "歐洲中央銀行（ECB）",
+    "name_zh": "歐元參考匯率（日圓）"
    },
    {
     "id": "mof",
@@ -27,7 +31,9 @@
     "name": "国債金利情報",
     "url": "https://www.mof.go.jp/jgbs/reference/interest_rate/index.htm",
     "org_en": "Ministry of Finance, Japan",
-    "name_en": "Interest Rate (JGB yields)"
+    "name_en": "Interest Rate (JGB yields)",
+    "org_zh": "日本財務省",
+    "name_zh": "國債利率資訊"
    },
    {
     "id": "ust",
@@ -35,7 +41,9 @@
     "name": "Daily Treasury Par Yield Curve Rates",
     "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
     "org_en": "U.S. Department of the Treasury",
-    "name_en": "Daily Treasury Par Yield Curve Rates"
+    "name_en": "Daily Treasury Par Yield Curve Rates",
+    "org_zh": "美國財政部",
+    "name_zh": "Daily Treasury Par Yield Curve Rates"
    },
    {
     "id": "frb",
@@ -43,7 +51,9 @@
     "name": "H.15 Selected Interest Rates（FF実効金利）",
     "url": "https://www.federalreserve.gov/releases/h15/",
     "org_en": "Federal Reserve Board (FRB)",
-    "name_en": "H.15 Selected Interest Rates (effective federal funds rate)"
+    "name_en": "H.15 Selected Interest Rates (effective federal funds rate)",
+    "org_zh": "美國聯邦準備理事會（FRB）",
+    "name_zh": "H.15 Selected Interest Rates（有效聯邦資金利率）"
    },
    {
     "id": "wb",
@@ -51,7 +61,9 @@
     "name": "World Development Indicators（CC BY 4.0）",
     "url": "https://databank.worldbank.org/source/world-development-indicators",
     "org_en": "World Bank",
-    "name_en": "World Development Indicators (CC BY 4.0)"
+    "name_en": "World Development Indicators (CC BY 4.0)",
+    "org_zh": "世界銀行（World Bank）",
+    "name_zh": "World Development Indicators（CC BY 4.0）"
    },
    {
     "id": "sec",
@@ -59,7 +71,9 @@
     "name": "EDGAR 各社の年次報告書（10-K／20-F）のXBRLデータ",
     "url": "https://www.sec.gov/search-filings",
     "org_en": "U.S. Securities and Exchange Commission (SEC)",
-    "name_en": "EDGAR XBRL data from annual reports (10-K / 20-F)"
+    "name_en": "EDGAR XBRL data from annual reports (10-K / 20-F)",
+    "org_zh": "美國證券交易委員會（SEC）",
+    "name_zh": "EDGAR 各公司年報（10-K／20-F）的XBRL資料"
    }
   ]
  },
@@ -68,6 +82,8 @@
    "name": "ドル円",
    "name_en": "USD/JPY",
    "note_en": "Tokyo market, USD/JPY spot at 17:00, end of month (series FXERM06)",
+   "name_zh": "美元兌日圓",
+   "note_zh": "東京市場 美元・日圓 即期 17時／月底（序列代碼 FXERM06）",
    "unit": "円",
    "source": "boj",
    "note": "東京市場 ドル・円 スポット 17時時点／月末（系列コード FXERM06）",
@@ -599,6 +615,8 @@
    "name": "ユーロ円",
    "name_en": "EUR/JPY",
    "note_en": "ECB euro reference rate in yen, end of month",
+   "name_zh": "歐元兌日圓",
+   "note_zh": "ECB歐元參考匯率（日圓）／月底",
    "unit": "円",
    "source": "ecb",
    "note": "ECBのユーロ参照レート（円）／月末",
@@ -1130,6 +1148,8 @@
    "name": "日本の政策金利（無担保コール翌日物）",
    "name_en": "Japan policy rate (uncollateralized overnight call rate)",
    "note_en": "Uncollateralized overnight call rate, end of month (series STRECLUCON). The rate the Bank of Japan targets",
+   "name_zh": "日本政策利率（無擔保隔夜拆款利率）",
+   "note_zh": "無擔保隔夜拆款利率／月底（序列代碼 STRECLUCON）。日本銀行引導的目標利率",
    "unit": "%",
    "source": "boj",
    "note": "無担保コールレート・オーバーナイト物／月末（系列コード STRECLUCON）。日銀が誘導目標にしている金利",
@@ -1661,6 +1681,8 @@
    "name": "アメリカの政策金利（FF実効金利）",
    "name_en": "U.S. policy rate (effective federal funds rate)",
    "note_en": "Daily effective federal funds rate, value on the last business day of each month",
+   "name_zh": "美國政策利率（有效聯邦資金利率）",
+   "note_zh": "有效聯邦資金利率（每日）各月最後營業日的數值",
    "unit": "%",
    "source": "frb",
    "note": "フェデラル・ファンド実効金利（日次）の各月最終営業日の値",
@@ -2192,6 +2214,8 @@
    "name": "日本の10年国債利回り",
    "name_en": "Japan 10-year government bond yield",
    "note_en": "Newly issued 10-year JGB yield (daily), value on the last business day of each month",
+   "name_zh": "日本10年期國債殖利率",
+   "note_zh": "新發行10年期日本國債殖利率（每日）各月最後營業日的數值",
    "unit": "%",
    "source": "mof",
    "note": "新発10年国債の利回り（日次）の各月最終営業日の値",
@@ -2723,6 +2747,8 @@
    "name": "アメリカの10年国債利回り",
    "name_en": "U.S. 10-year Treasury yield",
    "note_en": "10-year Treasury yield (daily), value on the last business day of each month",
+   "name_zh": "美國10年期公債殖利率",
+   "note_zh": "10年期美國公債殖利率（每日）各月最後營業日的數值",
    "unit": "%",
    "source": "ust",
    "note": "10年物国債利回り（日次）の各月最終営業日の値",
@@ -3259,90 +3285,105 @@
     "code": "USA",
     "name": "アメリカ",
     "name_en": "United States",
+    "name_zh": "美國",
     "value": 30.77
    },
    {
     "code": "CHN",
     "name": "中国",
     "name_en": "China",
+    "name_zh": "中國",
     "value": 19.498
    },
    {
     "code": "DEU",
     "name": "ドイツ",
     "name_en": "Germany",
+    "name_zh": "德國",
     "value": 5.051
    },
    {
     "code": "JPN",
     "name": "日本",
     "name_en": "Japan",
+    "name_zh": "日本",
     "value": 4.435
    },
    {
     "code": "GBR",
     "name": "イギリス",
     "name_en": "United Kingdom",
+    "name_zh": "英國",
     "value": 4.003
    },
    {
     "code": "IND",
     "name": "インド",
     "name_en": "India",
+    "name_zh": "印度",
     "value": 3.956
    },
    {
     "code": "FRA",
     "name": "フランス",
     "name_en": "France",
+    "name_zh": "法國",
     "value": 3.366
    },
    {
     "code": "RUS",
     "name": "ロシア",
     "name_en": "Russian Federation",
+    "name_zh": "俄羅斯",
     "value": 2.561
    },
    {
     "code": "ITA",
     "name": "イタリア",
     "name_en": "Italy",
+    "name_zh": "義大利",
     "value": 2.552
    },
    {
     "code": "CAN",
     "name": "カナダ",
     "name_en": "Canada",
+    "name_zh": "加拿大",
     "value": 2.32
    },
    {
     "code": "BRA",
     "name": "ブラジル",
     "name_en": "Brazil",
+    "name_zh": "巴西",
     "value": 2.28
    },
    {
     "code": "ESP",
     "name": "スペイン",
     "name_en": "Spain",
+    "name_zh": "西班牙",
     "value": 1.906
    },
    {
     "code": "KOR",
     "name": "韓国",
     "name_en": "Korea, Rep.",
+    "name_zh": "韓國",
     "value": 1.872
    },
    {
     "code": "MEX",
     "name": "メキシコ",
     "name_en": "Mexico",
+    "name_zh": "墨西哥",
     "value": 1.833
    },
    {
     "code": "AUS",
     "name": "オーストラリア",
     "name_en": "Australia",
+    "name_zh": "澳洲",
     "value": 1.799
    }
   ],
@@ -3351,6 +3392,7 @@
     "code": "BRA",
     "name": "ブラジル",
     "name_en": "Brazil",
+    "name_zh": "巴西",
     "year": 2025,
     "value": 5.02
    },
@@ -3358,6 +3400,7 @@
     "code": "GBR",
     "name": "イギリス",
     "name_en": "United Kingdom",
+    "name_zh": "英國",
     "year": 2025,
     "value": 3.88
    },
@@ -3365,6 +3408,7 @@
     "code": "MEX",
     "name": "メキシコ",
     "name_en": "Mexico",
+    "name_zh": "墨西哥",
     "year": 2025,
     "value": 3.81
    },
@@ -3372,6 +3416,7 @@
     "code": "JPN",
     "name": "日本",
     "name_en": "Japan",
+    "name_zh": "日本",
     "year": 2025,
     "value": 3.17
    },
@@ -3379,6 +3424,7 @@
     "code": "USA",
     "name": "アメリカ",
     "name_en": "United States",
+    "name_zh": "美國",
     "year": 2024,
     "value": 2.95
    },
@@ -3386,6 +3432,7 @@
     "code": "AUS",
     "name": "オーストラリア",
     "name_en": "Australia",
+    "name_zh": "澳洲",
     "year": 2025,
     "value": 2.87
    },
@@ -3393,6 +3440,7 @@
     "code": "IND",
     "name": "インド",
     "name_en": "India",
+    "name_zh": "印度",
     "year": 2025,
     "value": 2.4
    },
@@ -3400,6 +3448,7 @@
     "code": "DEU",
     "name": "ドイツ",
     "name_en": "Germany",
+    "name_zh": "德國",
     "year": 2025,
     "value": 2.17
    },
@@ -3407,6 +3456,7 @@
     "code": "KOR",
     "name": "韓国",
     "name_en": "Korea, Rep.",
+    "name_zh": "韓國",
     "year": 2025,
     "value": 2.12
    },
@@ -3414,6 +3464,7 @@
     "code": "CAN",
     "name": "カナダ",
     "name_en": "Canada",
+    "name_zh": "加拿大",
     "year": 2025,
     "value": 2.07
    },
@@ -3421,6 +3472,7 @@
     "code": "IDN",
     "name": "インドネシア",
     "name_en": "Indonesia",
+    "name_zh": "印尼",
     "year": 2025,
     "value": 1.91
    },
@@ -3428,6 +3480,7 @@
     "code": "ITA",
     "name": "イタリア",
     "name_en": "Italy",
+    "name_zh": "義大利",
     "year": 2025,
     "value": 1.53
    },
@@ -3435,6 +3488,7 @@
     "code": "FRA",
     "name": "フランス",
     "name_en": "France",
+    "name_zh": "法國",
     "year": 2025,
     "value": 0.94
    },
@@ -3442,6 +3496,7 @@
     "code": "CHN",
     "name": "中国",
     "name_en": "China",
+    "name_zh": "中國",
     "year": 2025,
     "value": 0.06
    }
@@ -3662,6 +3717,7 @@
     "unit": "兆ドル",
     "ind": "NY.GDP.MKTP.CD",
     "label_en": "GDP (gross domestic product)",
+    "label_zh": "GDP（國內生產毛額）",
     "JPN": {
      "year": 2025,
      "value": 4.435
@@ -3676,6 +3732,7 @@
     "unit": "ドル",
     "ind": "NY.GDP.PCAP.CD",
     "label_en": "GDP per person",
+    "label_zh": "人均GDP",
     "JPN": {
      "year": 2025,
      "value": 35951.045
@@ -3690,6 +3747,7 @@
     "unit": "%",
     "ind": "NY.GDP.MKTP.KD.ZG",
     "label_en": "Real economic growth",
+    "label_zh": "實質經濟成長率",
     "JPN": {
      "year": 2025,
      "value": 1.193
@@ -3704,6 +3762,7 @@
     "unit": "%",
     "ind": "FP.CPI.TOTL.ZG",
     "label_en": "Inflation (consumer prices)",
+    "label_zh": "通貨膨脹率（消費者物價）",
     "JPN": {
      "year": 2025,
      "value": 3.173
@@ -3718,6 +3777,7 @@
     "unit": "%",
     "ind": "SL.UEM.TOTL.ZS",
     "label_en": "Unemployment rate (ILO estimate)",
+    "label_zh": "失業率（ILO估計）",
     "JPN": {
      "year": 2025,
      "value": 2.451
@@ -3732,6 +3792,7 @@
     "unit": "億人",
     "ind": "SP.POP.TOTL",
     "label_en": "Population",
+    "label_zh": "人口",
     "JPN": {
      "year": 2025,
      "value": 1.234
@@ -3936,6 +3997,7 @@
     "cik": 104169,
     "name": "ウォルマート",
     "name_en": "Walmart",
+    "name_zh": "沃爾瑪",
     "entity": "Walmart Inc.",
     "country": "US",
     "fy_end_month": "1月",
@@ -3988,6 +4050,7 @@
     "cik": 1018724,
     "name": "アマゾン",
     "name_en": "Amazon",
+    "name_zh": "亞馬遜",
     "entity": "AMAZON.COM, INC.",
     "country": "US",
     "fy_end_month": "12月",
@@ -4040,6 +4103,7 @@
     "cik": 731766,
     "name": "ユナイテッドヘルス",
     "name_en": "UnitedHealth",
+    "name_zh": "聯合健康",
     "entity": "UnitedHealth Group Incorporated",
     "country": "US",
     "fy_end_month": "12月",
@@ -4092,6 +4156,7 @@
     "cik": 320193,
     "name": "アップル",
     "name_en": "Apple",
+    "name_zh": "蘋果",
     "entity": "Apple Inc.",
     "country": "US",
     "fy_end_month": "9月",
@@ -4144,6 +4209,7 @@
     "cik": 64803,
     "name": "CVSヘルス",
     "name_en": "CVS Health",
+    "name_zh": "CVS Health",
     "entity": "CVS HEALTH Corp",
     "country": "US",
     "fy_end_month": "12月",
@@ -4196,6 +4262,7 @@
     "cik": 1067983,
     "name": "バークシャー・ハサウェイ",
     "name_en": "Berkshire Hathaway",
+    "name_zh": "波克夏・海瑟威",
     "entity": "BERKSHIRE HATHAWAY INC",
     "country": "US",
     "fy_end_month": "12月",
@@ -4248,6 +4315,7 @@
     "cik": 1652044,
     "name": "アルファベット（Google）",
     "name_en": "Alphabet (Google)",
+    "name_zh": "Alphabet（Google）",
     "entity": "Alphabet Inc.",
     "country": "US",
     "fy_end_month": "12月",
@@ -4300,6 +4368,7 @@
     "cik": 34088,
     "name": "エクソンモービル",
     "name_en": "ExxonMobil",
+    "name_zh": "埃克森美孚",
     "entity": "Exxon Mobil Corporation",
     "country": "US",
     "fy_end_month": "12月",
@@ -4352,6 +4421,7 @@
     "cik": 789019,
     "name": "マイクロソフト",
     "name_en": "Microsoft",
+    "name_zh": "微軟",
     "entity": "MICROSOFT CORP",
     "country": "US",
     "fy_end_month": "6月",
@@ -4404,6 +4474,7 @@
     "cik": 1045810,
     "name": "エヌビディア",
     "name_en": "NVIDIA",
+    "name_zh": "輝達",
     "entity": "NVIDIA CORP",
     "country": "US",
     "fy_end_month": "1月",
@@ -4456,6 +4527,7 @@
     "cik": 1094517,
     "name": "トヨタ自動車",
     "name_en": "Toyota Motor",
+    "name_zh": "豐田汽車",
     "entity": "TOYOTA MOTOR CORP/",
     "country": "JP",
     "fy_end_month": "3月",
@@ -4514,6 +4586,7 @@
     "cik": 715153,
     "name": "本田技研工業（ホンダ）",
     "name_en": "Honda Motor",
+    "name_zh": "本田汽車",
     "entity": "HONDA MOTOR CO., LTD.",
     "country": "JP",
     "fy_end_month": "3月",
@@ -4572,6 +4645,7 @@
     "cik": 313838,
     "name": "ソニーグループ",
     "name_en": "Sony Group",
+    "name_zh": "索尼集團",
     "entity": "Sony Group Corporation",
     "country": "JP",
     "fy_end_month": "3月",

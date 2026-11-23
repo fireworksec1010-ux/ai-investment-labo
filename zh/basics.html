@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>投資基礎｜股票、本益比、股價淨值比、股利、複利｜用數字學經濟與投資</title>
+<meta name="description" content="什麼是股票？本益比、股價淨值比代表什麼？股利與複利如何運作？用例子和試算工具淺顯解說。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/basics.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/basics.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/basics.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ 投資基礎</div>
+    <span class="pill">Investment Basics</span>
+    <h1>投資基礎</h1>
+    <p class="lead">買股票會得到什麼？股價是「貴」還是「便宜」該怎麼看？什麼是股利和複利？用簡單的例子說明開始投資前應該知道的基本知識。</p>
+    <div class="toc"><a href="#stock">什麼是股票？</a><a href="#per">本益比・股價淨值比</a><a href="#dividend">什麼是股利？</a><a href="#compound">複利的原理</a><a href="stocks.html">股價指數</a><a href="#words">名詞解釋</a></div>
+  </div>
+
+  <section id="stock">
+    <div class="sec-h"><h2>什麼是股票？</h2></div>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>股票就是把「公司的所有權」切成小份</h3>
+      <p>公司要蓋大商店或工廠需要很多錢，所以會發行「股票」向許多人募集資金。買了股票的人就成為<b>股東</b>，也就是公司的老闆之一。</p>
+      <p style="margin:0;">例如，一家公司發行了1萬股，你持有100股，就代表你擁有這家公司1%的所有權。</p>
+    </div>
+    <div class="grid g3" style="margin-top:14px;">
+      <div class="card"><b>股東可以得到的①</b><p style="font-size:14px;margin:6px 0 0;"><b>資本利得</b>：股價比買進時上漲後賣出，差額就是獲利（下跌則會虧損）。</p></div>
+      <div class="card"><b>股東可以得到的②</b><p style="font-size:14px;margin:6px 0 0;"><b>股利</b>：公司把部分獲利分給股東的錢。<a href="#dividend">詳細</a></p></div>
+      <div class="card"><b>股東可以做的事</b><p style="font-size:14px;margin:6px 0 0;"><b>在股東會投票</b>：在決定公司重要事項的會議上，依持股數投票。</p></div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <b>股價為什麼會變動？</b>
+      <p style="font-size:14px;margin:6px 0 0;">股價由買方與賣方的平衡決定。越多人預期公司利潤會增加，想買的人就越多，股價也容易上漲。不過，如果好消息早已被預期，即使業績亮眼，股價也可能下跌。</p>
+    </div>
+  </section>
+
+  <section id="per">
+    <div class="sec-h"><h2>什麼是本益比・股價淨值比？</h2><span class="sub">比較股價與「獲利」或「資產」的量尺</span></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="font-size:18px;">本益比（PER）</h3>
+        <p style="font-size:14px;margin-top:8px;"><b>股價 ÷ 每股盈餘</b><br>表示股價相當於公司幾年份的獲利。</p>
+        <p style="font-size:14px;margin:0;"><span class="example">例</span> 股價2,000日圓、每股盈餘100日圓，本益比為<b>20倍</b>。若獲利維持不變，要20年份的獲利才等於股價。</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:18px;">股價淨值比（PBR）</h3>
+        <p style="font-size:14px;margin-top:8px;"><b>股價 ÷ 每股淨值</b><br>淨值是公司資產扣掉負債後的「實質財產」。表示股價是淨值的幾倍。</p>
+        <p style="font-size:14px;margin:0;"><span class="example">例</span> 股價2,000日圓、每股淨值1,600日圓，股價淨值比為<b>1.25倍</b>。低於1倍代表市場對公司的評價低於其淨資產。</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <b>自己算算看</b> <span class="example">數字可自由修改</span>
+      <div class="calc">
+        <label>股價（日圓）<input type="number" id="p-price" value="2000" min="1"></label>
+        <label>每股盈餘（日圓）<input type="number" id="p-eps" value="100"></label>
+        <label>每股淨值（日圓）<input type="number" id="p-bps" value="1600"></label>
+      </div>
+      <div class="result"><div><span>本益比</span><b id="p-per"></b></div><div><span>股價淨值比</span><b id="p-pbr"></b></div></div>
+      <p style="font-size:13px;color:var(--ink2);margin:0;">每股盈餘與每股淨值可在公司的財務報告中查到。</p>
+    </div>
+    <div class="quick" style="margin-top:14px;">
+      <span class="tag">留意</span>
+      <p style="margin:0;">本益比或股價淨值比低，不一定代表「划算」。也可能是因為市場預期獲利將減少才偏低。不同產業的正常水準也不同，應與同產業公司或該公司過去的數值比較。</p>
+    </div>
+  </section>
+
+  <section id="dividend">
+    <div class="sec-h"><h2>什麼是股利？</h2></div>
+    <div class="card">
+      <p style="font-size:14.5px;">股利是公司把部分獲利分給股東的錢。多數公司一年發放1～2次（有些公司4次），依持股數領取。</p>
+      <p style="font-size:14.5px;"><b>殖利率 ＝ 每股年度股利 ÷ 股價</b></p>
+      <p style="font-size:14.5px;margin:0;"><span class="example">例</span> 股價2,000日圓、每股年度股利60日圓，殖利率為<b>3%</b>。持有100股（20萬日圓），一年可領6,000日圓（稅前）。</p>
+    </div>
+    <div class="grid g3" style="margin-top:14px;">
+      <div class="card"><b>不一定能領到</b><p style="font-size:14px;margin:6px 0 0;">業績變差時，股利可能減少（減配）或停止發放（無配）。</p></div>
+      <div class="card"><b>有領取期限</b><p style="font-size:14px;margin:6px 0 0;">必須在公司規定的「除權息基準日」登記為股東。</p></div>
+      <div class="card"><b>需要繳稅</b><p style="font-size:14px;margin:6px 0 0;">在日本，股利通常要課約20%的稅。使用NISA帳戶則免稅（<a href="https://www.fsa.go.jp/policy/nisa2/" target="_blank" rel="noopener">日本金融廳 NISA網站，日文</a>）。</p></div>
+    </div>
+  </section>
+
+  <section id="compound">
+    <div class="sec-h"><h2>複利的原理</h2></div>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>利息也會生利息 ＝ 複利</h3>
+      <p>把100萬日圓以年利率5%存起來，第1年的利息是5萬日圓。<b>單利</b>每年只對「最初的100萬日圓」計息，所以每年固定增加5萬日圓。<b>複利</b>則把增加的部分也算進本金，第2年變成105萬日圓的5%＝5萬2,500日圓，一點一點變大。</p>
+      <p style="margin:0;">一開始差距很小，但時間越長，就會像滾雪球一樣越拉越大。</p>
+    </div>
+    <div class="card chart-card" style="margin-top:14px;">
+      <b>複利試算工具</b> <span class="example">假設性計算</span>
+      <div class="calc">
+        <label>初始金額（萬日圓）<input type="number" id="c-p" value="100" min="0"></label>
+        <label>每月定期投入（萬日圓）<input type="number" id="c-m" value="0" min="0" step="0.1"></label>
+        <label>年利率（%）<input type="number" id="c-r" value="5" step="0.1"></label>
+        <label>年數<input type="number" id="c-y" value="30" min="1" max="60"></label>
+      </div>
+      <div class="result">
+        <div><span>投入金額合計</span><b id="c-in"></b></div>
+        <div><span>單利</span><b id="c-s"></b></div>
+        <div><span>複利</span><b id="c-c"></b></div>
+      </div>
+      <div id="c-chart"></div>
+      <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">計算方式：複利以每月增加年利率的12分之1計算（每月投入於月底加入）。單利只對初始金額與投入金額計息。未計入稅金與手續費。實際投資每年的漲幅並不固定，也可能低於本金。</p>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <b>72法則</b>
+      <p style="font-size:14px;margin:6px 0 0;">「72 ÷ 年利率（%）」就能算出<b>資金翻倍所需的大約年數</b>。年利率6%約需72÷6＝12年，年利率3%約需24年。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid g2">
+      <a class="card tile" href="stocks.html"><div class="cat">相關頁面</div><div class="nm">什麼是股價指數？（全世界股票・標普500・日經平均・TOPIX）</div><div class="more">閱讀 →</div></a>
+      <a class="card tile" href="money.html#risk"><div class="cat">相關頁面</div><div class="nm">風險與報酬的關係</div><div class="more">閱讀 →</div></a>
+    </div>
+  </section>
+
+  <section id="words">
+    <div class="sec-h"><h2>名詞解釋</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th style="width:9em;">名詞</th><th>意思</th></tr>
+        <tr><td>股東</td><td>持有股票的人，也是公司的老闆之一。</td></tr>
+        <tr><td>淨值</td><td>公司資產扣除負債後的實質財產。</td></tr>
+        <tr><td>市值</td><td>股價 × 發行股數。市場認為整家公司的價值。<a href="companies.html#terms">詳細</a></td></tr>
+        <tr><td>財報</td><td>公司彙整並公布1年（或3個月）營收與獲利的報告。</td></tr>
+        <tr><td>本金</td><td>一開始投入的錢。</td></tr>
+        <tr><td>投資信託（基金）</td><td>由專家集合大家的資金進行投資的商品，價格稱為「基準價格（淨值）」。</td></tr>
+        <tr><td>NISA</td><td>日本政府推行、投資獲利免稅的制度。</td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  function v(id){ return parseFloat(document.getElementById(id).value); }
+  function perpbr(){
+    var p = v("p-price"), e = v("p-eps"), b = v("p-bps");
+    document.getElementById("p-per").textContent = e>0 ? (p/e).toFixed(1)+"倍" : "無法計算（虧損）";
+    document.getElementById("p-pbr").textContent = b>0 ? (p/b).toFixed(2)+"倍" : "無法計算";
+  }
+  function man(x){ return x>=10000 ? SITE.comma(x/10000,2)+"億日圓" : SITE.comma(x,0)+"萬日圓"; }
+  function comp(){
+    var P = Math.max(0,v("c-p")||0), M = Math.max(0,v("c-m")||0), r = (v("c-r")||0)/100, Y = Math.min(60, Math.max(1, Math.round(v("c-y")||1)));
+    var labels = [], s = [], c = [], inv = [], bal = P;
+    for(var y=0; y<=Y; y++){
+      if(y>0) for(var k=0;k<12;k++){ bal = bal*(1+r/12) + M; }
+      var paid = P + M*12*y;
+      var simple = P*(1+r*y) + M*12*y + M*r*(12*y*(12*y-1)/2)/12;
+      labels.push("第"+y+"年"); c.push(Math.round(bal*10)/10); s.push(Math.round(simple*10)/10); inv.push(paid);
+    }
+    document.getElementById("c-in").textContent = man(inv[Y]);
+    document.getElementById("c-s").textContent = man(s[Y]);
+    document.getElementById("c-c").textContent = man(c[Y]);
+    SITE.plot(document.getElementById("c-chart"), { title:"金錢的成長方式（單利與複利）", labels:labels, zero:true,
+      series:[{name:"複利", short:"複利", values:c},{name:"單利", short:"單利", values:s}],
+      fmt:man, axisFmt:function(x){ return x>=10000 ? (x/10000)+"億" : x+"萬"; },
+      tickEvery:function(i,l,len){ var st = len>40?10:(len>20?5:(len>10?2:1)); return i%st===0 ? i+"年" : null; } });
+  }
+  ["p-price","p-eps","p-bps"].forEach(function(id){ document.getElementById(id).addEventListener("input", perpbr); });
+  ["c-p","c-m","c-r","c-y"].forEach(function(id){ document.getElementById(id).addEventListener("input", comp); });
+  perpbr(); comp();
+});
+</script>
+</body>
+</html>

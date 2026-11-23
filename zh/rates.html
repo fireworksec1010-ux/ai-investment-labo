@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>利率（政策利率・10年期國債殖利率）日美比較｜用數字學經濟與投資</title>
+<meta name="description" content="以日本銀行、日本財務省、美國財政部、FRB資料繪製日本與美國的政策利率與10年期國債殖利率，並淺顯解說升息時會發生什麼。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/rates.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/rates.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/rates.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ <a href="world.html">全球經濟</a> ＞ 利率</div>
+    <h1>利率</h1>
+    <p class="lead">利率就是「錢的租金」。借錢的人，要依利率多付一些錢還回去。把錢存在銀行能拿到利息，是因為這等於把錢借給銀行。</p>
+  </div>
+
+  <section>
+    <div class="grid g2" id="tiles"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>政策利率</h2></div>
+    <div class="card" style="margin-bottom:14px;">
+      <b>1. 這個數字代表什麼？</b>
+      <p style="font-size:14.5px;margin:6px 0 0;">國家的中央銀行（日本是<b>日本銀行</b>，美國是<b>聯準會（FRB）</b>）為了調節景氣與物價所設定的目標利率。這是銀行之間借貸1天資金時的利率，會影響房貸與存款利率。</p>
+    </div>
+    <div class="card chart-card" id="chart-policy"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>中央銀行為什麼要升息或降息？</h3>
+      <p>物價漲太快時，會<b>升息</b>讓借錢變難，稍微抑制消費與投資。景氣不好時，會<b>降息</b>讓借錢變容易，讓資金流動起來。就像汽車的煞車與油門。</p>
+    </div>
+  </section>
+
+  <section id="bond">
+    <div class="sec-h"><h2>10年期國債殖利率（長期利率）</h2></div>
+    <div class="card" style="margin-bottom:14px;">
+      <b>1. 這個數字代表什麼？</b>
+      <p style="font-size:14.5px;margin:6px 0 0;">國債是國家借錢時發行的「借據」。買進10年後還本的國債時，每年可以領到多少%的利息，就是10年期國債殖利率，也稱為「長期利率」。會隨市場買賣每天變動。</p>
+    </div>
+    <div class="card chart-card" id="chart-bond"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>2. 升息時會發生什麼？</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>利率上升時</th><th>利率下降時</th></tr>
+        <tr><td>存款利息容易增加</td><td>存款利息容易減少</td></tr>
+        <tr><td>房貸等還款容易增加</td><td>房貸等還款容易減少</td></tr>
+        <tr><td>公司借錢變難，對股價容易形成逆風</td><td>公司借錢變容易，對股價容易形成順風</td></tr>
+        <tr><td>該國貨幣容易受歡迎（美國升息→美元升值・日圓貶值方向）</td><td>該國貨幣容易不受歡迎</td></tr>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px;">實際上景氣、公司業績等許多因素交織，不一定總是如此。</p>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>為什麼「日美利差」常常上新聞？</h3>
+      <p>假設存在日本利息1%、存在美國利息4%，很多人會想存在美國。為此需要把日圓換成美元，美元被買進，<a href="fx.html">日圓就容易貶值</a>。請對照圖表中日美利差的擴大與縮小，以及美元兌日圓的走勢。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>3. 相關指標</h2></div>
+    <ul class="points">
+      <li><a href="fx.html">美元兌日圓・歐元兌日圓</a></li>
+      <li><a href="stocks.html">股價指數</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>4. 資料來源</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">單位：年利率%。不是每日數值，而是各月最後營業日的數值。日本政策利率為日本銀行引導目標「無擔保隔夜拆款利率」的實際利率；美國為聯準會設定目標區間之「聯邦資金利率」的實際利率（有效利率）。</p>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("tiles").innerHTML = [
+    SITE.tile("jp_policy",{cat:"政策利率", name:"日本政策利率", href:"#chart-policy"}),
+    SITE.tile("us_policy",{cat:"政策利率", name:"美國政策利率", href:"#chart-policy"}),
+    SITE.tile("jp10y",{cat:"長期利率", href:"#bond"}),
+    SITE.tile("us10y",{cat:"長期利率", href:"#bond"})
+  ].join("");
+  SITE.lineChart(document.getElementById("chart-policy"), ["jp_policy","us_policy"], {title:"日本與美國的政策利率（月底）", short:["日本","美國"], names:["日本（無擔保隔夜拆款利率）","美國（有效聯邦資金利率）"], foot:"來源：日本銀行「時間序列統計資料」、美國聯邦準備理事會（FRB）H.15"});
+  SITE.lineChart(document.getElementById("chart-bond"), ["jp10y","us10y"], {title:"日本與美國的10年期國債殖利率（月底）", short:["日本","美國"], names:["日本10年期國債","美國10年期公債"], foot:"來源：日本財務省「國債利率資訊」、美國財政部「Daily Treasury Par Yield Curve Rates」"});
+  SITE.sourceList(document.getElementById("sources"), ["jp_policy","us_policy","jp10y","us10y"]);
+});
+</script>
+</body>
+</html>

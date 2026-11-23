@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>企業分析｜全球企業營收排名・蘋果與微軟比較・日本企業的實力｜用數字學經濟與投資</title>
+<meta name="description" content="以各公司向美國證券交易委員會（SEC）提交的財報資料，比較全球大企業的營收、蘋果與微軟，以及豐田、本田、索尼的實力。並淺顯解說營收、利潤、市值的差別。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/companies.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/companies.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/companies.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ 企業分析</div>
+    <span class="pill">Company Analysis</span>
+    <h1>企業分析</h1>
+    <p class="lead">全球大企業賣了多少、又賺了多少？用各公司向政府提交的財報數字來比較看看。</p>
+    <div class="toc"><a href="#terms">營收・利潤・市值的差別</a><a href="#ranking">全球企業營收排名</a><a href="#am">蘋果與微軟比較</a><a href="#japan">日本企業的實力</a></div>
+    <div class="disclaimer" style="margin-top:16px;">本頁目的在於學習閱讀公司財報數字，並非推薦買賣特定公司的股票。</div>
+  </div>
+
+  <section id="terms">
+    <div class="sec-h"><h2>營收・利潤・市值的差別</h2></div>
+    <div class="quick" style="margin-bottom:14px;">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>用拉麵店來想想看</h3>
+      <p style="margin:0;">一碗1,000日圓的拉麵一年賣出1萬碗，<b>營收</b>就是1,000萬日圓。扣掉食材費、房租、薪水等後剩下的是<b>營業利益</b>。再扣掉稅金等，最後留下的是<b>淨利</b>。而市場對「整間店要多少錢才買得到」所訂的價格，就是<b>市值</b>。</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th style="width:8em;">名詞</th><th>意思</th><th>在哪裡看？</th></tr>
+        <tr><td>營收</td><td>銷售商品或服務所得的金額總和，可看出公司的「規模」。</td><td>財報</td></tr>
+        <tr><td>營業利益</td><td>營收扣除原料、人事、廣告等本業費用後的剩餘，可看出本業的「賺錢能力」。</td><td>財報</td></tr>
+        <tr><td>淨利</td><td>營業利益再扣除利息、稅金等所有費用後的最終獲利，是股利的來源。</td><td>財報</td></tr>
+        <tr><td>市值</td><td>股價 × 發行股數。市場認為「整家公司的價格」，包含對未來的期待，每天變動。</td><td>由股價計算</td></tr>
+      </table>
+    </div>
+    <p style="font-size:14px;margin-top:12px;">營收大的公司，利潤或市值不一定也大。例如超市營收很大，但每件商品賺得不多；軟體公司相對營收，利潤往往較高。</p>
+    <p style="font-size:12.5px;color:var(--muted);margin:0;">市值依股價每天變動。本網站不處理股價資料，市值請至各公司投資人關係（IR）網頁或證券交易所確認。</p>
+  </section>
+
+  <section id="ranking">
+    <div class="sec-h"><h2>全球企業營收排名</h2><span class="sub">各公司最新會計年度</span></div>
+    <div class="card" id="rank-bars"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">對象：向美國證券交易委員會（SEC）提交年報的<span id="n-co"></span>家主要企業。並非全球所有企業的排名（例如中國或沙烏地阿拉伯的國營企業不在其中）。日本企業的金額，以該會計年度12個月的平均美元兌日圓匯率（日本銀行・月平均）換算成美元。各公司的會計年度結束月份不同。</p>
+    <div class="quick" style="margin-top:14px;">
+      <span class="tag">重點</span>
+      <p style="margin:0;" id="rank-insight"></p>
+    </div>
+  </section>
+
+  <section id="am">
+    <div class="sec-h"><h2>蘋果與微軟比較</h2></div>
+    <div class="grid g2" style="margin-bottom:14px;">
+      <div class="card"><b>蘋果（Apple）</b><p style="font-size:14px;margin:6px 0 0;">銷售iPhone、Mac、iPad等裝置，以及App Store、音樂、雲端儲存等服務。營收大多來自自家設計的產品。</p></div>
+      <div class="card"><b>微軟（Microsoft）</b><p style="font-size:14px;margin:6px 0 0;">銷售Windows、Office等軟體，以及企業用雲端服務（Azure）等。面向企業與政府的服務是主要支柱。</p></div>
+    </div>
+    <div class="tbl-wrap"><table id="am-table"></table></div>
+    <div class="grid g2" style="margin-top:14px;">
+      <div class="card chart-card" id="am-rev"></div>
+      <div class="card chart-card" id="am-ni"></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">兩家公司的會計年度結束月份不同（蘋果為9月、微軟為6月），即使是同一「年度」，對象期間也略有差異。</p>
+  </section>
+
+  <section id="japan">
+    <div class="sec-h"><h2>日本企業的實力</h2></div>
+    <p style="font-size:14.5px;">以下3家日本大企業也向美國證券交易委員會（SEC）提交年報。同時列出日圓金額與換算成美元的金額。</p>
+    <div class="tbl-wrap"><table id="jp-table"></table></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;" id="jp-note"></p>
+    <div class="quick" style="margin-top:14px;">
+      <span class="tag">重點</span>
+      <p style="margin:0;" id="jp-insight"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>資料來源</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">數值取自各公司向SEC提交之年報（美國公司為10-K、日本公司為20-F）中的XBRL資料（機器可讀的財報資料）。營收為Revenues等標籤，營業利益為OperatingIncomeLoss等標籤，淨利為歸屬於母公司股東的淨利。各公司採用的會計準則（美國會計準則・國際財務報導準則）不同，比較時請作為參考。最新財報請至各公司IR網頁確認。</p>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var CO = DATA.companies.list, C = SITE.comma;
+  function fy(e){ var a = e.split("-"); return a[0]+"年"+(+a[1])+"月期"; }
+  function lastY(c){ return c.years[c.years.length-1]; }
+  function toUsd(y, v){ return v==null ? null : (y.currency==="JPY" ? (y.usdjpy_avg ? v/y.usdjpy_avg : null) : v); }
+  function oku(v){ return v==null ? "—" : C(v/1e8,0)+"億美元"; }
+  function cho(v){ return v==null ? "—" : C(v/1e12,2)+"兆日圓"; }
+  function pct(a,b){ return (a==null||!b) ? "—" : (a/b*100).toFixed(1)+"%"; }
+  function find(n){ return CO.filter(function(c){ return c.name_en.indexOf(n)===0; })[0]; }
+
+  var ranked = CO.map(function(c){ var y = lastY(c); return {c:c, y:y, usd:toUsd(y, y.revenue)}; }).filter(function(r){ return r.usd; })
+    .sort(function(a,b){ return b.usd-a.usd; });
+  document.getElementById("n-co").textContent = ranked.length;
+  SITE.bars(document.getElementById("rank-bars"), { title:"營收（以美元換算）", rank:true,
+    rows:ranked.map(function(r){ return {label:r.c.name_zh, after:fy(r.y.end), value:r.usd, text:oku(r.usd), hl:r.c.country==="JP"}; }),
+    foot:"來源：美國證券交易委員會（SEC）EDGAR。日本企業以日本銀行美元兌日圓（月平均）換算" });
+  var top = ranked[0], best = ranked.slice().sort(function(a,b){ return (b.y.net_income/b.y.revenue)-(a.y.net_income/a.y.revenue); })[0];
+  document.getElementById("rank-insight").innerHTML = "營收最大的是<b>"+top.c.name_zh+"</b>（"+oku(top.usd)+"）。而淨利佔營收比例（淨利率）最高的是<b>"+best.c.name_zh+"</b>，達"+pct(best.y.net_income, best.y.revenue)+"。可見規模大小和賺錢能力是兩回事。";
+
+  var ap = find("Apple"), ms = find("Microsoft"), ya = lastY(ap), ym = lastY(ms);
+  function row(label, fa, fm){ return '<tr><th>'+label+'</th><td>'+fa+'</td><td>'+fm+'</td></tr>'; }
+  document.getElementById("am-table").innerHTML = '<tr><th></th><th>蘋果（'+fy(ya.end)+'）</th><th>微軟（'+fy(ym.end)+'）</th></tr>'+
+    row("營收", oku(ya.revenue), oku(ym.revenue))+row("營業利益", oku(ya.op_income), oku(ym.op_income))+row("淨利", oku(ya.net_income), oku(ym.net_income))+
+    row("營業利益率<br><small>（營收中本業利益的比例）</small>", pct(ya.op_income, ya.revenue), pct(ym.op_income, ym.revenue))+
+    row("淨利率", pct(ya.net_income, ya.revenue), pct(ym.net_income, ym.revenue));
+  [["revenue","am-rev","營收走勢"],["net_income","am-ni","淨利走勢"]].forEach(function(k){
+    var n = Math.min(ap.years.length, ms.years.length), A = ap.years.slice(-n), M = ms.years.slice(-n);
+    SITE.plot(document.getElementById(k[1]), { title:k[2]+"（億美元）", zero:true,
+      labels:A.map(function(y,i){ return String(i); }), tipLabels:A.map(function(y,i){ return "蘋果 "+fy(y.end)+"／微軟 "+fy(M[i].end); }),
+      series:[{name:"蘋果", short:"蘋果", values:A.map(function(y){ return y[k[0]]==null?null:Math.round(y[k[0]]/1e8); })},
+              {name:"微軟", short:"微軟", values:M.map(function(y){ return y[k[0]]==null?null:Math.round(y[k[0]]/1e8); })}],
+      fmt:function(v){ return C(v,0)+"億美元"; }, axisFmt:function(v){ return C(v,0); },
+      tickEvery:function(i,l,len){ return i===len-1 ? "最新年度" : (i===0 ? (len-1)+"年前" : null); },
+      foot:"來源：SEC EDGAR（10-K）" });
+  });
+
+  var jps = CO.filter(function(c){ return c.country==="JP"; });
+  document.getElementById("jp-table").innerHTML = '<tr><th></th>'+jps.map(function(c){ return '<th>'+c.name_zh+'<br><small>'+fy(lastY(c).end)+'</small></th>'; }).join("")+'</tr>'+
+    [["營收", function(y){ return cho(y.revenue)+'<br><small style="color:var(--muted)">約'+oku(toUsd(y,y.revenue))+'</small>'; }],
+     ["營業利益", function(y){ return cho(y.op_income); }], ["淨利", function(y){ return cho(y.net_income); }],
+     ["營業利益率", function(y){ return pct(y.op_income, y.revenue); }],
+     ["換算匯率", function(y){ return y.usdjpy_avg ? "1美元＝"+y.usdjpy_avg.toFixed(2)+"日圓" : "—"; }],
+     ["在上方排名中的名次", function(y, c){ return "第"+(ranked.map(function(r){ return r.c; }).indexOf(c)+1)+"名／"+ranked.length+"家"; }]
+    ].map(function(r){ return '<tr><th>'+r[0]+'</th>'+jps.map(function(c){ return '<td>'+r[1](lastY(c), c)+'</td>'; }).join("")+'</tr>'; }).join("");
+  document.getElementById("jp-note").textContent = "SEC資料中可取得的最新年度為"+fy(lastY(jps[0]).end)+"。更新的財報請至各公司IR網頁確認。";
+  var ty = find("Toyota"), tyy = lastY(ty);
+  document.getElementById("jp-insight").innerHTML = "豐田汽車的營收約<b>"+cho(tyy.revenue)+"</b>、營業利益約<b>"+cho(tyy.op_income)+"</b>。換算成美元，營收約"+oku(toUsd(tyy,tyy.revenue))+"，在上方排名中位居第"+(ranked.map(function(r){ return r.c; }).indexOf(ty)+1)+"名。";
+
+  document.getElementById("sources").innerHTML = SITE.sourceLine("sec", "取得日："+SITE.fmtDate(DATA.companies.retrieved))+
+    CO.map(function(c){ return '<div>'+c.name_zh+'（'+c.entity+'）：<a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK='+c.cik+'&type='+(c.country==="JP"?"20-F":"10-K")+'" target="_blank" rel="noopener">SEC申報文件</a></div>'; }).join("")+
+    SITE.sourceLine("boj","日本企業換算美元所用的美元兌日圓（東京市場 17時／月平均，序列代碼 FXERM07）");
+});
+</script>
+</body>
+</html>

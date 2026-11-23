@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>資料來源・資料規則・免責聲明｜用數字學經濟與投資</title>
+<meta name="description" content="本網站使用的資料來源、刊登規則與免責聲明。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/about.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/about.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/about.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ 資料來源</div>
+    <h1>資料來源・資料規則・免責聲明</h1>
+    <p class="lead">本網站不是「推薦投資的網站」，而是「幫助你學會自己判斷投資的網站」。因此，我們公開所有資料的出處。</p>
+  </div>
+
+  <section>
+    <div class="sec-h"><h2>使用的資料</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:13px;margin-top:10px;"><a href="../data.json">以JSON格式下載所有數值</a></p>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>資料來源的選擇方式</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>優先順序</th><th>資料來源</th><th>例子</th></tr>
+        <tr><td>① 最優先</td><td>公家機關・國際機構</td><td>日本銀行、日本財務省、美國財政部、FRB、歐洲中央銀行、世界銀行、美國證券交易委員會（SEC）</td></tr>
+        <tr><td>② 次優先</td><td>計算指數的官方機構</td><td>MSCI、標普道瓊斯指數公司、日本經濟新聞社、JPX總研（僅提供連結）</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>刊登規則</h2></div>
+    <ul class="points">
+      <li>一定註明原始資料的出處。</li>
+      <li>註明資料的取得日與涵蓋期間。</li>
+      <li>月底數值於每月月初更新一次。</li>
+      <li>對資料進行加工時（例如從每日數值中選出月底數值），說明其方法。</li>
+      <li>不以推測填補未公布的數值。</li>
+      <li>股價指數的數值著作權屬於計算機構，因此不轉載，只附上官方網站連結。</li>
+      <li>公布機構修正過去數值時，於下次更新時反映。</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>免責聲明</h2></div>
+    <div class="disclaimer">
+      <p>本網站以學習經濟與投資為目的提供資訊，並非推薦買賣特定股票或金融商品，也不預測未來的價格走勢。</p>
+      <p>刊登的數值以公布機構的資料為基礎，但不保證其正確性或即時性。最新且正確的數值，請務必至公布機構的官方網站確認。</p>
+      <p style="margin:0;">對於使用本網站資訊所造成的任何損失，網站經營者不負任何責任。投資判斷請自行負責。</p>
+    </div>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  SITE.sourceList(document.getElementById("sources"), ["usdjpy","eurjpy","jp_policy","us_policy","jp10y","us10y"]);
+  var box = document.getElementById("sources");
+  box.innerHTML += SITE.sourceLine("wb", "GDP・通膨率・人均GDP・經濟成長率・失業率・人口・日本消費者物價指數（年度）。取得日："+SITE.fmtDate(DATA.world.retrieved)+"。CC BY 4.0")+
+    SITE.sourceLine("sec", "企業的營收・營業利益・淨利（年報 10-K／20-F）。取得日："+SITE.fmtDate(DATA.companies.retrieved));
+});
+</script>
+</body>
+</html>

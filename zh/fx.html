@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>匯率（美元兌日圓・歐元兌日圓）走勢與日圓升貶｜用數字學經濟與投資</title>
+<meta name="description" content="以日本銀行與歐洲中央銀行資料繪製美元兌日圓、歐元兌日圓的月底走勢，並淺顯解說日圓升值與貶值對生活和投資的影響。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/fx.html">
+<link rel="alternate" hreflang="en" href="https://fireworksec1010-ux.github.io/ai-investment-labo/en/fx.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://fireworksec1010-ux.github.io/ai-investment-labo/zh/fx.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/data.js"></script>
+<script src="../assets/illust.js"></script>
+<script src="../assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">首頁</a> ＞ <a href="world.html">全球經濟</a> ＞ 匯率</div>
+    <h1>匯率</h1>
+    <p class="lead">匯率是日圓與外國貨幣交換的比率。「1美元＝150日圓」代表要150日圓才能換到1美元。</p>
+  </div>
+
+  <section>
+    <div class="grid g2" id="tiles"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>美元兌日圓（美國的美元與日本的日圓）</h2></div>
+    <div class="card" style="margin-bottom:14px;">
+      <b>1. 這個數字代表什麼？</b>
+      <p style="font-size:14.5px;margin:6px 0 0;">表示買1美元需要多少日圓。數字<b>變大</b>是「日圓貶值」（日圓價值下降），<b>變小</b>是「日圓升值」（日圓價值上升）。</p>
+    </div>
+    <div class="card chart-card" id="chart-usd"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>150日圓變成160日圓，為什麼是「日圓貶值」？</h3>
+      <p>想像一個1美元的零食。以前150日圓就買得到，現在卻要付160日圓。買同樣的東西需要更多日圓＝<b>日圓的力量變弱了</b>，所以是「貶值」。數字變大卻叫貶值，是因為我們看的是日圓的價值。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>2. 數字變動時會發生什麼？</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>日圓貶值時</th><th>日圓升值時</th></tr>
+        <tr><td>進口商品（小麥、汽油等）容易變貴</td><td>進口商品容易變便宜</td></tr>
+        <tr><td>出國旅行容易變貴</td><td>出國旅行容易變便宜</td></tr>
+        <tr><td>向海外銷售的公司容易賺錢</td><td>向海外銷售的公司獲利容易減少</td></tr>
+        <tr><td>海外股票與基金換算成日圓，金額容易增加</td><td>海外股票與基金換算成日圓，金額容易減少</td></tr>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px;">之所以說「容易」，是因為其他因素（原料價格、公司努力等）也會改變結果。</p>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">30秒看懂經濟</span>
+      <h3>匯率為什麼會變動？</h3>
+      <p>原因很多，其中很重要的是<b>國家之間的利差</b>。存款利息高的國家，貨幣容易受歡迎，價格也容易上漲。此外，進出口量、景氣、對新聞的反應等，也讓匯率每天變動。</p>
+      <p style="margin:0;">日本與美國的利率可在<a href="rates.html">利率頁面</a>比較。</p>
+    </div>
+  </section>
+
+  <section id="eur">
+    <div class="sec-h"><h2>歐元兌日圓（歐洲的歐元與日本的日圓）</h2></div>
+    <div class="card" style="margin-bottom:14px;">
+      <p style="font-size:14.5px;margin:0;">歐元是德國、法國、義大利等許多歐洲國家共同使用的貨幣。表示「1歐元兌多少日圓」，看法與美元兌日圓相同。</p>
+    </div>
+    <div class="card chart-card" id="chart-eur"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>3. 相關指標</h2></div>
+    <ul class="points">
+      <li><a href="rates.html">日本與美國的政策利率</a></li>
+      <li><a href="rates.html#bond">日本與美國的10年期國債殖利率</a></li>
+      <li><a href="stocks.html">股價指數（海外股票也會受匯率影響）</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>4. 資料來源</h2></div>
+    <div class="sources" id="sources"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;">單位：每1美元（1歐元）兌日圓。不是每日數值，而是各月月底的數值。直接使用公布的數值，不以推測填補缺漏的數值。</p>
+  </section>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("tiles").innerHTML = [
+    SITE.tile("usdjpy",{cat:"匯率", href:"#chart-usd"}),
+    SITE.tile("eurjpy",{cat:"匯率", href:"#eur"})
+  ].join("");
+  SITE.lineChart(document.getElementById("chart-usd"), ["usdjpy"], {title:"美元兌日圓走勢（月底）", foot:"來源：日本銀行「時間序列統計資料」東京市場 美元・日圓 即期 17時／月底"});
+  SITE.lineChart(document.getElementById("chart-eur"), ["eurjpy"], {title:"歐元兌日圓走勢（月底）", foot:"來源：歐洲中央銀行（ECB）歐元參考匯率（日圓）／月底"});
+  SITE.sourceList(document.getElementById("sources"), ["usdjpy","eurjpy"]);
+});
+</script>
+</body>
+</html>
