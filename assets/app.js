@@ -168,7 +168,7 @@
       '<div class="bars">'+cfg.rows.map(function(r,i){
         var w = Math.abs(r.value)/max*78;
         return '<div class="bar-row'+(r.hl?' hl':'')+'"><div class="bl">'+(cfg.rank?'<span class="rk">'+(i+1)+'</span>':'')+r.label+(r.sub?'<small>'+r.sub+'</small>':'')+'</div>'+
-          '<div class="bt"><div class="bf'+(r.value<0?' neg':'')+'" style="width:'+Math.max(w,0.6)+'%"></div><span class="bv">'+r.text+'</span></div></div>';
+          '<div class="bt"><div class="bf'+(r.value<0?' neg':'')+'" style="width:'+Math.max(w,0.6)+'%"></div><span class="bv">'+r.text+(r.after?'<small>'+r.after+'</small>':'')+'</span></div></div>';
       }).join("")+'</div><div class="chart-foot">'+(cfg.foot||"")+'</div>';
   }
 
