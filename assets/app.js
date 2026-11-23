@@ -8,17 +8,77 @@
   var here = location.pathname.split("/").pop() || "index.html";
   var active = PARENT[here] || here;
 
+  var THEME = { "index.html":"home", "basics.html":"basics", "stocks.html":"basics", "world.html":"world", "fx.html":"world", "rates.html":"world",
+    "companies.html":"companies", "money.html":"money", "about.html":"about" };
+  var ART = { "basics.html":"basics", "stocks.html":"stocks", "world.html":"world", "fx.html":"fx", "rates.html":"rates",
+    "companies.html":"companies", "money.html":"money", "about.html":"about", "index.html":"hero" };
+  var LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="21" r="16" fill="#ffc53d" stroke="#1b1f3b" stroke-width="2.5"/><circle cx="20" cy="21" r="11" fill="none" stroke="#e39b00" stroke-width="2"/>'+
+    '<path d="M13 26 L18 20 L22 23 L28 15" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 14.5 L28.5 14.5 L28.5 19" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
   function head(){
+    document.body.dataset.theme = THEME[here] || "home";
     var h = document.createElement("header"); h.className = "site-head";
-    h.innerHTML = '<div class="wrap"><a class="logo" href="index.html">数字で学ぶ<span>、</span>経済と投資</a><nav class="nav">'+
+    h.innerHTML = '<div class="wrap"><a class="logo" href="index.html">'+LOGO+'<span class="lt">数字で学ぶ<i>、</i>経済と投資</span></a><nav class="nav">'+
       NAV.map(function(n){ return '<a href="'+n[0]+'"'+(n[0]===active?' class="active"':'')+'>'+n[1]+'</a>'; }).join("")+'</nav></div>';
     document.body.insertBefore(h, document.body.firstChild);
+    if(window.DATA) h.insertAdjacentElement("afterend", ticker());
+    var M = window.ILLUST ? ILLUST.mascot() : "";
     var f = document.createElement("footer");
-    f.innerHTML = '<div class="wrap"><div class="links">'+NAV.map(function(n){ return '<a href="'+n[0]+'">'+n[1]+'</a>'; }).join("")+
+    f.innerHTML = '<div class="wrap">'+M+'<div><div class="fname">数字で学ぶ、経済と投資</div><div class="links">'+NAV.map(function(n){ return '<a href="'+n[0]+'">'+n[1]+'</a>'; }).join("")+
       '<a href="stocks.html">株価指数</a><a href="fx.html">為替</a><a href="rates.html">金利</a></div>'+
       '<div>このサイトは経済と投資について学ぶための情報提供を目的としており、特定の銘柄や金融商品の売買をすすめるものではありません。投資の判断はご自身の責任で行ってください。</div>'+
-      '<div style="margin-top:6px;">データ更新：'+(window.DATA ? fmtDate(DATA.meta.generated_at) : "")+'（毎月はじめに更新）</div></div>';
+      '<div style="margin-top:6px;">データ更新：'+(window.DATA ? fmtDate(DATA.meta.generated_at) : "")+'（毎月はじめに更新）・キャラクター「コイン先生」はこのサイトのオリジナルです</div></div></div>';
     document.body.appendChild(f);
+    decorate();
+  }
+
+  /* ニュースのような数字のテロップ */
+  function ticker(){
+    var items = [["usdjpy","ドル円"],["eurjpy","ユーロ円"],["jp_policy","日本の政策金利"],["us_policy","アメリカの政策金利"],["jp10y","日本10年国債"],["us10y","アメリカ10年国債"]];
+    var one = '<span class="it"><span class="lbl">'+ymLabel(last("usdjpy").ym)+'末</span></span>'+items.map(function(k){
+      var s = S(k[0]), a = last(k[0]), b = last(k[0],1), d = a.value-b.value;
+      var cls = d>0.0005 ? "u" : (d<-0.0005 ? "d" : "f"), mark = d>0.0005 ? "▲" : (d<-0.0005 ? "▼" : "−");
+      return '<span class="it">'+k[1]+' <b>'+num(a.value, s.unit)+(s.unit==="%"?"%":"円")+'</b><span class="'+cls+'">'+mark+Math.abs(d).toFixed(2)+'</span></span>';
+    }).join("");
+    var t = document.createElement("div"); t.className = "ticker"; t.setAttribute("aria-label","最新の為替と金利");
+    t.innerHTML = '<div class="track">'+one+one+one+one+'</div>';
+    return t;
+  }
+
+  /* イラスト・キャラクター・動きの演出 */
+  function decorate(){
+    var hero = document.querySelector(".hero");
+    if(hero && window.ILLUST && ART[here] && !hero.querySelector(".hero-art")){
+      var txt = document.createElement("div"); txt.className = "hero-text";
+      while(hero.firstChild) txt.appendChild(hero.firstChild);
+      hero.appendChild(txt);
+      var art = document.createElement("div"); art.className = "hero-art"; art.innerHTML = ILLUST[ART[here]]();
+      hero.appendChild(art);
+    }
+    if(window.ILLUST) document.querySelectorAll(".quick").forEach(function(q){
+      if(q.classList.contains("has-mascot")) return;
+      var tag = q.querySelector(".tag"), wow = tag && /注意|注目/.test(tag.textContent);
+      var b = document.createElement("div"); b.className = "bubble";
+      while(q.firstChild) b.appendChild(q.firstChild);
+      q.innerHTML = ILLUST.mascot(wow ? "wow" : ""); q.appendChild(b); q.classList.add("has-mascot");
+    });
+    document.querySelectorAll("[data-illust]").forEach(function(el){ if(window.ILLUST) el.innerHTML = ILLUST[el.dataset.illust](); });
+    /* スクロールで表示 */
+    var targets = document.querySelectorAll("main > section");
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); countUp(e.target); io.unobserve(e.target); } }); }, {rootMargin:"0px 0px -8% 0px"});
+      targets.forEach(function(s){ var r = s.getBoundingClientRect(); if(r.top < innerHeight){ countUp(s); return; } s.classList.add("reveal"); io.observe(s); });
+    }
+  }
+  function countUp(root){
+    root.querySelectorAll("[data-count]").forEach(function(el){
+      if(el.dataset.done) return; el.dataset.done = 1;
+      var to = +el.dataset.count, dec = +el.dataset.dec || 0, t0 = null, dur = 900;
+      if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      function f(t){ if(!t0) t0 = t; var p = Math.min(1, (t-t0)/dur), e = 1-Math.pow(1-p,3);
+        el.textContent = (to*e).toFixed(dec); if(p<1) requestAnimationFrame(f); else el.textContent = to.toFixed(dec); }
+      requestAnimationFrame(f);
+    });
   }
 
   function fmtDate(s){ var a = s.split("-"); return a[0]+"年"+(+a[1])+"月"+(+a[2])+"日"; }
@@ -47,10 +107,19 @@
     return '<span class="'+cls+'">'+txt+'</span>';
   }
 
+  /* カードの右上に小さな1年分の線 */
+  function spark(key){
+    var p = S(key).points.slice(-13).map(function(x){ return x.value; }), lo = Math.min.apply(null,p), hi = Math.max.apply(null,p), r = (hi-lo)||1;
+    var d = p.map(function(v,i){ return (i?"L":"M")+(2+i*(86/12)).toFixed(1)+","+(32-(v-lo)/r*28).toFixed(1); }).join(" ");
+    var lp = d.split(" ").pop().slice(1).split(",");
+    return '<svg class="spark" viewBox="0 0 90 36" aria-hidden="true"><path d="'+d+'" fill="none" stroke="var(--t)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="'+lp[0]+'" cy="'+lp[1]+'" r="3.5" fill="var(--t)" stroke="#1b1f3b" stroke-width="1.5"/></svg>';
+  }
+
   function tile(key, o){
     var s = S(key), p = last(key);
     return '<a class="card tile" href="'+o.href+'"><div class="cat">'+o.cat+'</div><div class="nm">'+(o.name||s.name)+'</div>'+
-      '<div class="val">'+num(p.value, s.unit)+'<small>'+s.unit+'</small></div>'+
+      spark(key)+
+      '<div class="val"><span data-count="'+p.value+'" data-dec="2">'+num(p.value, s.unit)+'</span><small>'+s.unit+'</small></div>'+
       '<div class="chg">前の月から '+change(key,1)+'　1年前から '+change(key,12)+'</div>'+
       '<div class="when">'+ymLabel(p.ym)+'末時点・出典：'+src(s.source).org+'</div>'+
       (o.more ? '<div class="more">'+o.more+' →</div>' : '')+'</a>';
@@ -99,15 +168,22 @@
         el("text",{class:"ax", x:m.l-8, y:sy(vv)+4, "text-anchor":"end"}).textContent = af(vv, step);
       }
       if(y0<0) el("line",{x1:m.l, x2:W-m.r, y1:sy(0), y2:sy(0), stroke:"var(--muted)", "stroke-width":1});
+      var gap = box.clientWidth && box.clientWidth < 560 ? 120 : 60, lastX = -1e9;  // 文字が重ならない間隔
       labels.forEach(function(l,i){
         var t = cfg.tickEvery ? cfg.tickEvery(i, l, len) : l;
-        if(t) el("text",{class:"ax", x:sx(i), y:H-8, "text-anchor":"middle"}).textContent = t;
+        if(t && sx(i)-lastX >= gap){ el("text",{class:"ax", x:sx(i), y:H-8, "text-anchor":"middle"}).textContent = t; lastX = sx(i); }
       });
       var ends = [];
       sets.forEach(function(s,si){
         var d = "", pen = false;
         s.forEach(function(v,i){ if(v==null){ pen = false; return; } d += (pen?"L":"M")+sx(i).toFixed(1)+","+sy(v).toFixed(1); pen = true; });
-        el("path",{class:"ln", stroke:COLORS[si], d:d});
+        if(!multi && d){ // 1本のときは下を薄く塗る
+          var gid = "g"+Math.random().toString(36).slice(2,8), df = el("defs",{});
+          df.innerHTML = '<linearGradient id="'+gid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+COLORS[0].replace(/var\((.*)\)/, function(_,v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); })+'" stop-opacity=".22"/><stop offset="1" stop-color="#3b6cff" stop-opacity="0"/></linearGradient>';
+          var xs = s.map(function(v,i){ return v==null?null:i; }).filter(function(i){ return i!=null; });
+          el("path",{d:d+" L"+sx(xs[xs.length-1]).toFixed(1)+","+sy(y0)+" L"+sx(xs[0]).toFixed(1)+","+sy(y0)+" Z", fill:"url(#"+gid+")"});
+        }
+        el("path",{class:"ln"+(drawn?"":" anim"), stroke:COLORS[si], d:d, pathLength:1});
         for(var k=s.length-1;k>=0;k--) if(s[k]!=null){ ends.push({y:sy(s[k]), v:s[k], si:si}); el("circle",{cx:sx(k), cy:sy(s[k]), r:4, fill:COLORS[si], stroke:"#fff", "stroke-width":2}); break; }
       });
       ends.sort(function(a,b){ return a.y-b.y; });
@@ -139,7 +215,9 @@
       hit.addEventListener("touchend", off);
       box.querySelector(".tbl-wrap").innerHTML = '<table><tr><th></th>'+cfg.series.map(function(s){ return '<th>'+(s.short||s.name)+'</th>'; }).join("")+'</tr>'+
         tl.map(function(l,i){ return '<tr><td>'+l+'</td>'+sets.map(function(s){ return '<td>'+(s[i]==null?"—":cfg.fmt(s[i]))+'</td>'; }).join("")+'</tr>'; }).reverse().join("")+'</table>';
+      drawn = true;
     }
+    var drawn = !!cfg.noAnim || !!box.dataset.plotted; box.dataset.plotted = 1;
     draw();
   }
 
@@ -167,7 +245,7 @@
     box.innerHTML = '<div class="chart-top"><div class="ttl">'+cfg.title+'</div></div>'+
       '<div class="bars">'+cfg.rows.map(function(r,i){
         var w = Math.abs(r.value)/max*78;
-        return '<div class="bar-row'+(r.hl?' hl':'')+'"><div class="bl">'+(cfg.rank?'<span class="rk">'+(i+1)+'</span>':'')+r.label+(r.sub?'<small>'+r.sub+'</small>':'')+'</div>'+
+        return '<div class="bar-row'+(r.hl?' hl':'')+'" style="--i:'+i+'"><div class="bl">'+(cfg.rank?'<span class="rk">'+(i+1)+'</span>':'')+r.label+(r.sub?'<small>'+r.sub+'</small>':'')+'</div>'+
           '<div class="bt"><div class="bf'+(r.value<0?' neg':'')+'" style="width:'+Math.max(w,0.6)+'%"></div><span class="bv">'+r.text+(r.after?'<small>'+r.after+'</small>':'')+'</span></div></div>';
       }).join("")+'</div><div class="chart-foot">'+(cfg.foot||"")+'</div>';
   }

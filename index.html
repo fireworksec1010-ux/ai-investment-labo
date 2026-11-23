@@ -7,30 +7,33 @@
 <meta name="description" content="投資の基礎、世界経済、企業分析、お金の教養を、日本銀行・世界銀行・米国証券取引委員会などの公的データをもとに中学生にもわかる言葉で解説。特定の銘柄はすすめず、自分で判断するための情報をまとめています。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/data.js"></script>
+<script src="assets/illust.js"></script>
 <script src="assets/app.js"></script>
 </head>
 <body>
 <main class="wrap">
 
-  <div class="hero">
-    <span class="pill">公的な統計・公式情報をもとに作っています</span>
-    <h1>数字で学ぶ、経済と投資。</h1>
-    <p class="lead">株価・為替・金利・企業の決算など、ニュースでよく聞く「お金と経済の数字」を、日本銀行・世界銀行・アメリカの証券取引委員会などが公表しているデータでまとめました。数字の意味と、私たちの生活とのつながりを、やさしい言葉で説明します。</p>
+  <div class="hero home-hero">
+    <span class="pill">Learn economy with numbers</span>
+    <h1>数字で学ぶ、<br><span class="mk">経済と投資。</span></h1>
+    <p class="lead">株価・為替・金利・企業の決算。ニュースでよく聞く「お金と経済の数字」を、日本銀行・世界銀行・アメリカの証券取引委員会などの公的データで、コイン先生といっしょにやさしく読み解きます。</p>
+    <div class="stat-row" id="hero-stats"></div>
   </div>
 
   <section>
+    <div class="sec-h"><h2>4つのテーマで学ぼう</h2><span class="sub">気になるところから読めます</span></div>
     <div class="grid g2">
-      <a class="card tile theme-card" href="basics.html"><div class="en">Investment Basics</div><h3>投資の基礎</h3>
-        <ul><li>株式とは何か？</li><li>PER・PBRとは？</li><li>配当金とは？</li><li>複利のしくみ（計算ツールつき）</li></ul><div class="more">読む</div></a>
-      <a class="card tile theme-card" href="world.html" style="border-top-color:var(--s2);"><div class="en">Global Economy</div><h3>世界経済</h3>
-        <ul><li>GDPランキング</li><li>世界のインフレ率</li><li>金利と為替</li><li>日本とアメリカの経済比較</li></ul><div class="more">読む</div></a>
-      <a class="card tile theme-card" href="companies.html" style="border-top-color:#1baf7a;"><div class="en">Company Analysis</div><h3>企業分析</h3>
-        <ul><li>世界企業の売上ランキング</li><li>AppleとMicrosoftの比較</li><li>日本企業の実力</li><li>売上・利益・時価総額のちがい</li></ul><div class="more">読む</div></a>
-      <a class="card tile theme-card" href="money.html" style="border-top-color:#8a5a00;"><div class="en">Money Education</div><h3>お金の教養</h3>
-        <ul><li>貯金と投資のちがい</li><li>インフレとお金の価値</li><li>100万円の将来価値（計算ツールつき）</li><li>リスクとリターン</li></ul><div class="more">読む</div></a>
+      <a class="card tile theme-card tc-basics" href="basics.html"><div class="art" data-illust="basics"></div><div class="body"><div class="en">Investment Basics</div><h3>投資の基礎</h3>
+        <ul><li>株式とは何か？</li><li>PER・PBRとは？</li><li>配当金とは？</li><li>複利のしくみ（計算ツールつき）</li></ul><div class="more">読んでみる →</div></div></a>
+      <a class="card tile theme-card tc-world" href="world.html"><div class="art" data-illust="world"></div><div class="body"><div class="en">Global Economy</div><h3>世界経済</h3>
+        <ul><li>GDPランキング</li><li>世界のインフレ率</li><li>金利と為替</li><li>日本とアメリカの経済比較</li></ul><div class="more">読んでみる →</div></div></a>
+      <a class="card tile theme-card tc-companies" href="companies.html"><div class="art" data-illust="companies"></div><div class="body"><div class="en">Company Analysis</div><h3>企業分析</h3>
+        <ul><li>世界企業の売上ランキング</li><li>AppleとMicrosoftの比較</li><li>日本企業の実力</li><li>売上・利益・時価総額のちがい</li></ul><div class="more">読んでみる →</div></div></a>
+      <a class="card tile theme-card tc-money" href="money.html"><div class="art" data-illust="money"></div><div class="body"><div class="en">Money Education</div><h3>お金の教養</h3>
+        <ul><li>貯金と投資のちがい</li><li>インフレとお金の価値</li><li>100万円の将来価値（計算ツールつき）</li><li>リスクとリターン</li></ul><div class="more">読んでみる →</div></div></a>
     </div>
   </section>
 
@@ -98,6 +101,10 @@ document.addEventListener("DOMContentLoaded", function(){
     hi("企業分析・売上高", ranked[0].c.name, "SECに決算を出している主な"+ranked.length+"社の中で売上1位（約"+C(ranked[0].usd/1e8,0)+"億ドル）", "companies.html#ranking"),
     hi("お金の教養・インフレ", c30 ? c30.year+"年の100万円 ≒ "+C(100*cl.value/c30.value,0)+"万円" : "", cl.year+"年の物価で考えた価値（日本の消費者物価指数より）", "money.html#inflation")
   ].join("");
+  document.getElementById("hero-stats").innerHTML =
+    '<div>ドル円（'+SITE.ymLabel(L("usdjpy").ym)+'末）<b>'+L("usdjpy").value.toFixed(2)+'円</b></div>'+
+    '<div>日本のGDP（'+W.gdp_year+'年）<b>世界'+jpRank+'位</b></div>'+
+    '<div>データの出どころ<b>'+DATA.meta.sources.length+'つの公的機関</b></div>';
   /* 為替・金利 */
   document.getElementById("asof").textContent = SITE.ymLabel(L("usdjpy").ym)+"末の値（月1回更新）";
   document.getElementById("tiles").innerHTML = [
