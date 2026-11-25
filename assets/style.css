@@ -291,3 +291,64 @@ html[lang="en"] .hero h1{ letter-spacing:0; }
 html[lang="zh-Hant"]{ --head:"Noto Serif TC", "Zen Old Mincho", serif; --num:"Noto Serif TC", "Zen Old Mincho", serif; }
 html[lang="zh-Hant"] body{ font-family:"Noto Sans TC", "Zen Kaku Gothic New", system-ui, sans-serif; }
 html[lang="zh-Hant"] svg.chart .ax, html[lang="zh-Hant"] .tile .val small, html[lang="zh-Hant"] .bar-row .bv small, html[lang="zh-Hant"] .scene-tag .v small{ font-family:"Noto Sans TC", sans-serif; }
+body[data-theme="japan"]{ --t:#d03b3b; --t-soft:#fdeeee; --t-deep:#a82a2a; }
+
+/* ---------- 注目業界マップ ---------- */
+.drivers{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+.drv .drv-h{ font-family:var(--head); font-weight:900; font-size:18px; }
+.drv p{ font-size:12.5px; color:var(--ink2); margin:4px 0 10px; }
+.drv-list{ display:flex; flex-direction:column; gap:6px; }
+.drv-list a{ display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:700; background:color-mix(in srgb, var(--c) 9%, #fff); border:1px solid color-mix(in srgb, var(--c) 30%, transparent); border-radius:10px; padding:6px 10px; transition:transform .15s; }
+.drv-list a:hover{ transform:translateX(3px); }
+.drv-list a span{ font-family:var(--num); font-weight:900; color:var(--c); }
+@media (max-width:760px){ .drivers{ grid-template-columns:1fr; } }
+.ind .sec-h h2::before{ background:var(--c); }
+.ind .no{ font-family:var(--num); color:var(--c); margin-right:10px; }
+.ind .q{ font-size:12px; font-weight:900; letter-spacing:.04em; color:var(--c); margin-bottom:6px; }
+.ind .card p{ font-size:14px; color:var(--ink2); }
+.ind .points li::before{ background:var(--c); }
+.ind small.src{ display:block; font-size:11px; color:var(--muted); margin-top:2px; }
+.ind small.src a{ color:var(--muted); }
+.chain{ display:flex; align-items:stretch; gap:6px; overflow-x:auto; padding:4px 2px 8px; }
+.chain .step{ flex:1 1 0; min-width:140px; background:color-mix(in srgb, var(--c) 7%, #fff); border:1px solid color-mix(in srgb, var(--c) 28%, transparent); border-radius:12px; padding:10px 12px; }
+.chain .step.end{ background:var(--page-plane); border-style:dashed; border-color:var(--line); }
+.chain .sh{ font-weight:900; font-size:14px; }
+.chain .ss{ font-size:11.5px; color:var(--muted); margin-bottom:6px; }
+.chain .chips{ display:flex; flex-wrap:wrap; gap:4px; }
+.chain .chips a{ font-size:11.5px; font-weight:700; text-decoration:none; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:99px; padding:2px 9px; }
+.chain .chips a:hover{ border-color:var(--c); color:var(--c); }
+.chain .arrow{ align-self:center; color:var(--c); font-weight:900; flex:none; }
+@media (max-width:760px){ .chain{ flex-direction:column; } .chain .arrow{ transform:rotate(90deg); align-self:center; } .chain .step{ min-width:0; } }
+td.up{ color:var(--up); font-weight:700; } td.down{ color:var(--down); font-weight:700; }
+
+/* ---------- 注目企業 ---------- */
+.filters{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.tabs{ display:flex; gap:6px; flex-wrap:wrap; }
+.tabs button{ font:inherit; font-size:12.5px; font-weight:700; color:var(--ink2); background:var(--surface-1); border:1px solid var(--line); border-radius:99px; padding:5px 13px; cursor:pointer; }
+.tabs button.on{ color:#fff; background:var(--c, var(--ink)); border-color:var(--c, var(--ink)); }
+.sort{ font-size:12px; color:var(--muted); font-weight:700; }
+.sort select{ font:inherit; font-size:13px; padding:5px 10px; border:1px solid var(--line); border-radius:10px; background:#fff; margin-left:6px; }
+.count{ font-size:12px; color:var(--muted); margin:12px 0 10px; }
+.co-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:14px; }
+.co{ display:flex; flex-direction:column; scroll-margin-top:20px; }
+.co.hit{ border-color:var(--t); box-shadow:0 0 0 3px color-mix(in srgb, var(--t) 25%, transparent), var(--card-shadow); }
+.co-name{ font-family:var(--head); font-weight:900; font-size:18px; line-height:1.35; }
+.co-code{ font-size:11.5px; color:var(--muted); }
+.itags{ display:flex; flex-wrap:wrap; gap:4px; margin:8px 0 6px; }
+.itag{ font-size:10.5px; font-weight:700; text-decoration:none; color:var(--c); background:color-mix(in srgb, var(--c) 9%, #fff); border-radius:6px; padding:1px 7px; }
+.co-desc{ font-size:13px; color:var(--ink2); line-height:1.75; }
+.co .period{ font-size:11.5px; font-weight:700; color:var(--ink2); border-top:1px dashed var(--line); padding-top:8px; margin-bottom:4px; }
+.co .kv{ display:grid; grid-template-columns:5.5em auto auto 1fr; align-items:center; gap:8px; font-size:12.5px; padding:2px 0; }
+.co .kv span{ color:var(--muted); }
+.co .kv b{ font-family:var(--num); font-size:16px; font-variant-numeric:tabular-nums; }
+.co .kv em{ font-style:normal; font-weight:700; font-variant-numeric:tabular-nums; }
+.co .kv em.up{ color:var(--up); } .co .kv em.down{ color:var(--down); }
+.co .kv i{ display:block; height:8px; background:var(--page-plane); border-radius:4px; overflow:hidden; }
+.co .kv .gb{ display:block; height:100%; background:var(--up); opacity:.55; border-radius:4px; }
+.co .kv .gb.neg{ background:var(--down); }
+.co .kv.small b{ font-size:14px; }
+.co .note{ font-size:12px; color:var(--ink2); background:var(--page-plane); border-radius:8px; padding:8px 10px; margin-top:6px; }
+.co .srcline{ font-size:11px; color:var(--muted); margin-top:8px; }
+.co .srcline a{ color:var(--muted); }
+.co-links{ margin-top:auto; padding-top:10px; font-size:12.5px; font-weight:700; }
+.co-links a{ text-decoration:none; }

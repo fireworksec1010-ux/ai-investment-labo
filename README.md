@@ -32,3 +32,8 @@ py -I scripts/update_data.py
 | Money Education（お金の教養） | money.html（貯金と投資・インフレ・将来価値計算・リスクとリターン） |
 
 追加の出典：世界銀行 World Development Indicators（CC BY 4.0）、米国証券取引委員会 EDGAR（XBRL companyfacts）。
+
+## 注目業界・注目企業（日本語のみ）
+- industries.html（注目業界マップ：7業界）、jp_companies.html（注目企業：37社）
+- 業績データ：`py -I scripts/update_jp_companies.py`（TDnetの決算短信XBRLから売上高・営業利益・前年同期比を取得。TDnetは直近約1か月分のため、見つからない会社は前回の値を残す）
+- 毎月の更新では update_data.py と update_jp_companies.py の両方を実行する

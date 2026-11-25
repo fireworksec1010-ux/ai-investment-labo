@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日本の注目企業｜注目業界で活躍する上場企業と最新の決算｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="AI・半導体、ロボット、宇宙、防衛、データセンター、蓄電池、サイバーセキュリティで活躍する日本の上場企業を、事業内容と最新の決算短信（売上高・営業利益の前年同期比）で一覧にしました。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/jp_companies.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/jp_companies.js"></script>
+<script src="assets/illust.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ <a href="industries.html">注目業界</a> ＞ 注目企業</div>
+    <span class="pill">Japan Companies</span>
+    <h1>日本の<span class="mk">注目企業</span></h1>
+    <p class="lead"><a href="industries.html">注目業界マップ</a>で登場した日本の上場企業を、事業内容と最新の決算の数字で一覧にしました。数字は、各社が東京証券取引所の適時開示（TDnet）で発表した決算短信から取っています。</p>
+    <div class="disclaimer" style="margin-top:16px;">ここに並ぶ会社は、各業界のしくみを知るための代表例です。特定の会社の株の売買をすすめるものではありません。業績が伸びていることと、株価が割安かどうかは別の話です。</div>
+  </div>
+
+  <section>
+    <div class="filters">
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <label class="sort">並べ方
+        <select id="sort">
+          <option value="ind">業界の順</option>
+          <option value="sales">売上高の伸びが大きい順</option>
+          <option value="op">営業利益の伸びが大きい順</option>
+          <option value="size">売上高が大きい順</option>
+        </select>
+      </label>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="co-grid" id="list"></div>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">数字の読み方</span>
+      <h3>「前年同期比」ってなに？</h3>
+      <p>去年の同じ期間とくらべて、何％増えたか（減ったか）を表します。たとえば「売上高 +40%」なら、去年の同じ時期より4割多く売れたという意味です。</p>
+      <p style="margin:0;">会社によって決算の区切り（3月期・12月期など）や期間（中間期・第3四半期まで など）がちがうので、くらべるときは期間にも注意しましょう。前年が赤字だった場合などは、％で比べられないので「—」と表示しています。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>出典・データについて</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+var INDN = { semi:["AI・半導体","#2a78d6"], robot:["ロボット・自動化","#eb6834"], space:["宇宙","#8a5cd1"], defense:["防衛","#6b6a64"],
+  dc:["データセンター・電力","#13a3b8"], battery:["蓄電池・エネルギー","#1baf7a"], cyber:["サイバー・デジタル","#d03b3b"] };
+var NO_OP = { "7011":"三菱重工業は営業利益ではなく、独自の「事業利益」を使っています。", "7012":"川崎重工業は営業利益ではなく、独自の「事業利益」を使っています。" };
+document.addEventListener("DOMContentLoaded", function(){
+  var C = SITE.comma, cur = "all", order = Object.keys(INDN);
+  function oku(v){ var a = Math.abs(v)/1e8; return (v<0?"−":"")+(a>=10000 ? C(a/10000,2)+"兆円" : C(a,0)+"億円"); }
+  function pct(v){ return v==null ? "—" : (v>0?"+":"")+v.toFixed(1)+"%"; }
+  function cls(v){ return v==null ? "" : (v>0 ? "up" : (v<0 ? "down" : "")); }
+  function bar(v){ if(v==null) return ""; var w = Math.min(100, Math.abs(v)/2); return '<span class="gb'+(v<0?' neg':'')+'" style="width:'+w+'%"></span>'; }
+  var tabs = [["all","すべて"]].concat(order.map(function(k){ return [k, INDN[k][0]]; }));
+  document.getElementById("tabs").innerHTML = tabs.map(function(t){ return '<button role="tab" data-k="'+t[0]+'"'+(t[0]==="all"?' class="on" aria-selected="true"':'')+(INDN[t[0]]?' style="--c:'+INDN[t[0]][1]+'"':'')+'>'+t[1]+'</button>'; }).join("");
+  function card(c){
+    var r = c.results, tags = c.industries.map(function(k){ return '<a class="itag" href="industries.html#'+k+'" style="--c:'+INDN[k][1]+'">'+INDN[k][0]+'</a>'; }).join("");
+    var body;
+    if(r){
+      var margin = r.op && r.sales.value ? (r.op.value/r.sales.value*100).toFixed(1)+"%" : "—";
+      body = '<div class="period">'+r.period+'</div>'+
+        '<div class="kv"><span>売上高</span><b>'+oku(r.sales.value)+'</b><em class="'+cls(r.sales.change)+'">'+pct(r.sales.change)+'</em><i>'+bar(r.sales.change)+'</i></div>'+
+        '<div class="kv"><span>営業利益</span><b>'+(r.op ? oku(r.op.value) : "—")+'</b><em class="'+cls(r.op&&r.op.change)+'">'+(r.op ? pct(r.op.change) : "—")+'</em><i>'+(r.op ? bar(r.op.change) : "")+'</i></div>'+
+        '<div class="kv small"><span>営業利益率</span><b>'+margin+'</b></div>'+
+        (!r.op && NO_OP[c.code] ? '<div class="note">'+NO_OP[c.code]+'</div>' : '')+
+        '<div class="srcline">出典：<a href="'+r.pdf+'" target="_blank" rel="noopener">決算短信（'+SITE.fmtDate(r.date)+'発表）</a>・前年同期比は会社公表値</div>';
+    } else {
+      body = '<div class="note">直近1か月のTDnetに決算短信がないため、数字は<a href="'+c.ir+'" target="_blank" rel="noopener">会社のIRページ</a>で確認してください。毎月の更新で、次の決算発表後に反映されます。</div>';
+    }
+    return '<article class="card co" id="c'+c.code+'"><div class="co-top"><div><div class="co-name">'+c.name+'</div><div class="co-code">証券コード '+c.code+'・'+c.role+'</div></div></div>'+
+      '<div class="itags">'+tags+'</div><p class="co-desc">'+c.desc+'</p>'+body+
+      '<div class="co-links"><a href="'+c.ir+'" target="_blank" rel="noopener">会社のIRページ →</a></div></article>';
+  }
+  function render(){
+    var list = JPCO.companies.filter(function(c){ return cur==="all" || c.industries.indexOf(cur)>=0; });
+    var mode = document.getElementById("sort").value;
+    function val(c){ var r = c.results; if(!r) return -1e15;
+      if(mode==="sales") return r.sales.change==null ? -1e14 : r.sales.change;
+      if(mode==="op") return (r.op && r.op.change!=null) ? r.op.change : -1e14;
+      return r.sales.value; }
+    if(mode!=="ind") list = list.slice().sort(function(a,b){ return val(b)-val(a); });
+    else list = list.slice().sort(function(a,b){ return order.indexOf(a.industries[0])-order.indexOf(b.industries[0]); });
+    document.getElementById("list").innerHTML = list.map(card).join("");
+    var n = list.filter(function(c){ return c.results; }).length;
+    document.getElementById("count").textContent = list.length+"社（うち決算の数字がある会社 "+n+"社）";
+  }
+  document.querySelectorAll("#tabs button").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#tabs button").forEach(function(x){ x.classList.remove("on"); x.removeAttribute("aria-selected"); });
+      b.classList.add("on"); b.setAttribute("aria-selected","true"); cur = b.dataset.k; render();
+    });
+  });
+  document.getElementById("sort").addEventListener("change", render);
+  render();
+  if(location.hash){ var el = document.querySelector(location.hash); if(el){ el.classList.add("hit"); setTimeout(function(){ el.scrollIntoView({block:"center"}); }, 50); } }
+  document.getElementById("sources").innerHTML =
+    '<div><b>業績の数字</b>：日本取引所グループ TDnet（適時開示情報閲覧サービス）に各社が公表した決算短信のサマリー（XBRLデータ）　<a href="'+JPCO.source.url+'" target="_blank" rel="noopener">出典を見る</a><br>'+
+    '<span style="color:var(--muted)">売上高・営業利益と前年同期比は、会社が公表した値をそのまま使っています（国際会計基準の会社は「売上収益」を売上高として表示）。営業利益率は「営業利益÷売上高」で計算。取得日：'+SITE.fmtDate(JPCO.generated_at)+'。毎月はじめに更新します。</span></div>'+
+    '<div><b>事業内容</b>：各社の公式ウェブサイト・IR資料をもとに、このサイトがやさしく要約したものです。</div>'+
+    '<div><a href="jp_companies.json">すべての数値をJSON形式でダウンロード</a></div>';
+});
+</script>
+</body>
+</html>

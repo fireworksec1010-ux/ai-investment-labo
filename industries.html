@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日本の注目業界マップ｜AI・半導体、ロボット、宇宙、防衛、データセンター、蓄電池、サイバー｜数字で学ぶ、経済と投資</title>
+<meta name="description" content="日本で注目される7つの業界（AI・半導体、ロボット、宇宙、防衛、データセンター・電力、蓄電池、サイバーセキュリティ）を、業界のしくみ・注目される理由・活躍する企業・決算の数字で、中学生にもわかるように解説します。">
+<link rel="alternate" hreflang="ja" href="https://fireworksec1010-ux.github.io/ai-investment-labo/industries.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script>
+<script src="assets/jp_companies.js"></script>
+<script src="assets/illust.js"></script>
+<script src="assets/app.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="crumb"><a href="index.html">トップ</a> ＞ 注目業界</div>
+    <span class="pill">Japan Industry Map</span>
+    <h1>日本の<span class="mk">注目業界マップ</span></h1>
+    <p class="lead">AI・半導体、ロボット、宇宙、防衛、データセンター、蓄電池、サイバーセキュリティ。いま日本で注目されている7つの業界を、「どんな業界？」「なぜ注目？」「どんな企業？」「業績は伸びている？」「これからは？」の順に、決算の数字と公的な資料で読み解きます。</p>
+    <div class="toc" id="toc"></div>
+  </div>
+
+  <section>
+    <div class="sec-h"><h2>7つの業界は、3つの大きな流れでつながっている</h2></div>
+    <div class="drivers" id="drivers"></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:10px;">たとえばAIが広がると、半導体だけでなく、それを動かすデータセンター、電気を運ぶ電線、データを守るセキュリティまで、関係する業界が次々に忙しくなります。</p>
+  </section>
+
+  <div id="industries"></div>
+
+  <section>
+    <div class="sec-h"><h2>業界を見るときに使う5つの数字</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th style="width:10em;">数字</th><th>中学生でもわかる説明</th></tr>
+        <tr><td>売上高の伸び</td><td>商品がどれくらい多く売れるようになったか。</td></tr>
+        <tr><td>営業利益の伸び</td><td>本業のもうけがどれくらい増えたか。</td></tr>
+        <tr><td>営業利益率</td><td>売上のうち何％がもうけになったか。高いほど「かせぐ力」が強い。</td></tr>
+        <tr><td>受注高・受注残高</td><td>お客さんから受けた注文の量と、まだ納めていない注文の量。将来の売上の手がかりになる（ただし利益が出るとは限らない）。</td></tr>
+        <tr><td>ROE</td><td>株主から預かったお金で、どれだけ効率よく利益を出しているか。</td></tr>
+      </table>
+    </div>
+    <p style="font-size:13px;margin-top:10px;"><a href="basics.html#per">PER・PBRなど株価の物差しは「投資の基礎」へ</a></p>
+  </section>
+
+  <section>
+    <div class="quick">
+      <span class="tag">ここに注意</span>
+      <p style="margin:0;">「業績が伸びている会社」と「株を買うのにちょうどよい会社」は同じではありません。業績が良くても、その期待がすでに株価に入っていて割高なことがあります。このページは業界と企業のしくみを学ぶためのもので、特定の会社の株の売買をすすめるものではありません。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>出典・データについて</h2></div>
+    <div class="sources" id="sources"></div>
+  </section>
+</main>
+<script>
+var IND = [
+  { key:"semi", no:"01", name:"AI・半導体", color:"#2a78d6",
+    what:"半導体は、スマホやパソコン、自動車の「頭脳」になる電子部品です。日本は、半導体そのものより、半導体をつくるための<b>製造装置</b>や<b>材料</b>に強い会社が多いのが特徴です。",
+    why:[
+      ["生成AIの広がりで、AIの計算に使う高性能な半導体と、それをつくる装置の需要が増えています。", ""],
+      ["政府はAI・半導体を重点分野とし、2030年度までに10兆円以上の公的支援を行う枠組みをつくりました。", "内閣府「国民の安心・安全と持続的な成長に向けた総合経済対策」（2024年11月）"],
+      ["北海道ではラピダスが、次世代の最先端半導体を2027年ごろに量産することを目指しています。", "ラピダス株式会社"]
+    ],
+    chain:[["材料","シリコンウエハーなど",["4063"]],["製造装置","膜をつける・削る・洗う",["8035","6525","7735","6146"]],["検査","傷や動作を調べる",["6920","6857","6871"]],["仕上げ","チップを樹脂で守る",["6315"]],["半導体メーカー","マイコン・メモリー",["6723","285A"]],["使う側","データセンター・スマホ・車",[]]],
+    watch:["売上高","営業利益","受注高・受注残高"],
+    future:"AIの計算量はこれからも増えると予想され、装置や材料の需要が続くと期待されています。",
+    risk:"半導体は数年ごとに好不況の波（シリコンサイクル）があります。米国と中国の輸出規制など、国際情勢の影響も受けます。" },
+  { key:"robot", no:"02", name:"ロボット・自動化", color:"#eb6834",
+    what:"工場で部品を組み立てたり、運んだり、検査したりする機械を自動で動かす業界です。ロボット本体だけでなく、関節の部品や、目の役割をするセンサーも日本の得意分野です。",
+    why:[
+      ["日本は働く世代（15〜64歳）の人口が減っており、人手不足をロボットや自動化で補う動きが広がっています。", "総務省統計局「人口推計」"],
+      ["世界の産業用ロボットの生産で、日本のメーカーは大きな割合を占めています。", "国際ロボット連盟（IFR）"]
+    ],
+    chain:[["部品","ロボットの関節（減速機）",["6268","6324"]],["センサー・制御","目と神経の役割",["6861"]],["ロボット本体","組み立て・溶接・運搬",["6954","6506","7012"]],["使う側","自動車・電子部品の工場、物流倉庫",[]]],
+    watch:["ロボットの受注","海外売上高","営業利益率"],
+    future:"人手不足は日本だけでなく世界の課題で、物流や食品など工場以外への広がりも期待されています。",
+    risk:"工場の設備投資は景気に左右されやすく、中国などの需要の変化で業績が上下します。" },
+  { key:"space", no:"03", name:"宇宙", color:"#8a5cd1",
+    what:"ロケットで人工衛星を宇宙に運び、衛星から集めたデータを地図、天気、防災、通信などに使う業界です。大企業に加えて、宇宙ベンチャーの上場も増えています。",
+    why:[
+      ["政府はJAXAに「宇宙戦略基金」を設け、10年間で総額1兆円規模の支援を目指しています。", "JAXA 宇宙戦略基金"],
+      ["日本の新しい主力ロケット「H3」が打ち上げを重ねています。", "内閣府 宇宙政策"]
+    ],
+    chain:[["ロケット","衛星を宇宙へ運ぶ",["7011","7013"]],["人工衛星","観測・通信・測位",["6701","6503","290A","5595"]],["宇宙の新サービス","月への輸送・宇宙ごみ除去",["9348","186A"]],["使う側","地図・防災・農業・通信",[]]],
+    watch:["受注残高","打ち上げの実績","衛星関連の売上高"],
+    future:"衛星データを使ったサービスが広がれば、宇宙が「新しい市場」になると期待されています。",
+    risk:"打ち上げの失敗や開発の遅れが起こりやすく、まだ赤字の宇宙ベンチャーも多い分野です。" },
+  { key:"defense", no:"04", name:"防衛", color:"#6b6a64",
+    what:"国を守るための航空機、艦艇、レーダー、通信機器などをつくる業界です。お客さんはおもに国（防衛省）で、大手の重工業や電機メーカーが担っています。",
+    why:[
+      ["政府は2023〜2027年度の5年間で、防衛力の整備に43兆円程度をあてる計画を決めました。", "防衛省「防衛力整備計画」"]
+    ],
+    chain:[["航空機・艦艇・装備","機体・船・エンジン",["7011","7012","7013"]],["電子・通信","レーダー・通信・情報",["6503","6701"]],["使う側","防衛省・自衛隊",[]]],
+    watch:["防衛関連の売上高","受注残高","利益率"],
+    future:"国の予算が増えることで、関連する企業の受注が増えると見込まれています。",
+    risk:"売上が国の予算や政策に左右されます。会社の売上全体に占める防衛の割合は会社によってちがいます。" },
+  { key:"dc", no:"05", name:"データセンター・電力インフラ", color:"#13a3b8",
+    what:"データセンターは、たくさんのコンピューター（サーバー）を置いて、インターネットやAIのサービスを動かす建物です。動かすには大量の電気と、データを運ぶ光ファイバーが必要です。",
+    why:[
+      ["AIの計算にはたくさんの電気が必要です。データセンターや半導体工場の増加で、日本の電力需要は増えると見込まれています。", "電力広域的運営推進機関（OCCTO）「全国及び供給区域ごとの需要想定」"],
+      ["データセンターどうしをつなぐ光ファイバーや、電気を送る送配電設備の需要も高まっています。", ""]
+    ],
+    chain:[["電気をつくる","発電用ガスタービン",["7011"]],["電気を送る","送配電設備",["6501"]],["データをつなぐ","光ファイバー・電線",["5803","5801","5802"]],["データセンター","サーバーを置く場所・クラウド",["3778","9432"]],["使う側","AIサービス・企業",[]]],
+    watch:["設備投資","データセンター関連の売上高","電力設備の受注"],
+    future:"AIの利用が増えるほど、データセンターと電力インフラへの投資が続くと期待されています。",
+    risk:"投資が一度に増えすぎると、後で反動が出ることがあります。電気を十分に確保できるかも課題です。" },
+  { key:"battery", no:"06", name:"蓄電池・エネルギー", color:"#1baf7a",
+    what:"電気をためておく電池をつくる業界です。電気自動車、スマホ、そして太陽光や風力でつくった電気をためておく大型の蓄電池に使われます。",
+    why:[
+      ["政府は「蓄電池産業戦略」で、2030年までに国内で年150GWh分の電池をつくれる体制を目指しています。", "経済産業省「蓄電池産業戦略」"],
+      ["再生可能エネルギーは天気で発電量が変わるため、電気をためる蓄電池の役割が大きくなっています。", ""]
+    ],
+    chain:[["電池をつくる","リチウムイオン電池など",["6752","6674","6762"]],["使う側","電気自動車・スマホ・再エネやデータセンターの蓄電",[]]],
+    watch:["電池の出荷量","設備投資","営業利益率"],
+    future:"電気自動車や再エネ、データセンターの電源として、電池の使い道は広がると期待されています。",
+    risk:"中国メーカーとの価格競争がはげしく、電気自動車の売れ行きにも左右されます。" },
+  { key:"cyber", no:"07", name:"サイバーセキュリティ・デジタル", color:"#d03b3b",
+    what:"コンピューターウイルスや不正アクセスから、会社や国のシステム、データを守る業界です。ITシステムをつくる会社や通信会社もかかわります。",
+    why:[
+      ["AIやインターネットの利用が広がり、守るべきデータやシステムが増えています。", ""],
+      ["2025年に、重要なインフラをサイバー攻撃から守るための「能動的サイバー防御」の法律が成立しました。", "内閣官房（国家サイバー統括室）"]
+    ],
+    chain:[["守る製品","ウイルス対策など",["4704","3692"]],["システムで守る","IT・通信・運用",["6701","6702","9432"]],["使う側","企業・官公庁・社会インフラ",[]]],
+    watch:["継続して入ってくる売上（サブスク）","契約数","営業利益率"],
+    future:"攻撃が巧妙になるほど対策の需要が増え、毎年続けて使われるサービスが伸びやすい分野です。",
+    risk:"専門の人材が足りず、海外の大手との競争もはげしい分野です。" }
+];
+var SRC_URL = {
+  "内閣府「国民の安心・安全と持続的な成長に向けた総合経済対策」（2024年11月）":"https://www5.cao.go.jp/keizai1/keizaitaisaku/keizaitaisaku.html",
+  "ラピダス株式会社":"https://www.rapidus.inc/",
+  "総務省統計局「人口推計」":"https://www.stat.go.jp/data/jinsui/",
+  "国際ロボット連盟（IFR）":"https://ifr.org/",
+  "JAXA 宇宙戦略基金":"https://fund.jaxa.jp/",
+  "内閣府 宇宙政策":"https://www8.cao.go.jp/space/",
+  "防衛省「防衛力整備計画」":"https://www.mod.go.jp/j/policy/agenda/guideline/index.html",
+  "電力広域的運営推進機関（OCCTO）「全国及び供給区域ごとの需要想定」":"https://www.occto.or.jp/",
+  "経済産業省「蓄電池産業戦略」":"https://www.meti.go.jp/policy/mono_info_service/joho/conference/battery_strategy.html",
+  "内閣官房（国家サイバー統括室）":"https://www.nisc.go.jp/"
+};
+document.addEventListener("DOMContentLoaded", function(){
+  var CO = {}; JPCO.companies.forEach(function(c){ CO[c.code] = c; });
+  function pct(v){ return v==null ? "—" : (v>0?"+":"")+v.toFixed(1)+"%"; }
+  function cls(v){ return v==null ? "" : (v>0 ? "up" : (v<0 ? "down" : "")); }
+  document.getElementById("toc").innerHTML = IND.map(function(d){ return '<a href="#'+d.key+'">'+d.name+'</a>'; }).join("")+'<a href="jp_companies.html">注目企業の一覧</a>';
+  var DRV = [["AI・デジタル化","AIが広がり、計算・電気・通信・守りが必要に",["semi","dc","cyber"]],["人手不足・脱炭素","人が減る社会と、CO2を減らす社会への対応",["robot","battery"]],["安全保障・宇宙","国を守る力と、宇宙という新しい市場",["defense","space"]]];
+  document.getElementById("drivers").innerHTML = DRV.map(function(r){
+    return '<div class="drv card"><div class="drv-h">'+r[0]+'</div><p>'+r[1]+'</p><div class="drv-list">'+
+      r[2].map(function(k){ var d = IND.filter(function(x){ return x.key===k; })[0]; return '<a href="#'+k+'" style="--c:'+d.color+'"><span>'+d.no+'</span>'+d.name+'</a>'; }).join("")+'</div></div>';
+  }).join("");
+  document.getElementById("industries").innerHTML = IND.map(function(d){
+    var why = d.why.map(function(w){ return '<li>'+w[0]+(w[1] ? '<small class="src">出典：'+(SRC_URL[w[1]] ? '<a href="'+SRC_URL[w[1]]+'" target="_blank" rel="noopener">'+w[1]+'</a>' : w[1])+'</small>' : '')+'</li>'; }).join("");
+    var chain = d.chain.map(function(s,i){
+      return (i ? '<div class="arrow" aria-hidden="true">→</div>' : '')+'<div class="step'+(s[2].length?'':' end')+'"><div class="sh">'+s[0]+'</div><div class="ss">'+s[1]+'</div>'+
+        (s[2].length ? '<div class="chips">'+s[2].map(function(c){ return CO[c] ? '<a href="jp_companies.html#c'+c+'">'+CO[c].name+'</a>' : ''; }).join("")+'</div>' : '')+'</div>';
+    }).join("");
+    var codes = []; d.chain.forEach(function(s){ s[2].forEach(function(c){ if(codes.indexOf(c)<0) codes.push(c); }); });
+    var rows = codes.map(function(c){ var o = CO[c], r = o && o.results;
+      if(!r) return '<tr><td><a href="jp_companies.html#c'+c+'">'+o.name+'</a></td><td colspan="3" style="color:var(--muted)">直近1か月のTDnetに決算短信がないため、<a href="'+o.ir+'" target="_blank" rel="noopener">会社のIRページ</a>で確認してください</td></tr>';
+      return '<tr><td><a href="jp_companies.html#c'+c+'">'+o.name+'</a><br><small style="color:var(--muted)">'+r.period+'</small></td>'+
+        '<td class="'+cls(r.sales.change)+'">'+pct(r.sales.change)+'</td><td class="'+cls(r.op&&r.op.change)+'">'+(r.op ? pct(r.op.change) : "—")+'</td>'+
+        '<td><a href="'+r.pdf+'" target="_blank" rel="noopener">決算短信</a><br><small style="color:var(--muted)">'+SITE.fmtDate(r.date)+'発表</small></td></tr>'; }).join("");
+    return '<section id="'+d.key+'" class="ind" style="--c:'+d.color+'">'+
+      '<div class="sec-h"><h2><span class="no">'+d.no+'</span>'+d.name+'</h2></div>'+
+      '<div class="grid g2"><div class="card"><div class="q">① どんな業界？</div><p>'+d.what+'</p></div>'+
+      '<div class="card"><div class="q">② なぜ今、注目されている？</div><ul class="points">'+why+'</ul></div></div>'+
+      '<div class="card" style="margin-top:14px;"><div class="q">③ どんな企業が活躍している？（業界マップ）</div><div class="chain">'+chain+'</div></div>'+
+      '<div class="card" style="margin-top:14px;"><div class="q">④ 業績は伸びている？（最新の決算、前年同期比）</div>'+
+      '<div class="tbl-wrap" style="box-shadow:none;"><table><tr><th>会社・期間</th><th>売上高</th><th>営業利益</th><th>出典</th></tr>'+rows+'</table></div>'+
+      '<p style="font-size:12px;color:var(--muted);margin:8px 0 0;">会社ごとに決算の時期と期間（中間期・第3四半期など）がちがいます。「—」は前年が赤字などで比べられない場合、または会社が営業利益を開示していない場合です。チェックしたい数字：'+d.watch.join("・")+'</p></div>'+
+      '<div class="grid g2" style="margin-top:14px;"><div class="card"><div class="q">⑤ これからの期待</div><p style="margin:0;">'+d.future+'</p></div>'+
+      '<div class="card"><div class="q">⑤ 気をつけたいリスク</div><p style="margin:0;">'+d.risk+'</p></div></div>'+
+      '</section>';
+  }).join("");
+  document.getElementById("sources").innerHTML =
+    '<div><b>業績の数字</b>：日本取引所グループ TDnet（適時開示情報閲覧サービス）に各社が公表した決算短信のサマリー（XBRLデータ）　<a href="'+JPCO.source.url+'" target="_blank" rel="noopener">出典を見る</a><br><span style="color:var(--muted)">売上高・営業利益の前年同期比は会社が公表した値をそのまま使っています。取得日：'+SITE.fmtDate(JPCO.generated_at)+'。TDnetの掲載は約1か月のため、それより前の決算は各社のIRページで確認できます。</span></div>'+
+    Object.keys(SRC_URL).map(function(k){ return '<div>'+k+'　<a href="'+SRC_URL[k]+'" target="_blank" rel="noopener">出典を見る</a></div>'; }).join("");
+});
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
     ["money.html","Money"],["about.html","Sources"]
   ] : [
     ["index.html","トップ"],["basics.html","投資の基礎"],["world.html","世界経済"],["companies.html","企業分析"],
-    ["money.html","お金の教養"],["about.html","出典・免責"]
+    ["industries.html","注目業界"],["jp_companies.html","注目企業"],["money.html","お金の教養"],["about.html","出典・免責"]
   ];
   var SUBNAV = ZH ? [["stocks.html","股價指數"],["fx.html","匯率"],["rates.html","利率"]] : EN ? [["stocks.html","Stock indexes"],["fx.html","Exchange rates"],["rates.html","Interest rates"]] : [["stocks.html","株価指数"],["fx.html","為替"],["rates.html","金利"]];
   var CTRY_EN = { KOR:"South Korea", RUS:"Russia", TUR:"Turkey", IRN:"Iran", EGY:"Egypt", VNM:"Vietnam" };
@@ -20,13 +20,14 @@
   var active = PARENT[here] || here;
 
   var THEME = { "index.html":"home", "basics.html":"basics", "stocks.html":"basics", "world.html":"world", "fx.html":"world", "rates.html":"world",
-    "companies.html":"companies", "money.html":"money", "about.html":"about" };
+    "companies.html":"companies", "money.html":"money", "about.html":"about", "industries.html":"japan", "jp_companies.html":"japan" };
   var ART = { "basics.html":"basics", "stocks.html":"stocks", "world.html":"world", "fx.html":"fx", "rates.html":"rates",
-    "companies.html":"companies", "money.html":"money", "about.html":"about", "index.html":"hero" };
+    "companies.html":"companies", "money.html":"money", "about.html":"about", "index.html":"hero", "industries.html":"industry", "jp_companies.html":"industry" };
   var LOGO = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="21" r="16" fill="#ffc53d" stroke="#1b1f3b" stroke-width="2.5"/><circle cx="20" cy="21" r="11" fill="none" stroke="#e39b00" stroke-width="2"/>'+
     '<path d="M13 26 L18 20 L22 23 L28 15" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 14.5 L28.5 14.5 L28.5 19" fill="none" stroke="#1b1f3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-  var page = here==="index.html" ? "" : here;
+  var JA_ONLY = ["industries.html","jp_companies.html"];  // 日本語だけのページ（他の言語はトップへ）
+  var page = (here==="index.html" || JA_ONLY.indexOf(here)>=0) ? "" : here;
   function langHref(l){ return (LANG==="ja" ? "" : "../")+(l==="ja" ? "" : l+"/")+page; }
   var LANGS = [["ja","日本語"],["en","EN"],["zh","中文"]].filter(function(x){ return x[0]!==LANG; });
   var other = langHref(LANGS[0][0]);

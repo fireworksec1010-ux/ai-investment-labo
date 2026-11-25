@@ -1,0 +1,896 @@
+{
+ "generated_at": "2026-11-25",
+ "source": {
+  "org": "日本取引所グループ TDnet（適時開示情報閲覧サービス）",
+  "url": "https://www.release.tdnet.info/inbs/I_main_00.html"
+ },
+ "companies": [
+  {
+   "code": "8035",
+   "name": "東京エレクトロン",
+   "industries": [
+    "semi"
+   ],
+   "role": "製造装置",
+   "desc": "半導体をつくる工場で使う製造装置（膜をつける・削る・塗るなど）をつくる。",
+   "ir": "https://www.tel.co.jp/ir/",
+   "results": {
+    "period": "2027年3月期第2四半期（中間期）",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120260924539503.pdf",
+    "title": "2027年3月期第2四半期（中間期）決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 1667455000000.0,
+     "change": 41.3,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 506776000000.0,
+     "change": 67.2,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6857",
+   "name": "アドバンテスト",
+   "industries": [
+    "semi"
+   ],
+   "role": "検査装置",
+   "desc": "完成した半導体が正しく動くかを調べるテスト装置をつくる。AI向けの高性能半導体の検査で使われる。",
+   "ir": "https://www.advantest.com/ja/investors/",
+   "results": {
+    "period": "2027年3月期 第2四半期（中間期）",
+    "date": "2026-10-28",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261028557599.pdf",
+    "title": "2027年3月期 第2四半期（中間期）決算短信〔IFRS〕(連結)",
+    "sales": {
+     "value": 845200000000.0,
+     "change": 60.5,
+     "tag": "NetSalesIFRS"
+    },
+    "op": {
+     "value": 456809000000.0,
+     "change": 96.5,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6146",
+   "name": "ディスコ",
+   "industries": [
+    "semi"
+   ],
+   "role": "加工装置",
+   "desc": "半導体の材料（ウエハー）を切る・削る・磨く装置をつくる。",
+   "ir": "https://www.disco.co.jp/jp/ir/",
+   "results": null
+  },
+  {
+   "code": "6920",
+   "name": "レーザーテック",
+   "industries": [
+    "semi"
+   ],
+   "role": "検査装置",
+   "desc": "半導体の回路の原版（フォトマスク）などに傷やごみがないかを調べる検査装置をつくる。",
+   "ir": "https://www.lasertec.co.jp/ir/",
+   "results": {
+    "period": "2027年6月期 第1四半期",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261030560435.pdf",
+    "title": "2027年6月期　第1四半期決算短信〔日本基準〕　（連結）",
+    "sales": {
+     "value": 40369000000.0,
+     "change": -25.5,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 15769000000.0,
+     "change": -41.0,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6525",
+   "name": "KOKUSAI ELECTRIC",
+   "industries": [
+    "semi"
+   ],
+   "role": "製造装置",
+   "desc": "ウエハーに薄い膜をつける成膜装置などをつくる。",
+   "ir": "https://www.kokusai-electric.com/ir/",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-11-09",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261109568592.pdf",
+    "title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+    "sales": {
+     "value": 164043000000.0,
+     "change": 40.0,
+     "tag": "SalesIFRS"
+    },
+    "op": {
+     "value": 36814000000.0,
+     "change": 62.1,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "7735",
+   "name": "SCREENホールディングス",
+   "industries": [
+    "semi"
+   ],
+   "role": "製造装置",
+   "desc": "半導体の製造途中でウエハーを洗う洗浄装置などをつくる。",
+   "ir": "https://www.screen.co.jp/ir/",
+   "results": {
+    "period": "2027年3月期 第2四半期（中間期）",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261029560240.pdf",
+    "title": "2027年3月期 第2四半期（中間期）決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 308453000000.0,
+     "change": 12.5,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 54523000000.0,
+     "change": 17.4,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6315",
+   "name": "TOWA",
+   "industries": [
+    "semi"
+   ],
+   "role": "製造装置",
+   "desc": "できあがった半導体のチップを樹脂で包んで守る「封止（モールディング）」の装置をつくる。",
+   "ir": "https://www.towajapan.co.jp/jp/ir/",
+   "results": {
+    "period": "2027年3月期 第2四半期（中間期）",
+    "date": "2026-11-06",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261008548086.pdf",
+    "title": "2027年3月期 第2四半期（中間期）決算短信［決算短信］（連結）",
+    "sales": {
+     "value": 33717000000.0,
+     "change": 43.8,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 5687000000.0,
+     "change": 128.1,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6871",
+   "name": "日本マイクロニクス",
+   "industries": [
+    "semi"
+   ],
+   "role": "検査部品",
+   "desc": "半導体を電気で検査するときに使う「プローブカード」をつくる。",
+   "ir": "https://www.mjc.co.jp/ir/",
+   "results": {
+    "period": "2026年12月期 第３四半期",
+    "date": "2026-11-12",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261112574944.pdf",
+    "title": "2026年12月期 第３四半期決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 81964000000.0,
+     "change": 62.6,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 26993000000.0,
+     "change": 138.9,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "4063",
+   "name": "信越化学工業",
+   "industries": [
+    "semi"
+   ],
+   "role": "材料",
+   "desc": "半導体の材料になるシリコンウエハーや、塩化ビニル樹脂などをつくる化学メーカー。",
+   "ir": "https://www.shinetsu.co.jp/jp/ir/",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-10-27",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261026556436.pdf",
+    "title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 1420684000000.0,
+     "change": 10.6,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 385918000000.0,
+     "change": 15.6,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6723",
+   "name": "ルネサスエレクトロニクス",
+   "industries": [
+    "semi"
+   ],
+   "role": "半導体メーカー",
+   "desc": "自動車や家電を制御する半導体（マイコンなど）をつくる。",
+   "ir": "https://www.renesas.com/ja/about/investor-relations",
+   "results": {
+    "period": "2026年12月期第３四半期",
+    "date": "2026-10-29",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261028557610.pdf",
+    "title": "2026年12月期第３四半期決算短信〔ＩＦＲＳ〕(連結)",
+    "sales": {
+     "value": 1234659000000.0,
+     "change": 27.3,
+     "tag": "SalesIFRS"
+    },
+    "op": {
+     "value": 757991000000.0,
+     "change": 466.0,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "285A",
+   "name": "キオクシアホールディングス",
+   "industries": [
+    "semi"
+   ],
+   "role": "半導体メーカー",
+   "desc": "スマホやデータセンターでデータを記録するフラッシュメモリーをつくる。",
+   "ir": "https://www.kioxia-holdings.com/ja-jp/ir.html",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261030561535.pdf",
+    "title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+    "sales": {
+     "value": 4247152000000.0,
+     "change": 436.8,
+     "tag": "SalesIFRS"
+    },
+    "op": {
+     "value": 3264727000000.0,
+     "change": null,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6954",
+   "name": "ファナック",
+   "industries": [
+    "robot"
+   ],
+   "role": "ロボット",
+   "desc": "工場で働く産業用ロボットや、工作機械を動かす制御装置（NC）をつくる。",
+   "ir": "https://www.fanuc.co.jp/ja/ir/",
+   "results": null
+  },
+  {
+   "code": "6506",
+   "name": "安川電機",
+   "industries": [
+    "robot"
+   ],
+   "role": "ロボット",
+   "desc": "産業用ロボットや、機械を正確に動かすモーター（サーボモーター）をつくる。",
+   "ir": "https://www.yaskawa.co.jp/ir",
+   "results": null
+  },
+  {
+   "code": "6861",
+   "name": "キーエンス",
+   "industries": [
+    "robot"
+   ],
+   "role": "センサー・計測",
+   "desc": "工場の自動化に使うセンサーや測定器、画像で検査する機器をつくる。",
+   "ir": "https://www.keyence.co.jp/company/",
+   "results": {
+    "period": "2027年3月期 第2四半期(中間期)",
+    "date": "2026-10-29",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261027557109.pdf",
+    "title": "2027年3月期 第2四半期(中間期)決算短信〔日本基準〕(連結)",
+    "sales": {
+     "value": 735399000000.0,
+     "change": 34.9,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 408262000000.0,
+     "change": 50.0,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6268",
+   "name": "ナブテスコ",
+   "industries": [
+    "robot"
+   ],
+   "role": "部品",
+   "desc": "ロボットの関節などに使われる精密減速機をつくる。鉄道や船舶向けの機器も手がける。",
+   "ir": "https://www.nabtesco.com/ir/index.html",
+   "results": {
+    "period": "2026年12月期第３四半期",
+    "date": "2026-11-13",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261113578060.pdf",
+    "title": "2026年12月期第３四半期決算短信〔ＩＦＲＳ〕（連結）",
+    "sales": {
+     "value": 250813000000.0,
+     "change": 14.4,
+     "tag": "NetSalesIFRS"
+    },
+    "op": {
+     "value": 23352000000.0,
+     "change": 50.9,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6324",
+   "name": "ハーモニック・ドライブ・システムズ",
+   "industries": [
+    "robot"
+   ],
+   "role": "部品",
+   "desc": "ロボットの関節などに使われる小型で精密な減速機をつくる。",
+   "ir": "https://www.hds.co.jp/ir/",
+   "results": {
+    "period": "2027年３月期第２四半期（中間期）",
+    "date": "2026-11-11",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261106567186.pdf",
+    "title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+    "sales": {
+     "value": 36124000000.0,
+     "change": 29.8,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 4205000000.0,
+     "change": 803.5,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "7012",
+   "name": "川崎重工業",
+   "industries": [
+    "robot",
+    "defense"
+   ],
+   "role": "ロボット・重工",
+   "desc": "産業用ロボットのほか、航空機・防衛装備、船、二輪車などを幅広くつくる。",
+   "ir": "https://www.khi.co.jp/ir/",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-11-10",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261109569857.pdf",
+    "title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+    "sales": {
+     "value": 1084419000000.0,
+     "change": 8.8,
+     "tag": "SalesIFRS"
+    },
+    "op": null
+   }
+  },
+  {
+   "code": "7011",
+   "name": "三菱重工業",
+   "industries": [
+    "space",
+    "defense",
+    "dc"
+   ],
+   "role": "重工",
+   "desc": "H3ロケットの打ち上げ、防衛装備、発電用のガスタービンなどを手がける。",
+   "ir": "https://www.mhi.com/jp/finance",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-11-06",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261102562991.pdf",
+    "title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+    "sales": {
+     "value": 2523269000000.0,
+     "change": 19.4,
+     "tag": "SalesIFRS"
+    },
+    "op": null
+   }
+  },
+  {
+   "code": "7013",
+   "name": "IHI",
+   "industries": [
+    "space",
+    "defense"
+   ],
+   "role": "重工",
+   "desc": "航空機エンジン、ロケット関連、防衛向けの機器などをつくる。",
+   "ir": "https://www.ihi.co.jp/ir/",
+   "results": {
+    "period": "2027年3月期 第2四半期（中間期）",
+    "date": "2026-11-04",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261103563368.pdf",
+    "title": "2027年3月期　第2四半期（中間期）決算短信〔IFRS〕（連結）",
+    "sales": {
+     "value": 779318000000.0,
+     "change": 9.2,
+     "tag": "SalesIFRS"
+    },
+    "op": {
+     "value": 114979000000.0,
+     "change": 65.6,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6701",
+   "name": "NEC",
+   "industries": [
+    "space",
+    "defense",
+    "cyber"
+   ],
+   "role": "電機・IT",
+   "desc": "人工衛星、防衛向けのレーダーや通信、サイバーセキュリティ、ITシステムを手がける。",
+   "ir": "https://jpn.nec.com/ir/",
+   "results": {
+    "period": "2027年3月期 第2四半期（中間期）",
+    "date": "2026-10-28",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261027556514.pdf",
+    "title": "2027年3月期 第2四半期（中間期）決算短信〔IFRS〕（連結）",
+    "sales": {
+     "value": 1753857000000.0,
+     "change": 11.7,
+     "tag": "SalesIFRS"
+    },
+    "op": {
+     "value": 146154000000.0,
+     "change": 23.3,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6503",
+   "name": "三菱電機",
+   "industries": [
+    "defense",
+    "space"
+   ],
+   "role": "電機",
+   "desc": "防衛向けのレーダーなど、人工衛星、工場の自動化機器、空調などを手がける。",
+   "ir": "https://www.mitsubishielectric.co.jp/ir/",
+   "results": {
+    "period": "2027年3月期第2四半期（中間期）",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261029559785.pdf",
+    "title": "2027年3月期第2四半期（中間期）決算短信〔IFRS〕（連結）",
+    "sales": {
+     "value": 3125147000000.0,
+     "change": 14.4,
+     "tag": "NetSalesIFRS"
+    },
+    "op": {
+     "value": 358112000000.0,
+     "change": 59.6,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "290A",
+   "name": "Synspective",
+   "industries": [
+    "space"
+   ],
+   "role": "宇宙ベンチャー",
+   "desc": "雲や夜でも地表を観測できる小型レーダー衛星（SAR衛星）を開発し、そのデータを提供する。",
+   "ir": "https://synspective.com/jp/ir/",
+   "results": {
+    "period": "2026年12月期第３四半期",
+    "date": "2026-11-13",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261113578890.pdf",
+    "title": "2026年12月期第３四半期決算短信〔日本基準〕(連結)",
+    "sales": {
+     "value": 3072000000.0,
+     "change": 83.7,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": -4835000000.0,
+     "change": null,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "5595",
+   "name": "QPS研究所",
+   "industries": [
+    "space"
+   ],
+   "role": "宇宙ベンチャー",
+   "desc": "福岡を拠点に、小型レーダー衛星（SAR衛星）を開発・運用する。",
+   "ir": "https://i-qps.net/ir/",
+   "results": null
+  },
+  {
+   "code": "9348",
+   "name": "ispace",
+   "industries": [
+    "space"
+   ],
+   "role": "宇宙ベンチャー",
+   "desc": "月に着陸する機体を開発し、月への荷物輸送サービスを目指す。",
+   "ir": "https://ispace-inc.com/jpn/ir/",
+   "results": {
+    "period": "2027年3月期 第2四半期（中間期）",
+    "date": "2026-11-13",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261111574240.pdf",
+    "title": "2027年3月期 第2四半期（中間期）決算短信（日本基準）（連結）",
+    "sales": {
+     "value": 569000000.0,
+     "change": -74.1,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": -8853000000.0,
+     "change": null,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "186A",
+   "name": "アストロスケールホールディングス",
+   "industries": [
+    "space"
+   ],
+   "role": "宇宙ベンチャー",
+   "desc": "宇宙ごみ（デブリ）の除去など、宇宙空間での新しいサービスを開発する。",
+   "ir": "https://astroscale.com/ja/ir/",
+   "results": null
+  },
+  {
+   "code": "5803",
+   "name": "フジクラ",
+   "industries": [
+    "dc"
+   ],
+   "role": "電線・光通信",
+   "desc": "光ファイバーや光ケーブルなどをつくる。データセンターをつなぐ通信網で使われる。",
+   "ir": "https://www.fujikura.co.jp/ir/",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-11-10",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261109569418.pdf",
+    "title": "2027年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 867433000000.0,
+     "change": 55.2,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 235013000000.0,
+     "change": 160.6,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "5801",
+   "name": "古河電気工業",
+   "industries": [
+    "dc"
+   ],
+   "role": "電線・光通信",
+   "desc": "光ファイバーや電線、自動車部品などをつくる。",
+   "ir": "https://www.furukawa.co.jp/ir/",
+   "results": {
+    "period": "2027年３月期第２四半期（中間期）",
+    "date": "2026-11-09",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261106567992.pdf",
+    "title": "2027年３月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+    "sales": {
+     "value": 737691000000.0,
+     "change": 20.8,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 57618000000.0,
+     "change": 201.1,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "5802",
+   "name": "住友電気工業",
+   "industries": [
+    "dc"
+   ],
+   "role": "電線・光通信",
+   "desc": "電線や光ファイバー、自動車用の配線（ワイヤーハーネス）などをつくる。",
+   "ir": "https://sumitomoelectric.com/jp/ir",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261029559548.pdf",
+    "title": "2027年３月期  第２四半期（中間期）決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 2764912000000.0,
+     "change": 16.5,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 219567000000.0,
+     "change": 43.5,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "3778",
+   "name": "さくらインターネット",
+   "industries": [
+    "dc"
+   ],
+   "role": "データセンター",
+   "desc": "国内でデータセンターとクラウドサービスを運営し、生成AI向けの計算サービスも提供する。",
+   "ir": "https://www.sakura.ad.jp/corporate/ir/",
+   "results": {
+    "period": "2027年3月期第2四半期（中間期）",
+    "date": "2026-10-28",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261027556964.pdf",
+    "title": "2027年3月期第2四半期（中間期）決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 22827000000.0,
+     "change": 46.0,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 2963000000.0,
+     "change": null,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6501",
+   "name": "日立製作所",
+   "industries": [
+    "dc"
+   ],
+   "role": "電力網・IT",
+   "desc": "電気を送る送配電の設備、鉄道、ITサービスなどを手がける。",
+   "ir": "https://www.hitachi.co.jp/IR/",
+   "results": {
+    "period": "2027年3月期 第2四半期 (中間期)",
+    "date": "2026-10-28",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261028557937.pdf",
+    "title": "2027年3月期 第2四半期 (中間期) 決算短信〔IFRS〕(連結)",
+    "sales": {
+     "value": 5614028000000.0,
+     "change": 17.3,
+     "tag": "SalesIFRS"
+    },
+    "op": {
+     "value": 643260000000.0,
+     "change": 26.6,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6752",
+   "name": "パナソニック ホールディングス",
+   "industries": [
+    "battery"
+   ],
+   "role": "電池",
+   "desc": "電気自動車向けなどのリチウムイオン電池や、家電、電子部品などを手がける。",
+   "ir": "https://holdings.panasonic/jp/corporate/investors.html",
+   "results": {
+    "period": "2027年３月期 第２四半期（中間期）",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261030560586.pdf",
+    "title": "2027年３月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+    "sales": {
+     "value": 4092520000000.0,
+     "change": 7.1,
+     "tag": "NetSalesIFRS"
+    },
+    "op": {
+     "value": 363229000000.0,
+     "change": 120.1,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6674",
+   "name": "GSユアサ",
+   "industries": [
+    "battery"
+   ],
+   "role": "電池",
+   "desc": "自動車用のバッテリーや、産業用・宇宙用のリチウムイオン電池などをつくる。",
+   "ir": "https://www.gs-yuasa.com/jp/ir/",
+   "results": {
+    "period": "2027年３月期第２四半期(中間期)",
+    "date": "2026-11-06",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261105565149.pdf",
+    "title": "2027年３月期第２四半期(中間期)決算短信〔日本基準〕(連結)",
+    "sales": {
+     "value": 300226000000.0,
+     "change": 10.3,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 24333000000.0,
+     "change": 30.0,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "6762",
+   "name": "TDK",
+   "industries": [
+    "battery"
+   ],
+   "role": "電池・電子部品",
+   "desc": "スマホなどに使う小型のリチウムイオン電池や、電子部品をつくる。",
+   "ir": "https://www.tdk.com/ja/ir/",
+   "results": {
+    "period": "2027年3月期 第2四半期(中間期)",
+    "date": "2026-10-30",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261029560105.pdf",
+    "title": "2027年3月期 第2四半期(中間期)決算短信〔IFRS〕(連結)",
+    "sales": {
+     "value": 1560579000000.0,
+     "change": 31.9,
+     "tag": "NetSalesIFRS"
+    },
+    "op": {
+     "value": 208156000000.0,
+     "change": 41.0,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "4704",
+   "name": "トレンドマイクロ",
+   "industries": [
+    "cyber"
+   ],
+   "role": "セキュリティ",
+   "desc": "コンピューターウイルス対策など、サイバーセキュリティの製品・サービスを提供する。",
+   "ir": "https://www.trendmicro.com/ja_jp/about/investor-relations.html",
+   "results": {
+    "period": "2026年12月期第３四半期",
+    "date": "2026-11-12",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261110571239.pdf",
+    "title": "2026年12月期第３四半期決算短信〔日本基準〕(連結)",
+    "sales": {
+     "value": 223913000000.0,
+     "change": 10.4,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 35023000000.0,
+     "change": -21.2,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "3692",
+   "name": "FFRIセキュリティ",
+   "industries": [
+    "cyber"
+   ],
+   "role": "セキュリティ",
+   "desc": "国産のサイバーセキュリティ製品や、官公庁・防衛向けのサービスを提供する。",
+   "ir": "https://www.ffri.jp/ir/",
+   "results": {
+    "period": "令和９年３月期 第２四半期（中間期）",
+    "date": "2026-11-12",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261020553679.pdf",
+    "title": "令和９年３月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+    "sales": {
+     "value": 1865000000.0,
+     "change": 2.2,
+     "tag": "NetSales"
+    },
+    "op": {
+     "value": 416000000.0,
+     "change": -24.1,
+     "tag": "OperatingIncome"
+    }
+   }
+  },
+  {
+   "code": "9432",
+   "name": "NTT",
+   "industries": [
+    "cyber",
+    "dc"
+   ],
+   "role": "通信",
+   "desc": "通信サービスのほか、国内外でデータセンターやセキュリティのサービスを手がける。",
+   "ir": "https://group.ntt/jp/ir/",
+   "results": {
+    "period": "2026年度 第2四半期（中間期）",
+    "date": "2026-11-04",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261104563442.pdf",
+    "title": "2026年度 第2四半期（中間期）決算短信〔IFRS〕（連結）",
+    "sales": {
+     "value": 7362154000000.0,
+     "change": 8.7,
+     "tag": "OperatingRevenuesIFRS"
+    },
+    "op": {
+     "value": 830073000000.0,
+     "change": -12.2,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  },
+  {
+   "code": "6702",
+   "name": "富士通",
+   "industries": [
+    "cyber"
+   ],
+   "role": "IT",
+   "desc": "企業や官公庁のITシステム、クラウド、セキュリティなどのサービスを提供する。",
+   "ir": "https://global.fujitsu/ja-jp/ir",
+   "results": {
+    "period": "2027年3月期 第2四半期（中間期）",
+    "date": "2026-10-29",
+    "pdf": "https://www.release.tdnet.info/inbs/140120261029559089.pdf",
+    "title": "2027年3月期　第2四半期（中間期）決算短信〔ＩＦＲＳ〕(連結)",
+    "sales": {
+     "value": 1626358000000.0,
+     "change": 3.8,
+     "tag": "SalesIFRS"
+    },
+    "op": {
+     "value": 107602000000.0,
+     "change": 2.1,
+     "tag": "OperatingIncomeIFRS"
+    }
+   }
+  }
+ ]
+}

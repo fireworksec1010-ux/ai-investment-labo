@@ -171,5 +171,30 @@
       sparkle(520, 330, 10, "#ffc53d", .2)+sparkle(60, 120, 8, "#ff6b57", .9)+sparkle(240, 120, 7, "#3b6cff", 1.5), "hero-scene");
   }
 
-  window.ILLUST = { mascot:mascot, basics:basics, world:world, companies:companies, money:money, fx:fx, rates:rates, stocks:stocks, about:about, hero:hero };
+  /* 注目業界：半導体チップ・ロボットアーム・ロケット・電池 */
+  function industry(){
+    var pins = "";
+    for(var i=0;i<4;i++){ var p = 128+i*18;
+      pins += '<line x1="'+p+'" y1="92" x2="'+p+'" y2="80" '+S+'/><line x1="'+p+'" y1="168" x2="'+p+'" y2="180" '+S+'/>'+
+              '<line x1="112" y1="'+(p-20)+'" x2="100" y2="'+(p-20)+'" '+S+'/><line x1="188" y1="'+(p-20)+'" x2="200" y2="'+(p-20)+'" '+S+'/>'; }
+    return svg("0 0 320 260",
+      '<ellipse cx="160" cy="236" rx="140" ry="13" fill="rgba(208,59,59,.13)"/>'+
+      // 半導体チップ
+      '<g class="float">'+pins+'<rect x="112" y="92" width="76" height="76" rx="12" fill="#2a78d6" '+S+'/><rect x="128" y="108" width="44" height="44" rx="6" fill="#cfe0ff" '+S+'/>'+
+      '<text x="150" y="137" text-anchor="middle" font-family="Zen Old Mincho, serif" font-weight="900" font-size="18" fill="'+K+'">AI</text></g>'+
+      // ロボットアーム
+      '<g class="sway" style="transform-origin:52px 220px"><rect x="30" y="206" width="46" height="16" rx="4" fill="#ffd0c8" '+S+'/>'+
+      '<path d="M52 206 L44 150 L84 118" fill="none" stroke="#eb6834" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>'+
+      '<circle cx="44" cy="150" r="8" fill="#fff" '+S+'/><path d="M84 118 L96 108 M84 118 L98 126" '+S+'/></g>'+
+      // ロケット
+      '<g class="nudge-up"><path d="M262 40 C280 64 282 96 276 126 L248 126 C242 96 244 64 262 40Z" fill="#fff" '+S+'/>'+
+      '<circle cx="262" cy="78" r="9" fill="#cfe0ff" '+S+'/><path d="M248 108 L234 132 L250 126Z M276 108 L290 132 L274 126Z" fill="#d03b3b" '+S+'/>'+
+      '<path d="M254 130 Q262 156 270 130" fill="#ffc53d" '+S+'/></g>'+
+      // 電池
+      '<g class="float d2"><rect x="218" y="168" width="70" height="38" rx="8" fill="#fff" '+S+'/><rect x="288" y="180" width="8" height="14" rx="2" fill="'+K+'"/>'+
+      '<rect x="224" y="174" width="20" height="26" rx="3" fill="#1baf7a"/><rect x="246" y="174" width="20" height="26" rx="3" fill="#1baf7a"/><rect x="268" y="174" width="14" height="26" rx="3" fill="#cdeee0"/></g>'+
+      sparkle(204, 50, 9, "#ffc53d", .3)+sparkle(30, 70, 7, "#d03b3b", 1)+sparkle(196, 214, 6, "#2a78d6", 1.6));
+  }
+
+  window.ILLUST = { mascot:mascot, basics:basics, world:world, companies:companies, money:money, fx:fx, rates:rates, stocks:stocks, about:about, hero:hero, industry:industry };
 })();
